@@ -18,8 +18,8 @@ class CategorysController extends Controller
     }
     public function category()
     {
-        $cate = Categories::all();
-        return $cate;
+        $Categories = Categories::paginate(8);
+        return view('admin.pages.category',compact('Categories'));
     }
     public function category_add()
     {
@@ -87,8 +87,9 @@ class CategorysController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
+   public function category_delete($id)
+   {
+        $Categories = Categories::find($id)->delete();
+        return redirect()->back();
+   }
 }

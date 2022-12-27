@@ -30,6 +30,7 @@ Route::prefix('/admin')->group(function () {
     // List category
     Route::get('/category', [CategorysController::class,'category'])->name('admin.category');
     Route::get('/category_add', [CategorysController::class,'category_add'])->name('admin.category_add');
+    Route::get('/category_delete/{id}', [CategorysController::class,'category_delete'])->name('admin.category_delete');
 
     // List Account
     Route::get('/account', [AccountsController::class,'account'])->name('admin.account');
