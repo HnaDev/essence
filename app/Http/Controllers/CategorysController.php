@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Categories;
 
 class CategorysController extends Controller
 {
@@ -17,7 +18,8 @@ class CategorysController extends Controller
     }
     public function category()
     {
-        return view('admin.pages.category');
+        $cate = Categories::all();
+        return $cate;
     }
     public function category_add()
     {
