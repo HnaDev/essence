@@ -15737,3 +15737,14 @@ text-align:center;
   transform: rotate(-45deg);
   margin-top: -2px;
 }
+/* cl-red */
+.cl-red {
+    border: none;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    margin-top: 6px;
+    background-color: transparent;
+    color: red;
+    outline: none;
+    border: 1px solid red;
+}

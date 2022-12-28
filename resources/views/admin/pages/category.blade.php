@@ -4,7 +4,14 @@
         <ul class="app-breadcrumb breadcrumb side">
             <li class="breadcrumb-item active"><a href="#"><b>Danh sách danh mục</b></a></li>
         </ul>
-        <div id="clock"></div>
+        {{-- allert notification --}}
+        @if (session('notification'))
+            <div class="alert alert-success">
+                {{ session('notification') }}
+            </div>
+        @endif
+        {{-- allert notification end --}}
+
     </div>
     <div class="row">
         <div class="col-md-12">
@@ -21,9 +28,9 @@
                         <thead>
                             <tr>
                                 <th>STT</th>
+                                <th>Loại Danh Mục</th>
                                 <th>Tên Danh Mục</th>
                                 <th>Trạng Thái</th>
-                                <th>Loại Danh Mục</th>
                                 <th>Tính Năng</th>
                             </tr>
                         </thead>
@@ -31,16 +38,17 @@
                             @foreach ($Categories as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $item->type }}</td>
                                     <td>{{ $item->name }}</td>
                                     @if ($item->status == 1)
                                         <td class="m-3 p-1 badge bg-success">Hiện</td>
                                     @else
                                         <td class="m-3 p-1 badge bg-danger">Ẩn</td>
                                     @endif
-                                    <td>{{ $item->type }}</td>
                                     <td class="table-td-center">
-                                        <a href="" type="submit" class="btn btn-success">Sửa</a>
-                                        <a href="{{route('admin.category_delete',$item->id)}}" type="submit" class="btn btn-danger">Xóa</a>
+                                        <a href="{{ route('admin.category_update_show', $item->id) }}" type="submit" class="btn btn-success">Sửa</a>
+                                        <a href="{{ route('admin.category_delete', $item->id) }}" type="submit"
+                                            class="btn btn-danger">Xóa</a>
                                     </td>
                                 </tr>
                             @endforeach
