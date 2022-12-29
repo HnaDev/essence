@@ -3,90 +3,53 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Categories;
+use App\Http\Requests\Category_addRequest;
+use App\Http\Requests\Category_updateRequest;
 
 class CategorysController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
+
     public function category()
     {
-        return view('admin.pages.category');
+        $Categories = Categories::paginate(8);
+        return view('admin.pages.category', compact('Categories'));
     }
+
     public function category_add()
     {
         return view('admin.pages.category-add');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    // create
+    public function category_create(Category_addRequest $request)
     {
-        //
+        $Categories = Categories::create($request->all());
+        if ($Categories) {
+            return redirect()->route('admin.category')->with('notification','Thêm Mới Thành Công');
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    // update show
+    public function category_update_show ($id)
     {
-        //
+        $Categories = Categories::find($id);
+        return view('admin.pages.category_update_show', compact('Categories'));
+
+    }
+    public function category_update(Category_updateRequest $request,$id)
+    {
+        $Categories = Categories::find($id);
+        $Categories->update($request->all());
+        if ($Categories) {
+            return redirect()->route('admin.category')->with('notification','Cập Nhật Thành Công');
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    // delete
+    public function category_delete($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $Categories = Categories::find($id)->delete();
+        return redirect()->back()->with('notification','Xóa Thành Công');;
     }
 }
