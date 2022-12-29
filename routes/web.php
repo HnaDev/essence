@@ -9,6 +9,8 @@ use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\BannersController;
 use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\OrdersController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,7 +25,10 @@ use App\Http\Controllers\OrdersController;
 Route::get('/', function () {
     return view('welcome');
 });
-
+//user
+Route::get('/es', [UserController::class,'index'])->name('user.index');
+//login
+Route::get('/login', [LoginController::class,'index'])->name('login');
 Route::prefix('/admin')->group(function () {
     Route::get('/', [AdminsController::class,'index'])->name('admin.index');
 
