@@ -41,10 +41,14 @@ Route::prefix('/admin')->group(function () {
     // List Product
     Route::get('/product', [ProductsController::class,'product'])->name('admin.product');
     Route::get('/product_add', [ProductsController::class,'product_add'])->name('admin.product_add');
-
+    Route::post('/product_add', [ProductsController::class,'product_create'])->name('admin.product_create');
+    Route::get('/product_update_show/{id}', [ProductsController::class,'product_update_show'])->name('admin.product_update_show');
+    Route::post('/product_update_show/{id}', [ProductsController::class,'product_update'])->name('admin.product_update');
+    Route::get('/product_delete/{id}', [ProductsController::class,'product_delete'])->name('admin.product_delete');
     // list brands
     Route::get('/brands', [BrandsController::class,'brands'])->name('admin.brands');
     Route::get('/brands_add', [BrandsController::class,'brands_add'])->name('admin.brands_add');
+
 
     // list  banners
     Route::get('/banners', [BannersController::class,'banners'])->name('admin.banners');
