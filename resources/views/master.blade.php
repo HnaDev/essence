@@ -39,6 +39,7 @@
     <script src="{{ url('assets-admin') }}/js/bootstrap.min.js"></script>
     <script src="{{ url('assets-admin') }}/js/main.js"></script>
     <script src="{{ url('assets-admin') }}/js/plugins/pace.min.js"></script>
+    @yield('src')
 </body>
 
 </html>

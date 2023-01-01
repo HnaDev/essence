@@ -114,7 +114,7 @@
               <div class="form-group col-md-3">
                 <label for="exampleSelect1" class="control-label">Màu sắc</label>
                   @foreach($color as $value)
-                  <input class="form-check-input" type="checkbox" id="check1" name="color_id" value="{{$value->id}}"> 
+                  <input class="form-check-input" type="checkbox" id="check1" name="color_id" value="{{$value->id}}">
                   <label class="form-check-label">{{$value->name}}</label>
                   @endforeach
                   @error('color_id')
@@ -122,10 +122,13 @@
                   @enderror
                 </select>
               </div>
-              
+
               <div class="form-group  col-md-12">
                 <label class="control-label">Mô tả</label>
-                <input class="form-control" type="text" name="description" value="{{old('description')}}">
+                <textarea name="editor1" id="editor1" rows="10" cols="80">
+                    This is my textarea to be replaced with CKEditor 4.
+                </textarea>
+                {{-- <input class="form-control" type="text" name="description" value="{{old('description')}}"> --}}
                 @error('description')
                   <div class="alert alert-danger" >{{$message}}</div>
                 @enderror
@@ -148,5 +151,13 @@
         </div>
       </div>
     </div>
-    
+
 @stop
+@section('src')
+<script src="{{ url('assets-admin') }}/ckeditor/ckeditor.js"></script>
+<script>
+    // Replace the <textarea id="editor1"> with a CKEditor 4
+    // instance, using default configuration.
+    CKEDITOR.replace( 'editor1' );
+</script>
+@endsection
