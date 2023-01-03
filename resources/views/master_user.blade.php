@@ -488,6 +488,11 @@
     </div>
     @yield('container')
     @yield('login')
+    @yield('product')
+    @yield('search')
+    @yield('receipt')
+    @yield('register')
+    
     <footer class="footer_area">
         <div class="container">
             <div class="row">

@@ -15,7 +15,18 @@ class UserController extends Controller
     {
         return view('user.index');
     }
-
+    public function product()
+    {
+        return view('user.product_details');
+    }
+    public function search()
+    {
+        return view('user.search');
+    }
+    public function receipt()
+    {
+        return view('user.receipt');
+    }
     /**
      * Show the form for creating a new resource.
      *

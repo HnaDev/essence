@@ -15,7 +15,11 @@ class LoginController extends Controller
     {
         return view('user.login_user');
     }
-
+    public function register()
+    {
+        return view('user.register_user');
+    }
+  
     /**
      * Show the form for creating a new resource.
      *

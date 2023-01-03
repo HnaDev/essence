@@ -29,6 +29,15 @@ Route::get('/', function () {
 Route::get('/es', [UserController::class,'index'])->name('user.index');
 //login
 Route::get('/login', [LoginController::class,'index'])->name('login');
+//login
+Route::get('/register', [LoginController::class,'register'])->name('register');
+//login
+Route::get('/product', [UserController::class,'product'])->name('product');
+//product
+Route::get('/search', [UserController::class,'search'])->name('search');
+//search
+Route::get('/receipt', [UserController::class,'receipt'])->name('receipt');
+//receipt
 Route::prefix('/admin')->group(function () {
     Route::get('/', [AdminsController::class,'index'])->name('admin.index');
 
