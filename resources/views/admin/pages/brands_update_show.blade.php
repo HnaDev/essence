@@ -15,7 +15,7 @@
                         @csrf
                         <div class="form-group col-md-3">
                             <label class="control-label">Tên Thương Hiệu</label>
-                            <input class="form-control" type="text" name="name">
+                            <input class="form-control" type="text" name="name" value="{{ $Brands->name }}">
                             @error('name')
                                 <div class="alert alert-danger cl-red">{{ $message }}</div>
                             @enderror
@@ -25,14 +25,14 @@
                             <label for="exampleSelect1" class="control-label">Trạng Thái</label>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="status" value="1"
-                                    id="flexRadioDefault2" checked>
+                                    id="flexRadioDefault2" {{ $Brands->status == 1 ? 'checked' : '' }}>
                                 <label class="form-check-label" for="flexRadioDefault2">
                                     Hiện
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="status" value="0"
-                                    id="flexRadioDefault1">
+                                    id="flexRadioDefault1"{{ $Brands->status == 0 ? 'checked' : '' }}>
                                 <label class="form-check-label" for="flexRadioDefault1">
                                     Ẩn
                                 </label>
@@ -41,6 +41,10 @@
                         <div class="form-group col-md-12 p-3">
                             <label class="control-label pr-1">Logo</label>
                             <input type="file" id="" name="logo">
+                            <div>
+                                <img src="{{ url('image_brands') }}/{{ $Brands->logo }}" alt="" width="200px"
+                                    style="margin:10px 0px ;padding: 40px; border: 1px solid #ccc">
+                            </div>
                             @error('logo')
                                 <div class="alert alert-danger cl-red">{{ $message }}</div>
                             @enderror
