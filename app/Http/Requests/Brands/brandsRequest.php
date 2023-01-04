@@ -25,7 +25,7 @@ class brandsRequest extends FormRequest
     {
         return [
             'name' => 'required|distinct:name|unique:Brands',
-            'logo' => 'mimes:jpeg,jpg,png,gif|required|max:10000'
+            'logo' => 'mimes:jpeg,jpg,png,gif|required|max:10000',
         ];
     }
     public function messages()
@@ -33,7 +33,7 @@ class brandsRequest extends FormRequest
         return [
             'name.required' => 'Tên Danh Mục không được để trống',
             'name.unique' => 'Tên Đã Được Sử Dụng',
-            'logo.requied' => 'Logo không được để trống',
+            'logo.required' => 'Logo không được để trống',
             'logo.mimes' => 'Logo phải là định dạng jpeg,jpg,png,gif',
         ];
     }
