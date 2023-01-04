@@ -9,7 +9,8 @@ use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\BannersController;
 use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\OrdersController;
-
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,9 +22,21 @@ use App\Http\Controllers\OrdersController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+// -------------------user ---------------- //
+Route::get('/', [UserController::class,'index'])->name('user.index');
+//login
+Route::get('/login', [LoginController::class,'index'])->name('login');
+//login
+Route::get('/register', [LoginController::class,'register'])->name('register');
+//login
+Route::get('/product', [UserController::class,'product'])->name('product');
+//product
+Route::get('/search', [UserController::class,'search'])->name('search');
+//search
+Route::get('/receipt', [UserController::class,'receipt'])->name('receipt');
+//receipt
+// --------------------- end user ------------//
 
 Route::prefix('/admin')->group(function () {
     Route::get('/', [AdminsController::class, 'index'])->name('admin.index');
