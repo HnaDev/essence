@@ -57,6 +57,12 @@
                 <span class="app-menu__label">Quản lý Comment</span>
             </a>
         </li>
+        <li>
+            <a class="app-menu__item" href="{{route('admin.attribute')}}">
+                <i class="app-menu__icon fa-solid fa-palette"></i>
+                <span class="app-menu__label">Quản lý Thuộc Tính</span>
+            </a>
+        </li>
     </ul>
 </aside>
 <!-- end sidebar -->

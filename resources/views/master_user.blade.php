@@ -25,7 +25,7 @@
                         <div class="nav-menu">
                             <ul class="d-flex">
                                 <li class="menu-item_shop">
-                                    <a href="#" class="icon_shop">New<i class="fa-solid fa-check"></i></a>
+                                    <a href="#" class="icon_shop">New</a>
                                     <div class="megamenu">
                                         <ul class="single-mega">
                                             <li class="title">Women's Collection</li>
@@ -57,7 +57,7 @@
                                     </div>
                                 </li>
                                 <li class="menu-item_shop">
-                                    <a href="#" class="icon_shop">Men<i class="fa-solid fa-check"></i></a>
+                                    <a href="#" class="icon_shop">Men</a>
                                     <div class="megamenu">
                                         <ul class="single-mega">
                                             <li class="title">Women's Collection</li>
@@ -89,7 +89,7 @@
                                     </div>
                                 </li>
                                 <li class="menu-item_shop">
-                                    <a href="#" class="icon_shop">Women<i class="fa-solid fa-check"></i></a>
+                                    <a href="#" class="icon_shop">Women</a>
                                     <div class="megamenu">
                                         <ul class="single-mega">
                                             <li class="title">Women's Collection</li>
@@ -121,7 +121,7 @@
                                     </div>
                                 </li>
                                 <li class="menu-item_shop">
-                                    <a href="#" class="icon_shop">children<i class="fa-solid fa-check"></i></a>
+                                    <a href="#" class="icon_shop">children</a>
                                     <div class="megamenu">
                                         <ul class="single-mega">
                                             <li class="title">Women's Collection</li>
@@ -153,7 +153,7 @@
                                     </div>
                                 </li>
                                 <li class="menu-item_shop">
-                                    <a href="#" class="icon_shop">Kid's<i class="fa-solid fa-check"></i></a>
+                                    <a href="#" class="icon_shop">Kid's</a>
                                     <div class="megamenu">
                                         <ul class="single-mega">
                                             <li class="title">Women's Collection</li>
@@ -382,7 +382,7 @@
                             </a>
                         </div>
                         <div class="user-login-info">
-                            <a href="./formlogin.html">
+                            <a href="#">
                                 <i class="fa-regular fa-user"></i>
                             </a>
                         </div>

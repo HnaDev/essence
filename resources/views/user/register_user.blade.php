@@ -1,6 +1,6 @@
 @extends('master_user')
 @section('register')
-<section class="vh-100 bg-image" style="background-color: #eee;">
+    <section class="vh-100 bg-image" style="background-color: #eee;">
         <div class="mask d-flex align-items-center h-100">
             <div class="container h-100">
                 <div class="row d-flex justify-content-center align-items-center h-100">
@@ -20,23 +20,24 @@
                                         <label class="form-label" for="form3Example3cg">Your Email</label>
                                         <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
                                     </div>
+                                    <div class="form-outline mb-4">
+                                        <label for="exampleFormControlTextarea1" class="form-label">Address</label>
+                                        <textarea name="address" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+
+                                    </div>
 
                                     <div class="form-outline mb-4">
                                         <label class="form-label" for="form3Example4cg">Password</label>
-                                        <input type="password" id="form3Example4cg"
-                                            class="form-control form-control-lg" />
+                                        <input type="password" id="form3Example4cg" class="form-control form-control-lg" />
                                     </div>
 
                                     <div class="form-outline mb-4">
                                         <label class="form-label" for="form3Example4cdg">Repeat your password</label>
-                                        <input type="password" id="form3Example4cdg"
-                                            class="form-control form-control-lg" />
+                                        <input type="password" id="form3Example4cdg" class="form-control form-control-lg" />
                                     </div>
-
-
                                     <div class="d-flex flex-column justify-content-center">
                                         <button type="button"
-                             ('assets-user') }}/img/               class="btn btn-success btn-block btn-lg gradient-custom-2 text-body">Register
+                                            class="btn btn-success btn-block btn-lg gradient-custom-2 text-body">Register
                                         </button>
                                     </div>
 
@@ -53,5 +54,5 @@
         </div>
     </section>
 
-    <link rel="stylesheet" href="{{url('assets-user')}}/css/style.css">
+    <link rel="stylesheet" href="{{ url('assets-user') }}/css/style.css">
 @endsection

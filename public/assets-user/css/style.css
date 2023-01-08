@@ -1065,3 +1065,11 @@ div.single-cart-item .cart-item-desc p.price {
 .classy-menu{
   display: none;
 }
+/* hover */
+.single_catagory_area:hover  {
+    position: initial !important;
+}
+.d-none{
+    display: none !important;
+}
+/* hover userr */

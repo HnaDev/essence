@@ -1,8 +1,19 @@
 @extends('master')
 @section('content')
-    <div class="app-title">
-        <ul class="app-breadcrumb breadcrumb side">
+    <div class="app-title d-flex justify-content-between">
+        <ul class="app-breadcrumb breadcrumb side ">
             <li class="breadcrumb-item active"><a href="#"><b>Danh sách danh mục</b></a></li>
+        </ul>
+        <ul class="app-breadcrumb breadcrumb side ">
+            <li class="breadcrumb-item active">
+                <form action="" method="get">
+                    <div class="input-group">
+                        <input type="text" name="keyword" class="input-search form-control rounded" placeholder="Search"
+                            aria-label="Search" aria-describedby="search-addon" />
+                        <button type="submit" class="btn-search btn btn-outline-primary">Search</button>
+                    </div>
+                </form>
+            </li>
         </ul>
         {{-- allert notification --}}
         @if (session('notification'))
