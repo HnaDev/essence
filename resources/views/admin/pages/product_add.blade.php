@@ -7,6 +7,90 @@
         </ul>
     </div>
     <div class="row">
+<<<<<<< HEAD
+      <div class="col-md-12">
+        <div class="tile">
+          <h3 class="tile-title">Tạo mới sản phẩm</h3>
+          <div class="tile-body">
+            <form class="row" action="{{route('admin.product_create')}}" method="POST" enctype="multipart/form-data" id="usrform">
+              @csrf
+              <div class="form-group col-md-3">
+                <label class="control-label">Tên Sản Phẩm</label>
+                <input class="form-control" type="text" name="name" value="{{old('name')}}">
+                @error('name')
+                  <div class="alert alert-danger">{{$message}}</div>
+                @enderror
+              </div>
+              <div class="form-group  col-md-3">
+                <label class="control-label">Giá</label>
+                <input class="form-control" type="text" name="price" value="{{old('price')}}">
+                @error('price')
+                  <div class="alert alert-danger">{{$message}}</div>
+                @enderror
+              </div>
+              <div class="form-group  col-md-3">
+                <label class="control-label">Giá Khuyến Mại</label>
+                <input class="form-control" type="text" name="sale_price" value="{{old('sale_price')}}">
+                @error('sale_price')
+                  <div class="alert alert-danger">{{$message}}</div>
+                @enderror
+              </div>
+              <div class="form-group  col-md-3">
+                <label class="control-label">Xuất Xứ</label>
+                <input class="form-control" type="text" name="origin" value="{{old('origin')}}">
+              @error('origin')
+                  <div class="alert alert-danger">{{$message}}</div>
+                @enderror
+              </div>
+              <div class="form-group  col-md-3">
+                <label class="control-label">Năm Sản Xuất</label>
+                <input class="form-control" type="text" name="year" value="{{old('year')}}">
+                @error('year')
+                  <div class="alert alert-danger">{{$message}}</div>
+                @enderror
+              </div>
+              <div class="form-group  col-md-3">
+                <label class="control-label">Tồn kho</label>
+                <input class="form-control" type="number" name="stock" value="{{old('stock')}}">
+                @error('stock')
+                  <div class="alert alert-danger">{{$message}}</div>
+                @enderror
+              </div>
+              <div class="form-group col-md-3">
+                <label for="exampleSelect1" class="control-label">Danh Mục</label>
+                <select class="form-control" id="exampleSelect1" name="category_id" value="{{old('category_id')}}">
+                  <option value="null">-- Chọn Danh mục --</option>
+                  @foreach($category as $value)
+                  <option value="{{$value->id}}">{{$value->name}}</option>
+                  @endforeach
+                </select>
+                @error('category_id')
+                  <div class="alert alert-danger">{{$message}}</div>
+                @enderror
+              </div>
+              <div class="form-group col-md-3">
+                <label for="exampleSelect1" class="control-label">Thương Hiệu</label>
+                <select class="form-control" id="exampleSelect1" name="brand_id">
+                  <option>-- Chọn Thương hiệu --</option>
+                  @foreach($brand as $value)
+                  <option value="{{$value->id}}">{{$value->name}}</option>
+                  @endforeach
+                </select>
+                @error('brand_id')
+                  <div class="alert alert-danger">{{$message}}</div>
+                @enderror
+               </div>
+              <div class="form-group col-md-3">
+                <label for="exampleSelect1" class="control-label">Khuyến Mại</label>
+                <select class="form-control" id="exampleSelect1" name="promotion_id" value="{{old('promotion_id')}}">
+                  <option>-- Chọn CT Khuyến mại --</option>
+                  @foreach($promotion as $value)
+                  <option value="{{$value->id}}">{{$value->name}}</option>
+                  @endforeach
+                </select>
+              </div>
+              <div class="form-group col-md-3 ">
+=======
         <div class="col-md-12">
             <div class="tile">
                 <h3 class="tile-title">Tạo mới sản phẩm</h3>
@@ -86,9 +170,10 @@
                             </select>
                         </div>
                         <div class="form-group col-md-3 ">
+>>>>>>> 8176c4a371794fe8a9d3b9431b3e988c6332ec66
                             <label for="exampleSelect1" class="control-label">Trạng Thái</label>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="status" value="1"
+                                <input class="form-check-input" type="radio" name="status"  value="1"
                                     id="flexRadioDefault1">
                                 <label class="form-check-label" for="flexRadioDefault1">
                                     Đang bán
@@ -102,6 +187,60 @@
                             @error('status')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
+<<<<<<< HEAD
+              </div>
+              <div class="form-group col-md-3">
+                <label for="exampleSelect1" class="control-label">Kích thước</label>
+                  @foreach($size as $value)
+                  <input class="form-check-input" type="checkbox" id="check1" name="size_id" value="{{$value->id}}" >
+                  <label class="form-check-label">{{$value->value}}</label>
+                  @endforeach
+                  @error('size_id')
+                  <div class="alert alert-danger">{{$message}}</div>
+                  @enderror
+                </select>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="exampleSelect1" class="control-label">Màu sắc</label>
+                  @foreach($color as $value)
+                  <input class="form-check-input" type="checkbox" id="check1" name="color_id" value="{{$value->id}}"> 
+                  <label class="form-check-label">{{$value->value}}</label>
+                  @endforeach
+                  @error('color_id')
+                  <div class="alert alert-danger">{{$message}}</div>
+                  @enderror
+                </select>
+              </div>
+              
+              <div class="form-group  col-md-12">
+                <label class="control-label">Mô tả</label>
+                <textarea  id="editor1" rows="10" cols="80" form="usrform" name="description" value="{{old('description')}}">
+                Nhập mô tả sản phẩm
+                </textarea>
+                @error('description')
+                  <div class="alert alert-danger" >{{$message}}</div>
+                @enderror
+              </div>
+              <div class="form-group col-md-12 p-3">
+                <label class="control-label pr-1" >Ảnh Sản Phẩm:</label>
+                <input type="file" id="" name="image" value="{{old('image')}}" />
+                @error('image')
+                  <div class="alert alert-danger" >{{$message}}</div>
+                @enderror
+              </div>
+              <div class="form-group col-md-12 p-3">
+                <label class="control-label pr-1" >Ảnh mô tả sản phẩm:</label>
+                <input type="file" id="" name="images[]" multiple value="{{old('image')}}" />
+              </div>
+             <div class="form-group">
+              <td class="table-td-center">
+                <button type="submit" class="btn btn-success">Lưu</button>
+                <a href="{{route('admin.product') }}" type="submit" class="btn btn-danger">Hủy</a>
+              </td>
+              </div>
+            </form>
+          </div>
+=======
                         </div>
                         <div class="form-group col-md-3">
                             <label for="exampleSelect1" class="control-label">Kích thước</label>
@@ -155,9 +294,19 @@
                     </form>
                 </div>
             </div>
+>>>>>>> 8176c4a371794fe8a9d3b9431b3e988c6332ec66
         </div>
     </div>
+<<<<<<< HEAD
+@section('src')
+    <script src="{{url('assets-admin')}}/ckeditor/ckeditor.js"></script>
+    <script>
+      CKEDITOR.replace( 'editor1' );
+    </script>
+@stop  
+=======
 
+>>>>>>> 8176c4a371794fe8a9d3b9431b3e988c6332ec66
 @stop
 @section('src')
     <script src="{{ url('assets-admin') }}/ckeditor/ckeditor.js"></script>
