@@ -16,44 +16,44 @@
               <div class="form-group col-md-3">
                 <label class="control-label">Tên Sản Phẩm</label>
                 <input class="form-control" type="text" name="name" value="{{$product->name}}">
-                @error('name')
+                {{-- @error('name')
                   <div class="alert alert-danger">{{$message}}</div>
-                @enderror
+                @enderror --}}
               </div>
               <div class="form-group  col-md-3">
                 <label class="control-label">Giá</label>
                 <input class="form-control" type="text" name="price" value="{{$product->price}}">
-                @error('price')
+                {{-- @error('price')
                   <div class="alert alert-danger">{{$message}}</div>
-                @enderror
+                @enderror --}}
               </div>
               <div class="form-group  col-md-3">
                 <label class="control-label">Giá Khuyến Mại</label>
                 <input class="form-control" type="text" name="sale_price" value="{{$product->sale_price}}">
-                @error('sale_price')
+                {{-- @error('sale_price')
                   <div class="alert alert-danger">{{$message}}</div>
-                @enderror
+                @enderror --}}
               </div>
               <div class="form-group  col-md-3">
                 <label class="control-label">Xuất Xứ</label>
                 <input class="form-control" type="text" name="origin" value="{{$product->origin}}">
-              @error('origin')
+              {{-- @error('origin')
                   <div class="alert alert-danger">{{$message}}</div>
-                @enderror
+                @enderror --}}
               </div>
               <div class="form-group  col-md-3">
                 <label class="control-label">Năm Sản Xuất</label>
                 <input class="form-control" type="text" name="year" value="{{$product->year}}">
-                @error('year')
+                {{-- @error('year')
                   <div class="alert alert-danger">{{$message}}</div>
-                @enderror
+                @enderror --}}
               </div>
               <div class="form-group  col-md-3">
                 <label class="control-label">Tồn kho</label>
                 <input class="form-control" type="number" name="stock" value="{{$product->stock}}">
-                @error('stock')
+                {{-- @error('stock')
                   <div class="alert alert-danger">{{$message}}</div>
-                @enderror
+                @enderror --}}
               </div>
               <div class="form-group col-md-3">
                 <label for="exampleSelect1" class="control-label">Danh Mục</label>
@@ -103,40 +103,49 @@
               <div class="form-group col-md-3">
                 <label for="exampleSelect1" class="control-label">Kích thước</label>
                   @foreach($size as $value)
-                  <input class="form-check-input" type="checkbox" id="check1" name="size_id" value="{{$product->size_id}}">
-                  <label class="form-check-label">{{$value->name}}</label>
+                  <input class="form-check-input" type="checkbox" id="check1" name="size_id"  value="{{$value->id}}" {{$value->id == $product->size_id? "checked":""}}>
+                  <label class="form-check-label">{{$value->value}}</label>
                   @endforeach
-                  @error('size_id')
+                  {{-- @error('size_id')
                   <div class="alert alert-danger">{{$message}}</div>
-                  @enderror
+                  @enderror --}}
                 </select>
               </div>
               <div class="form-group col-md-3">
                 <label for="exampleSelect1" class="control-label">Màu sắc</label>
                   @foreach($color as $value)
-                  <input class="form-check-input" type="checkbox" id="check1" name="color_id" value="{{$product->color_id}}"> 
-                  <label class="form-check-label">{{$value->name}}</label>
+                  <input class="form-check-input" type="checkbox" id="check1" name="color_id" value="{{$value->id}}" {{$value->id == $product->color_id? "checked":""}}> 
+                  <label class="form-check-label">{{$value->value}}</label>
                   @endforeach
-                  @error('color_id')
+                  {{-- @error('color_id')
                   <div class="alert alert-danger">{{$message}}</div>
-                  @enderror
+                  @enderror --}}
                 </select>
               </div>
               
               <div class="form-group  col-md-12">
                 <label class="control-label">Mô tả</label>
-                <input class="form-control" type="text" name="description" value="{{$product->description}}">
-                @error('description')
+                <textarea type="text" id="editor1" rows="10" cols="80" name="description" >
+                {{$product->description}}
+                </textarea>
+                {{-- @error('description')
                   <div class="alert alert-danger" >{{$message}}</div>
-                @enderror
+                @enderror --}}
               </div>
               <div class="form-group col-md-12 p-3">
                 <label class="control-label pr-1" >Ảnh Sản Phẩm:</label>
-                <input type="file" id="" name="image" value="{{$product->image}}"/>
+                <input type="file" id="" name="image"/>
                 <img src="{{url('upload.product')}}/{{$product->image}}" alt="" width = 100px >
-                @error('image')
+                {{-- @error('image')
                   <div class="alert alert-danger">{{$message}}</div>
-                @enderror
+                @enderror --}}
+              </div>
+              <div class="form-group col-md-12 p-3">
+                <label class="control-label pr-1" >Ảnh mô tả sản phẩm:</label>
+                <input type="file" id="" name="images[]" multiple  />
+                @foreach ($product_images as $item)
+                   <img src="{{url('upload.product')}}/{{$item->image}}" alt="" width = 100px > 
+                @endforeach
               </div>
              <div class="form-group">
               <td class="table-td-center">
@@ -149,4 +158,11 @@
         </div>
       </div>
     </div>
+@section('src')
+    <script src="{{url('assets-admin')}}/ckeditor/ckeditor.js"></script>
+    <script>
+      CKEDITOR.replace( 'editor1' );
+    </script>
+@stop  
 @stop
+{{--  --}}

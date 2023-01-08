@@ -22,6 +22,7 @@
                             <tr>
                                 <th>STT</th>
                                 <th>Tên Thương Hiệu</th>
+                                <th>Logo</th>
                                 <th>Trạng Thái</th>
                                 <th>Tính Năng</th>
                             </tr>
@@ -30,7 +31,8 @@
                             <tr>
                                 <td> 1</td>
                                 <td>dior</td>
-                                <td>còn hàng</td>
+                                <td>Hình ảnh logo</td>
+                                <td>Đang bán</td>
                                 <td class="table-td-center">
                                   <button class="btn btn-success">Sửa</button>
                                   <button class="btn btn-danger">Xóa</button>

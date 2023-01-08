@@ -23,6 +23,7 @@ class CreateProductRequest extends FormRequest
      */
     public function rules()
     {
+        // dd($this->all());
         return [
             'name'=>'required|min:3',
             'price'=>'required|numeric',
@@ -35,7 +36,7 @@ class CreateProductRequest extends FormRequest
             'stock'=>'required',
             'origin'=>'required',
             'status'=>'required',
-            'description'=>'required'
+            // 'description'=>'required'
         ];
     }
     public function messages()
@@ -55,7 +56,7 @@ class CreateProductRequest extends FormRequest
             'stock.required'=>'Chưa nhập tồn kho',
             'origin.required'=>'Chưa nhập xuất xứ',
             'status.required'=>'Chưa chọn trạng thái',
-            'description.required'=>'Chưa nhập mô tả'
+            // 'description.required'=>'Chưa nhập mô tả'
         ];
     }
 }

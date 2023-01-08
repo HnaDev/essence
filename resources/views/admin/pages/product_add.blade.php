@@ -11,7 +11,7 @@
         <div class="tile">
           <h3 class="tile-title">Tạo mới sản phẩm</h3>
           <div class="tile-body">
-            <form class="row" action="{{route('admin.product_create')}}" method="POST" enctype="multipart/form-data">
+            <form class="row" action="{{route('admin.product_create')}}" method="POST" enctype="multipart/form-data" id="usrform">
               @csrf
               <div class="form-group col-md-3">
                 <label class="control-label">Tên Sản Phẩm</label>
@@ -58,11 +58,14 @@
               <div class="form-group col-md-3">
                 <label for="exampleSelect1" class="control-label">Danh Mục</label>
                 <select class="form-control" id="exampleSelect1" name="category_id" value="{{old('category_id')}}">
-                  <option>-- Chọn Danh mục --</option>
+                  <option value="null">-- Chọn Danh mục --</option>
                   @foreach($category as $value)
                   <option value="{{$value->id}}">{{$value->name}}</option>
                   @endforeach
                 </select>
+                @error('category_id')
+                  <div class="alert alert-danger">{{$message}}</div>
+                @enderror
               </div>
               <div class="form-group col-md-3">
                 <label for="exampleSelect1" class="control-label">Thương Hiệu</label>
@@ -72,6 +75,9 @@
                   <option value="{{$value->id}}">{{$value->name}}</option>
                   @endforeach
                 </select>
+                @error('brand_id')
+                  <div class="alert alert-danger">{{$message}}</div>
+                @enderror
                </div>
               <div class="form-group col-md-3">
                 <label for="exampleSelect1" class="control-label">Khuyến Mại</label>
@@ -85,7 +91,7 @@
               <div class="form-group col-md-3 ">
                             <label for="exampleSelect1" class="control-label">Trạng Thái</label>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="status" value="1"
+                                <input class="form-check-input" type="radio" name="status"  value="1"
                                     id="flexRadioDefault1">
                                 <label class="form-check-label" for="flexRadioDefault1">
                                     Đang bán
@@ -104,7 +110,7 @@
                 <label for="exampleSelect1" class="control-label">Kích thước</label>
                   @foreach($size as $value)
                   <input class="form-check-input" type="checkbox" id="check1" name="size_id" value="{{$value->id}}" >
-                  <label class="form-check-label">{{$value->name}}</label>
+                  <label class="form-check-label">{{$value->value}}</label>
                   @endforeach
                   @error('size_id')
                   <div class="alert alert-danger">{{$message}}</div>
@@ -115,7 +121,7 @@
                 <label for="exampleSelect1" class="control-label">Màu sắc</label>
                   @foreach($color as $value)
                   <input class="form-check-input" type="checkbox" id="check1" name="color_id" value="{{$value->id}}"> 
-                  <label class="form-check-label">{{$value->name}}</label>
+                  <label class="form-check-label">{{$value->value}}</label>
                   @endforeach
                   @error('color_id')
                   <div class="alert alert-danger">{{$message}}</div>
@@ -125,7 +131,9 @@
               
               <div class="form-group  col-md-12">
                 <label class="control-label">Mô tả</label>
-                <input class="form-control" type="text" name="description" value="{{old('description')}}">
+                <textarea  id="editor1" rows="10" cols="80" form="usrform" name="description" value="{{old('description')}}">
+                Nhập mô tả sản phẩm
+                </textarea>
                 @error('description')
                   <div class="alert alert-danger" >{{$message}}</div>
                 @enderror
@@ -136,6 +144,10 @@
                 @error('image')
                   <div class="alert alert-danger" >{{$message}}</div>
                 @enderror
+              </div>
+              <div class="form-group col-md-12 p-3">
+                <label class="control-label pr-1" >Ảnh mô tả sản phẩm:</label>
+                <input type="file" id="" name="images[]" multiple value="{{old('image')}}" />
               </div>
              <div class="form-group">
               <td class="table-td-center">
@@ -148,5 +160,10 @@
         </div>
       </div>
     </div>
-    
+@section('src')
+    <script src="{{url('assets-admin')}}/ckeditor/ckeditor.js"></script>
+    <script>
+      CKEDITOR.replace( 'editor1' );
+    </script>
+@stop  
 @stop

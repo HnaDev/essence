@@ -6,6 +6,13 @@
       </ul>
       <div id="clock"></div>
     </div>
+    {{-- allert notification --}}
+    @if (session('notification'))
+      <div class="alert alert-success">
+          {{ session('notification') }}
+      </div>
+    @endif
+        {{-- allert notification end --}}
     <div class="row">
       <div class="col-md-12">
         <div class="tile">
@@ -36,6 +43,7 @@
               </thead>
               <tbody>
                 @foreach ($products as $item)
+               
                 <tr>
                   <td>{{$item->name}}</td>
                   <td>{{$item->price}}</td>
