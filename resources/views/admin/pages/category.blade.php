@@ -46,7 +46,8 @@
                                         <td class="m-3 p-1 badge bg-danger">Ẩn</td>
                                     @endif
                                     <td class="table-td-center">
-                                        <a href="{{ route('admin.category_update_show', $item->id) }}" type="submit" class="btn btn-success">Sửa</a>
+                                        <a href="{{ route('admin.category_update_show', $item->id) }}" type="submit"
+                                            class="btn btn-success">Sửa</a>
                                         <a href="{{ route('admin.category_delete', $item->id) }}" type="submit"
                                             class="btn btn-danger">Xóa</a>
                                     </td>

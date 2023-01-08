@@ -1,6 +1,7 @@
 CKEditor 4 Changelog
 ====================
 
+<<<<<<< HEAD
 ## CKEditor 4.20.1
 
 Fixed Issues:
@@ -36,6 +37,8 @@ API changes:
 * [#5122](https://github.com/ckeditor/ckeditor4/issues/5122): Added the ability to provide a list of buttons as an array to the [`config.removeButtons`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-removeButtons) config variable.
 * [#2008](https://github.com/ckeditor/ckeditor-dev/pull/2008): Added [Autocomplete](https://ckeditor.com/cke4/addon/autocomplete) [`followingSpace`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_plugins_autocomplete_configDefinition.html#property-followingSpace) option that finishes an accepted match with a space.
 
+=======
+>>>>>>> 8176c4a371794fe8a9d3b9431b3e988c6332ec66
 ## CKEditor 4.19.1
 
 Fixed Issues:

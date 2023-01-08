@@ -11,23 +11,45 @@
             <div class="tile">
                 <h3 class="tile-title">Thêm Mới Thương Hiệu</h3>
                 <div class="tile-body">
-                    <form class="row">
+                    <form class="row" method="post" enctype="multipart/form-data">
+                        @csrf
                         <div class="form-group col-md-3">
                             <label class="control-label">Tên Thương Hiệu</label>
-                            <input class="form-control" type="text">
+                            <input class="form-control" type="text" name="name">
+                            @error('name')
+                                <div class="alert alert-danger cl-red">{{ $message }}</div>
+                            @enderror
                         </div>
+
                         <div class="form-group col-md-3 ">
                             <label for="exampleSelect1" class="control-label">Trạng Thái</label>
-                            <select class="form-control" id="exampleSelect1">
-                                <option>-- Chọn tình trạng --</option>
-                                <option>Còn hàng</option>
-                                <option>Hết hàng</option>
-                            </select>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="status" value="1"
+                                    id="flexRadioDefault2" checked>
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Hiện
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="status" value="0"
+                                    id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Ẩn
+                                </label>
+                            </div>
                         </div>
-                </div>
-                <div class="table-td-center">
-                    <button class="btn btn-success">Sửa</button>
-                    <button class="btn btn-danger">Xóa</button>
+                        <div class="form-group col-md-12 p-3">
+                            <label class="control-label pr-1">Logo</label>
+                            <input type="file" id="" name="logo">
+                            @error('logo')
+                                <div class="alert alert-danger cl-red">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="table-td-center">
+                            <button type="submit" class="btn btn-success">Lưu</button>
+                            <a href="{{ route('admin.brands') }}" type="submit" class="btn btn-danger">Hủy</a>
+                        </div>
+                    </form>
                 </div>
             </div>
         @endsection

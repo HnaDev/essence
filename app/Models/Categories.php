@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categories extends Model
 {
-    protected $fillable = ['type','name','status'];
+    protected $fillable = ['type', 'name', 'status'];
     use HasFactory;
 }
