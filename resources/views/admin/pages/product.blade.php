@@ -43,13 +43,13 @@
               </thead>
               <tbody>
                 @foreach ($products as $item)
-               
+
                 <tr>
                   <td>{{$item->name}}</td>
                   <td>{{$item->price}}</td>
                   <td>{{$item->sale_price}}</td>
                   <td>
-                    <img src="{{url('upload.product')}}/{{$item->image}}" width="100px"
+                    <img src="{{url('upload.product')}}/{{$item->image}}" width="200px"
                       alt="">
                   </td>
                   <td width="300px">{{$item->description}}</td>
@@ -67,7 +67,7 @@
                   <td class="table-td-center">
                       <a href="{{route('admin.product_update_show',$item->id)}}" type="submit" class="btn btn-success">Sửa</a>
                       <a href="{{route('admin.product_delete',$item->id)}}" type="submit" class="btn btn-danger" onclick = "return confirm('Bạn có muốn xóa?')">Xóa</a>
-                  </td> 
+                  </td>
                 </tr>
                 @endforeach
             </table>
