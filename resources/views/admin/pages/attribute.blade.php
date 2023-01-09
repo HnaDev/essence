@@ -23,7 +23,6 @@
                                 <th>Tên Thuộc Tính</th>
                                 <th>Gía Trị</th>
                                 <th>Tính Năng</th>
-                                <th>Tính Năng</th>
                             </tr>
                         </thead>
                         <tbody>

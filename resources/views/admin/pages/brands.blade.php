@@ -28,25 +28,12 @@
                             <tr>
                                 <th>STT</th>
                                 <th>Tên Thương Hiệu</th>
-                                <th>Logo</th>
                                 <th>Trạng Thái</th>
                                 <th>Logo</th>
                                 <th>Tính Năng</th>
                             </tr>
                         </thead>
                         <tbody>
-<<<<<<< HEAD
-                            <tr>
-                                <td> 1</td>
-                                <td>dior</td>
-                                <td>Hình ảnh logo</td>
-                                <td>Đang bán</td>
-                                <td class="table-td-center">
-                                  <button class="btn btn-success">Sửa</button>
-                                  <button class="btn btn-danger">Xóa</button>
-                                </td>
-                            </tr>
-=======
                             @foreach ($Brands as $Brands)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
@@ -68,7 +55,6 @@
                                     </td>
                                 </tr>
                             @endforeach
->>>>>>> 8176c4a371794fe8a9d3b9431b3e988c6332ec66
                     </table>
                 </div>
             </div>
