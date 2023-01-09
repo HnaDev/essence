@@ -26,19 +26,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Nguyen Van a</td>
-                                <td>Hồ Thị Thanh Ngân</td>
-                                <td>155-157 Trần Quốc Thảo, Quận 3, Hồ Chí Minh </td>
-                                <td>nguyenvana@gmail.com</td>
-                                <td>nguoi dung</td>
-                                <td>1</td>
-                                <td class="table-td-center">
-                                    <button class="btn btn-success">Sửa</button>
-                                    <button class="btn btn-danger">Xóa</button>
-                                </td>
-                            </tr>
+                            @foreach ($Users as $user)
+                                <tr>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$user->full_name}}</td>
+                                    <td>{{$user->address}}</td>
+                                    <td>{{$user->email}}</td>
+                                    <td>{{$user->phone}}</td>
+                                    <td>{{$user->status == 1 ? 'Được Phép Sử Dụng' : 'Không Được Phép' }}</td>
+                                    <td>{{$user->role == 1 ? 'Người Dùng' : 'Admin' }}</td>
+                                    <td class="table-td-center">
+                                        <button class="btn btn-success">Sửa</button>
+                                        <button class="btn btn-danger">Xóa</button>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

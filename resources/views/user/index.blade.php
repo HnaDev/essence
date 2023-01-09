@@ -23,7 +23,8 @@
                 <div class="col-lg-6">
                     <div class="card category_female">
                         <a href="#">
-                            <img class="card-img-top" src="{{url('assets-user')}}/img/banner/Card_1_DT.jpg" alt="">
+                            <img class="card-img-top" src="{{ url('assets-user') }}/img/banner/Card_1_DT.jpg"
+                                alt="">
                             <div class="category_title flex_between">
                                 <h3><a href="#">
                                         <span>Women</span>
@@ -36,7 +37,8 @@
                 <div class="col-lg-6">
                     <div class="card category_male">
                         <a href="#">
-                            <img class="card-img-top" src="{{url('assets-user')}}/img/banner/Card_2_DT.jpg" alt="">
+                            <img class="card-img-top" src="{{ url('assets-user') }}/img/banner/Card_2_DT.jpg"
+                                alt="">
                             <div class="category_title flex_between">
                                 <h3>
                                     <a href="#">
@@ -45,7 +47,7 @@
                                 </h3>
                             </div>
                         </a>
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -59,7 +61,7 @@
                 <!-- Single Catagory -->
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area flex_center bg-img"
-                        style="background-image: url({{url('assets-user')}}/img/bg-img/bg-2.jpg)">
+                        style="background-image: url({{ url('assets-user') }}/img/bg-img/bg-2.jpg)">
                         <div class="catagory-content">
                             <a href="#">Clothing</a>
                         </div>
@@ -68,7 +70,7 @@
                 <!-- Single Catagory -->
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area flex_center bg-img"
-                        style="background-image: url({{url('assets-user')}}/img/bg-img/bg-3.jpg);">
+                        style="background-image: url({{ url('assets-user') }}/img/bg-img/bg-3.jpg);">
                         <div class="catagory-content">
                             <a href="#">Shoes</a>
                         </div>
@@ -77,7 +79,7 @@
                 <!-- Single Catagory -->
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area flex_center bg-img"
-                        style="background-image: url({{url('assets-user')}}/img/bg-img/bg-4.jpg);">
+                        style="background-image: url({{ url('assets-user') }}/img/bg-img/bg-4.jpg);">
                         <div class="catagory-content">
                             <a href="#">Accessories</a>
                         </div>
@@ -94,7 +96,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="sale-content bg-img background-overlay"
-                        style="background-image: url({{url('assets-user')}}/img/bg-img/bg-5.jpg);">
+                        style="background-image: url({{ url('assets-user') }}/img/bg-img/bg-5.jpg);">
                         <div class="h-100 d-flex align-items-center justify-content-end">
                             <div class="sale_text">
                                 <h6>-60%</h6>
@@ -130,7 +132,8 @@
                         <div class="product-img">
                             <img src="{{ url('assets-user') }}/img/product-img/product-1.jpg" alt="">
                             <!-- Hover Thumb -->
-                            <img class="hover-img" src="{{ url('assets-user') }}/img/product-img/product-2.jpg" alt="">
+                            <img class="hover-img" src="{{ url('assets-user') }}/img/product-img/product-2.jpg"
+                                alt="">
                             <!-- Favourite -->
                             <div class="product-favourite">
                                 <a href="{{ url('assets-user') }}//product-details.html" class="favme fa fa-heart"></a>
@@ -161,7 +164,8 @@
                         <div class="product-img">
                             <img src="{{ url('assets-user') }}/img/product-img/product-2.jpg" alt="">
                             <!-- Hover Thumb -->
-                            <img class="hover-img" src="{{ url('assets-user') }}/img/product-img/product-3.jpg" alt="">
+                            <img class="hover-img" src="{{ url('assets-user') }}/img/product-img/product-3.jpg"
+                                alt="">
                             <!-- Favourite -->
                             <div class="product-favourite">
                                 <a href="#" class="favme fa fa-heart"></a>
@@ -192,7 +196,8 @@
                         <div class="product-img">
                             <img src="{{ url('assets-user') }}/img/product-img/product-3.jpg" alt="">
                             <!-- Hover Thumb -->
-                            <img class="hover-img" src="{{ url('assets-user') }}/img/product-img/product-4.jpg" alt="">
+                            <img class="hover-img" src="{{ url('assets-user') }}/img/product-img/product-4.jpg"
+                                alt="">
 
                             <!-- Product Badge -->
                             <div class="product-badge offer-badge">
@@ -229,7 +234,8 @@
                         <div class="product-img">
                             <img src="{{ url('assets-user') }}/img/product-img/product-4.jpg" alt="">
                             <!-- Hover Thumb -->
-                            <img class="hover-img" src="{{ url('assets-user') }}/img/product-img/product-5.jpg" alt="">
+                            <img class="hover-img" src="{{ url('assets-user') }}/img/product-img/product-5.jpg"
+                                alt="">
 
                             <!-- Product Badge -->
                             <div class="product-badge new-badge">
@@ -307,7 +313,8 @@
                         <div class="product-img">
                             <img src="{{ url('assets-user') }}/img/product-img/product-1.jpg" alt="">
                             <!-- Hover Thumb -->
-                            <img class="hover-img" src="{{ url('assets-user') }}/img/product-img/product-2.jpg" alt="">
+                            <img class="hover-img" src="{{ url('assets-user') }}/img/product-img/product-2.jpg"
+                                alt="">
                             <!-- Favourite -->
                             <div class="product-favourite">
                                 <a href="" class="favme fa fa-heart"></a>
@@ -338,7 +345,8 @@
                         <div class="product-img">
                             <img src="{{ url('assets-user') }}/img/product-img/product-2.jpg" alt="">
                             <!-- Hover Thumb -->
-                            <img class="hover-img" src="{{ url('assets-user') }}/img/product-img/product-3.jpg" alt="">
+                            <img class="hover-img" src="{{ url('assets-user') }}/img/product-img/product-3.jpg"
+                                alt="">
                             <!-- Favourite -->
                             <div class="product-favourite">
                                 <a href="#" class="favme fa fa-heart"></a>
@@ -369,7 +377,8 @@
                         <div class="product-img">
                             <img src="{{ url('assets-user') }}/img/product-img/product-3.jpg" alt="">
                             <!-- Hover Thumb -->
-                            <img class="hover-img" src="{{ url('assets-user') }}/img/product-img/product-4.jpg" alt="">
+                            <img class="hover-img" src="{{ url('assets-user') }}/img/product-img/product-4.jpg"
+                                alt="">
 
                             <!-- Product Badge -->
                             <div class="product-badge offer-badge">
@@ -406,7 +415,8 @@
                         <div class="product-img">
                             <img src="{{ url('assets-user') }}/img/product-img/product-4.jpg" alt="">
                             <!-- Hover Thumb -->
-                            <img class="hover-img" src="{{ url('assets-user') }}/img/product-img/product-5.jpg" alt="">
+                            <img class="hover-img" src="{{ url('assets-user') }}/img/product-img/product-5.jpg"
+                                alt="">
 
                             <!-- Product Badge -->
                             <div class="product-badge new-badge">
@@ -466,7 +476,4 @@
         </div>
     </div>
     <!-- .discount end -->
-
 @endsection
-
-

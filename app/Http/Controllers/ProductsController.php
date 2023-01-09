@@ -129,7 +129,6 @@ class ProductsController extends Controller
 
         if ($product_update) {
             $product_images_update = Product_images::find($id);
-            dd($product_images_update->image);
             if ($req->hasFile('images')) {
                 $files = $req->images;
                 foreach ($files as $key => $f) {

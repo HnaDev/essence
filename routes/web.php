@@ -30,6 +30,7 @@ Route::get('/', [UserController::class,'index'])->name('user.index');
 Route::get('/login', [LoginController::class,'index'])->name('login');
 //login
 Route::get('/register', [LoginController::class,'register'])->name('register');
+Route::post('/register', [LoginController::class,'register_create']);
 //login
 Route::get('/product', [UserController::class,'product'])->name('product');
 //product
@@ -56,6 +57,7 @@ Route::prefix('/admin')->group(function () {
 
     // List Account
     Route::get('/account', [AccountsController::class, 'account'])->name('admin.account');
+    // Route::get('/account', [AccountsController::class, 'account'])->name('admin.account');
 
     // List Product
     Route::get('/product', [ProductsController::class, 'product'])->name('admin.product');
