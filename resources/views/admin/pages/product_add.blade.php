@@ -111,17 +111,16 @@
                         </div>
                         <div class="form-group col-md-3">
                             <label for="exampleSelect1" class="control-label">Kích thước</label>
-                            @foreach ($size as $value)
-                                <div class="form-check">
+                            <div class="form-check">
+                                @foreach ($size as $value)
                                     <input class="form-check-input" type="checkbox" id="check1" name="size_id"
                                         value="{{ $value->id }}">
                                     <label class="form-check-label">{{ $value->value }}</label>
-                                </div>
-                            @endforeach
+                                @endforeach
+                            </div>
                             @error('size_id')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
-                            </select>
                         </div>
                         <div class="form-group col-md-3">
                             <label for="exampleSelect1" class="control-label">Màu sắc</label>
@@ -135,7 +134,6 @@
                             @error('color_id')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
-                            </select>
                         </div>
 
                         <div class="form-group  col-md-12">
@@ -174,8 +172,6 @@
 @section('src')
     <script src="{{ url('assets-admin') }}/ckeditor/ckeditor.js"></script>
     <script>
-        // Replace the <textarea id="editor1"> with a CKEditor 4
-        // instance, using default configuration.
         CKEDITOR.replace('editor1');
     </script>
 @endsection
