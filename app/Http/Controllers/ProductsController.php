@@ -15,7 +15,7 @@ class ProductsController extends Controller
 {
     public function product()
     {
-        $products = Products::all();
+        $products = Products::search(1)->all();
         return view('admin.pages.product',compact('products'));
     }
     public function product_add()

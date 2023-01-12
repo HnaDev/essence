@@ -26,5 +26,11 @@ class Products extends Model
     {
         return $this->belongsTo(Promotions::class,'promotion_id');
     }
+    
+    public function scopeSearch($query){
+
+        $query = $query->where('name','like','%'.request()->keyword.'%');
+        return $query;
+    }
 }
 

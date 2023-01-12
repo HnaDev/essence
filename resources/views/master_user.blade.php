@@ -371,8 +371,8 @@
                 <div class="col-lg-5 nav-right">
                     <div class="nav-meta d-flex">
                         <div class="search-area">
-                            <form action="#" method="post">
-                                <input type="search" name="search" id="headerSearch" placeholder="Type for search">
+                            <form action="#" method="get">
+                                <input type="search" name="keyword" id="headerSearch" placeholder="Type for search">
                                 <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                             </form>
                         </div>

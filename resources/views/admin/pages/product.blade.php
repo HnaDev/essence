@@ -6,6 +6,22 @@
       </ul>
       <div id="clock"></div>
     </div>
+    {{-- <div class="search-area">
+      <form action="#" method="get">
+        <input type="search" name="keyword" id="headerSearch"  placeholder="Type for search">
+          <button type="submit" class="btn btn-default" ><i class="fa fa-search"></i></button>
+      </form>
+    </div> --}}
+    <div class="box-tools">
+          <form action="" method="GET">
+            <div class="input-group input-group-sm hidden-xs" style="width: 150px;">
+                <input type="text" name="keyword" class="form-control pull-right" placeholder="Search">
+                <div class="input-group-btn">
+                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+          </form>
+        </div>
     {{-- allert notification --}}
     @if (session('notification'))
       <div class="alert alert-success">
@@ -72,6 +88,7 @@
                 @endforeach
             </table>
           </div>
+
         </div>
       </div>
     </div>

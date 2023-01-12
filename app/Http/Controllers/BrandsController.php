@@ -10,16 +10,11 @@ class BrandsController extends Controller
 {
     public function brands()
     {
-<<<<<<< HEAD
-        $Brands = Brands::paginate(8);
-=======
         $Brands = Brands::all();
->>>>>>> 8176c4a371794fe8a9d3b9431b3e988c6332ec66
         return view('admin.pages.brands', compact('Brands'));
     }
     public function brands_add()
     {
-
         return view('admin.pages.brands_add');
     }
 
@@ -78,11 +73,6 @@ class BrandsController extends Controller
             //throw $th;
         }
     }
-
-
-
-
-
     // delete brands
     public function brands_delete($id)
     {
