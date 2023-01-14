@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Users;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\RegisterRequest;
+use Auth;
 class LoginController extends Controller
 {
     /**
@@ -57,9 +58,17 @@ class LoginController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function loginUser(Request $request)
     {
-        //
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+        if (Auth::attempt($credentials)) {
+            return redirect()->route('user.index');
+        }else{
+            return redirect()->back()->with('success','Đăng nhập không thành công');
+         }
     }
 
     /**
