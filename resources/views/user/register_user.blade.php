@@ -8,7 +8,6 @@
                         <div class="card" style="border-radius: 15px;">
                             <div class="card-body p-4">
                                 <h2 class="text-uppercase text-center mb-2">Tạo Tài Khoản</h2>
-
                                 <form method="post" action="">
                                     @csrf
                                     <div class="form-outline mb-3">

@@ -358,7 +358,7 @@ img {
 .right-card-cart-user {
     position: fixed;
     background-color: #fff;
-    width: 360px;
+    width: 180px;
     z-index: 9999;
     top: 0;
     right: -800px;
@@ -408,6 +408,7 @@ img {
     text-align: center;
     padding: 10px;
     font-size: 18px;
+    margin-bottom: 0px !important;
     font-weight: 400;
     color: white;
     text-transform: capitalize;

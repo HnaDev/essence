@@ -4,6 +4,13 @@
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-xl-10">
+                    {{-- allert notification --}}
+                        @if (session('notification'))
+                            <div class="alert alert-danger">
+                                {{ session('notification') }}
+                            </div>
+                        @endif
+                    {{-- allert notification end --}}
                     <div class="card rounded-3 text-black">
                         <div class="row g-0">
                             <div class="col-lg-6">
@@ -25,7 +32,8 @@
 
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form2Example22">Password</label>
-                                            <input type="password" name="password"  id="form2Example22" class="form-control" />
+                                            <input type="password" name="password" id="form2Example22"
+                                                class="form-control" />
                                         </div>
 
                                         <div class="d-flex flex-column text-center pt-1 mb-4 pb-1">

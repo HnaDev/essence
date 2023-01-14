@@ -26,17 +26,18 @@ use App\Http\Controllers\LoginController;
 
 // -------------------user ---------------- //
 Route::get('/', [UserController::class,'index'])->name('user.index');
-//login
+//-------- login ----------- //
 Route::get('/login', [LoginController::class,'index'])->name('login');
 Route::post('/login', [LoginController::class,'loginUser'])->name('loginUser');
-//register
+Route::get('/logout', [LoginController::class,'logout'])->name('logout');
+//------- register ----------//
 Route::get('/register', [LoginController::class,'register'])->name('register');
 Route::post('/register', [LoginController::class,'register_create']);
-//product
+//-------- product --------//
 Route::get('/product', [UserController::class,'product'])->name('product');
-//search
+//--------- search --------//
 Route::get('/search', [UserController::class,'search'])->name('search');
-//receipt
+//--------- receipt -------//
 Route::get('/receipt', [UserController::class,'receipt'])->name('receipt');
 
 

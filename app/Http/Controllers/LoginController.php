@@ -8,6 +8,7 @@ use App\Models\Users;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\RegisterRequest;
 use Auth;
+
 class LoginController extends Controller
 {
     /**
@@ -15,12 +16,13 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // return form login
     public function index()
     {
         return view('user.login_user');
     }
 
-    // ddanwg ki
+    // form register
     public function register()
     {
         return view('user.register_user');
@@ -45,7 +47,7 @@ class LoginController extends Controller
                 'password' => Hash::make($request->password)
             ]);
             if ($User) {
-                return redirect()->route('login')->with('success','Đăng kí Thành Công');
+                return redirect()->route('login')->with('notification', 'Đăng kí Thành Công');
             }
         } catch (\Throwable $th) {
             dd($th);
@@ -58,6 +60,8 @@ class LoginController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    //  login user
     public function loginUser(Request $request)
     {
         $credentials = $request->validate([
@@ -66,53 +70,17 @@ class LoginController extends Controller
         ]);
         if (Auth::attempt($credentials)) {
             return redirect()->route('user.index');
-        }else{
-            return redirect()->back()->with('success','Đăng nhập không thành công');
-         }
+        } else {
+            return redirect()->back()->with('notification', 'Đăng nhập không thành công');
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    // logout
+    public function logout()
     {
-        //
+        Auth::logout();
+        return redirect()->route('user.index');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
