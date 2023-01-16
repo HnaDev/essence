@@ -1,5 +1,6 @@
 <?php
 
+use Doctrine\DBAL\Logging\Middleware;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminsController;
 use App\Http\Controllers\CategorysController;
@@ -45,7 +46,7 @@ Route::get('/receipt', [UserController::class,'receipt'])->name('receipt');
 
 
 // ----------------------- ADMIN -------------- //
-Route::prefix('/admin')->group(function () {
+Route::prefix('/admin')->middleware('admin')->group(function () {
     Route::get('/', [AdminsController::class, 'index'])->name('admin.index');
 
     // List category
@@ -97,4 +98,6 @@ Route::prefix('/admin')->group(function () {
 });
 // login admin
 Route::get('/loginAdmin', [AdminsController::class,'loginAdmin'])->name('admin.loginAdmin');
+Route::post('/loginAdmin', [AdminsController::class,'PostloginAdmin']);
+Route::get('/logoutAdmin', [AdminsController::class,'logoutAdmin'])->name('admin.logout');
 

@@ -34,9 +34,8 @@
                                     <td>{{$user->email}}</td>
                                     <td>{{$user->phone}}</td>
                                     <td>{{$user->status == 1 ? 'Được Phép Sử Dụng' : 'Không Được Phép' }}</td>
-                                    <td>{{$user->role == 1 ? 'Người Dùng' : 'Admin' }}</td>
+                                    <td>{{$user->role == 1 ? 'Admin' :  'Người Dùng' }}</td>
                                     <td class="table-td-center">
-                                        <button class="btn btn-success">Sửa</button>
                                         <button class="btn btn-danger">Xóa</button>
                                     </td>
                                 </tr>

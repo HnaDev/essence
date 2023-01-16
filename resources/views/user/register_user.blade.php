@@ -61,14 +61,14 @@
                                     </div>
                                     <div class="form-outline mb-2">
                                         <div class="form-check">
-                                            <input class="form-check-input" name="role" type="radio" value="0"
+                                            <input class="form-check-input" name="role" type="radio" value="1"
                                                 id="flexCheckDefault">
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Admin
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" name="role" type="radio" value="1"
+                                            <input class="form-check-input" name="role" type="radio" value="0"
                                                 id="flexCheckChecked" checked>
                                             <label class="form-check-label" for="flexCheckChecked">
                                                 Người Dùng
