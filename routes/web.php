@@ -22,11 +22,8 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 //user
-Route::get('/es', [UserController::class,'index'])->name('user.index');
+Route::get('/', [UserController::class,'index'])->name('user.index');
 //login
 Route::get('/login', [LoginController::class,'index'])->name('login');
 //login

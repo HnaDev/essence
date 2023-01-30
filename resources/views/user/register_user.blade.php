@@ -36,7 +36,7 @@
 
                                     <div class="d-flex flex-column justify-content-center">
                                         <button type="button"
-                             ('assets-user') }}/img/               class="btn btn-success btn-block btn-lg gradient-custom-2 text-body">Register
+                                            class="btn btn-success btn-block btn-lg gradient-custom-2 text-body">Register
                                         </button>
                                     </div>
 
