@@ -40,7 +40,6 @@
                                     @if ($item->name == 'Size')
                                         <td>{{ $item->value }}</td>
                                     @endif
-                                    <td>{{ $item->type }}</td>
                                     <td class="table-td-center">
                                         <a type="submit" href="{{ route('admin.attribute_update_show', $item->id) }}"
                                             class="btn btn-success">Sửa</a>

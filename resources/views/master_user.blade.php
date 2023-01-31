@@ -421,7 +421,7 @@
                                         {{-- nếu có login thì duyệt name --}}
                                         @if (Auth::check())
                                             {{-- <a href="{{ route('login') }}" class="card-link name_user_hv"> --}}
-                                                <h6 id="name_user">{{ Auth::user()->full_name }}</h6>
+                                            <h6 id="name_user">{{ Auth::user()->full_name }}</h6>
                                             {{-- </a> --}}
                                         @else
                                             <a href="{{ route('login') }}" class="card-link name_user_hv">
@@ -435,11 +435,11 @@
                         <div class="card-body text-center">
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
-                                    <a href="#" class="card-link">Tài Khoản Của Tôi</a>
+                                    <a href="{{ url('OrderManagement') }}" class="card-link">Quản Lý Đơn Hàng</a>
                                 </li>
                                 @if (Auth::check())
                                     <li class="list-group-item">
-                                        <a href="{{route('logout')}}" class="card-link">Đăng Xuất</a>
+                                        <a href="{{ route('logout') }}" class="card-link">Đăng Xuất</a>
                                     </li>
                                 @else
                                     <li class="list-group-item">

@@ -40,6 +40,12 @@ Route::get('/product', [UserController::class,'product'])->name('product');
 Route::get('/search', [UserController::class,'search'])->name('search');
 //--------- receipt -------//
 Route::get('/receipt', [UserController::class,'receipt'])->name('receipt');
+//--------- OrderManagement -------//
+Route::get('/OrderManagement', [UserController::class,'OrderManagement'])->name('OrderManagement');
+
+
+
+
 
 
 // --------------------- end user ------------//

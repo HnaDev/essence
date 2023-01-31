@@ -15,7 +15,7 @@ class UserController extends Controller
     public function index()
     {
         $Categories = Categories::all();
-        return view('user.index',compact('Categories'));
+        return view('user.index', compact('Categories'));
     }
     public function product()
     {
@@ -34,9 +34,9 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function OrderManagement()
     {
-        //
+        return view('user.OrderManagement');
     }
 
     /**
