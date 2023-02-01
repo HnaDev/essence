@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,14 +19,14 @@
                 <div class="col-lg-7 nav-left">
                     <nav class="nav-mie d-flex">
                         <!-- logo -->
-                        <a href="{{route('user.index')}}" class="logo-header">
+                        <a href="{{ route('user.index') }}" class="logo-header">
                             <img src="{{ url('assets-user') }}/img/core-img/logo.png" alt="">
                         </a>
                         <!-- end logo -->
                         <div class="nav-menu">
                             <ul class="d-flex">
                                 <li class="menu-item_shop">
-                                    <a href="#" class="icon_shop">New<i class="fa-solid fa-check"></i></a>
+                                    <a href="#" class="icon_shop">New</a>
                                     <div class="megamenu">
                                         <ul class="single-mega">
                                             <li class="title">Women's Collection</li>
@@ -57,7 +58,7 @@
                                     </div>
                                 </li>
                                 <li class="menu-item_shop">
-                                    <a href="#" class="icon_shop">Men<i class="fa-solid fa-check"></i></a>
+                                    <a href="#" class="icon_shop">Men</a>
                                     <div class="megamenu">
                                         <ul class="single-mega">
                                             <li class="title">Women's Collection</li>
@@ -89,7 +90,7 @@
                                     </div>
                                 </li>
                                 <li class="menu-item_shop">
-                                    <a href="#" class="icon_shop">Women<i class="fa-solid fa-check"></i></a>
+                                    <a href="#" class="icon_shop">Women</a>
                                     <div class="megamenu">
                                         <ul class="single-mega">
                                             <li class="title">Women's Collection</li>
@@ -121,7 +122,7 @@
                                     </div>
                                 </li>
                                 <li class="menu-item_shop">
-                                    <a href="#" class="icon_shop">children<i class="fa-solid fa-check"></i></a>
+                                    <a href="#" class="icon_shop">children</a>
                                     <div class="megamenu">
                                         <ul class="single-mega">
                                             <li class="title">Women's Collection</li>
@@ -153,7 +154,7 @@
                                     </div>
                                 </li>
                                 <li class="menu-item_shop">
-                                    <a href="#" class="icon_shop">Kid's<i class="fa-solid fa-check"></i></a>
+                                    <a href="#" class="icon_shop">Kid's</a>
                                     <div class="megamenu">
                                         <ul class="single-mega">
                                             <li class="title">Women's Collection</li>
@@ -180,7 +181,7 @@
                                             <li><a href="#">Trench</a></li>
                                         </ul>
                                         <div class="single-mega">
-                                            <img src="{{url('assets-user')}}/img/bg-img/bg-6.jpg" alt="">
+                                            <img src="{{ url('assets-user') }}/img/bg-img/bg-6.jpg" alt="">
                                         </div>
                                     </div>
                                 </li>
@@ -382,8 +383,8 @@
                             </a>
                         </div>
                         <div class="user-login-info">
-                            <a href="./formlogin.html">
-                                <i class="fa-regular fa-user"></i>
+                            <a href="#">
+                                <i class="fa-regular fa-user" id="essenceCart_User"></i>
                             </a>
                         </div>
                         <div class="cart-area">
@@ -400,6 +401,52 @@
 
     <!--  right side cart -->
     <div class="cart-bg-overlay"></div>
+    <div class="right-card-cart-user">
+        <!-- cart buton -->
+        <a href="#" id="rightSideCart">
+            <i class="fa-regular fa-user"></i>
+        </a>
+        <!-- cart buton -->
+
+        <!-- cart-list -->
+        <div class="container-fuild d-flex">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card" style="width: 100%;">
+                        <div class="card-body">
+                            <div class="main-header-profile">
+                                <div class="main-header-profile_d-flex">
+                                    <div class="main-img-user">
+                                        <img alt="" id="image_user"
+                                            src="https://i.pinimg.com/564x/29/57/db/2957db667339b5623960328025a2653a.jpg"
+                                            class="">
+                                    </div>
+                                    <div class="ml-3 my-auto">
+                                        <a href="{{ route('login') }}" class="card-link name_user_hv">
+                                            <h6 id="name_user">đăng nhập</h6>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <a href="#" class="card-link">Tài Khoản Của Tôi</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{url('register')}}" class="card-link">Đăng kí</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#" class="card-link">Đăng Xuất</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="right-card-cart">
         <!-- cart buton -->
         <a href="#" id="rightSideCart">
@@ -413,7 +460,8 @@
                 <div class="col-4">
                     <div class="single-cart-item">
                         <a href="#" class="product-image">
-                            <img src="{{url('assets-user')}}/img/product-img/product-1.jpg" class="cart-thumb" alt="">
+                            <img src="{{ url('assets-user') }}/img/product-img/product-1.jpg" class="cart-thumb"
+                                alt="">
                             <!-- Cart Item Desc -->
                             <div class="cart-item-desc">
                                 <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
@@ -427,7 +475,8 @@
                     </div>
                     <div class="single-cart-item">
                         <a href="#" class="product-image">
-                            <img src="{{url('assets-user')}}/img/product-img/product-2.jpg" class="cart-thumb" alt="">
+                            <img src="{{ url('assets-user') }}/img/product-img/product-2.jpg" class="cart-thumb"
+                                alt="">
                             <!-- Cart Item Desc -->
                             <div class="cart-item-desc">
                                 <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
@@ -441,7 +490,8 @@
                     </div>
                     <div class="single-cart-item">
                         <a href="#" class="product-image">
-                            <img src="{{url('assets-user')}}/img/product-img/product-3.jpg" class="cart-thumb" alt="">
+                            <img src="{{ url('assets-user') }}/img/product-img/product-3.jpg" class="cart-thumb"
+                                alt="">
                             <!-- Cart Item Desc -->
                             <div class="cart-item-desc">
                                 <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>

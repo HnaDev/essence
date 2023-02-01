@@ -4,11 +4,6 @@
  */
 
 CKEDITOR.editorConfig = function( config ) {
-<<<<<<< HEAD
-	// Define changes to default configuration here. For example:
-	// config.language = 'fr';
-	// config.uiColor = '#AADC6E';
-=======
 	// Define changes to default configuration here.
 	// For complete reference see:
 	// https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html
@@ -40,5 +35,4 @@ CKEDITOR.editorConfig = function( config ) {
 
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
->>>>>>> 8176c4a371794fe8a9d3b9431b3e988c6332ec66
 };

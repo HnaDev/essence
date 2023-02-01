@@ -15,6 +15,10 @@ class AdminsController extends Controller
     {
         return view('admin.pages.index');
     }
+    public function loginAdmin()
+    {
+        return view('admin.pages.login_admin');
+    }
 
     /**
      * Show the form for creating a new resource.

@@ -4,24 +4,19 @@
       <ul class="app-breadcrumb breadcrumb side">
         <li class="breadcrumb-item active"><a href="#"><b>Danh sách sản phẩm</b></a></li>
       </ul>
-      <div id="clock"></div>
+      <ul class="app-breadcrumb breadcrumb side ">
+            <li class="breadcrumb-item active">
+                <form action="" method="get">
+                    <div class="input-group">
+                        <input type="text" name="keyword" class="input-search form-control rounded" placeholder="Search"
+                            aria-label="Search" aria-describedby="search-addon" />
+                        <button type="submit" class="btn-search btn btn-outline-primary">Search</button>
+                    </div>
+                </form>
+            </li>
+        </ul>
     </div>
-    {{-- <div class="search-area">
-      <form action="#" method="get">
-        <input type="search" name="keyword" id="headerSearch"  placeholder="Type for search">
-          <button type="submit" class="btn btn-default" ><i class="fa fa-search"></i></button>
-      </form>
-    </div> --}}
-    <div class="box-tools">
-          <form action="" method="GET">
-            <div class="input-group input-group-sm hidden-xs" style="width: 150px;">
-                <input type="text" name="keyword" class="form-control pull-right" placeholder="Search">
-                <div class="input-group-btn">
-                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                </div>
-            </div>
-          </form>
-        </div>
+   
     {{-- allert notification --}}
     @if (session('notification'))
       <div class="alert alert-success">
@@ -59,13 +54,13 @@
               </thead>
               <tbody>
                 @foreach ($products as $item)
-               
+
                 <tr>
                   <td>{{$item->name}}</td>
                   <td>{{$item->price}}</td>
                   <td>{{$item->sale_price}}</td>
                   <td>
-                    <img src="{{url('upload.product')}}/{{$item->image}}" width="100px"
+                    <img src="{{url('upload.product')}}/{{$item->image}}" width="200px"
                       alt="">
                   </td>
                   <td width="300px">{{$item->description}}</td>
@@ -83,7 +78,7 @@
                   <td class="table-td-center">
                       <a href="{{route('admin.product_update_show',$item->id)}}" type="submit" class="btn btn-success">Sửa</a>
                       <a href="{{route('admin.product_delete',$item->id)}}" type="submit" class="btn btn-danger" onclick = "return confirm('Bạn có muốn xóa?')">Xóa</a>
-                  </td> 
+                  </td>
                 </tr>
                 @endforeach
             </table>

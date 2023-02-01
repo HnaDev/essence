@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\BannersController;
 use App\Http\Controllers\CommentsController;
+use App\Http\Controllers\AttributeController;
 use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
@@ -29,15 +30,20 @@ Route::get('/', [UserController::class,'index'])->name('user.index');
 Route::get('/login', [LoginController::class,'index'])->name('login');
 //login
 Route::get('/register', [LoginController::class,'register'])->name('register');
+Route::post('/register', [LoginController::class,'register_create']);
 //login
-Route::get('/product', [UserController::class,'product'])->name('product');
+Route::get('/product/{id}', [UserController::class,'product'])->name('product');
 //product
 Route::get('/search', [UserController::class,'search'])->name('search');
 //search
 Route::get('/receipt', [UserController::class,'receipt'])->name('receipt');
 //receipt
+
+
 // --------------------- end user ------------//
 
+
+// ----------------------- ADMIN -------------- //
 Route::prefix('/admin')->group(function () {
     Route::get('/', [AdminsController::class, 'index'])->name('admin.index');
 
@@ -51,6 +57,7 @@ Route::prefix('/admin')->group(function () {
 
     // List Account
     Route::get('/account', [AccountsController::class, 'account'])->name('admin.account');
+    // Route::get('/account', [AccountsController::class, 'account'])->name('admin.account');
 
     // List Product
     Route::get('/product', [ProductsController::class, 'product'])->name('admin.product');
@@ -78,4 +85,15 @@ Route::prefix('/admin')->group(function () {
 
     // list order
     Route::get('/orders', [OrdersController::class, 'orders'])->name('admin.orders');
+
+    // list attribute
+    Route::get('/attribute', [AttributeController::class,'attribute'])->name('admin.attribute');
+    Route::get('/attribute_add', [AttributeController::class,'attribute_add'])->name('admin.attribute_add');
+    Route::post('/attribute_add', [AttributeController::class,'attribute_create'])->name('admin.attribute_create');
+    Route::get('/attribute_update_show/{id}', [AttributeController::class,'attribute_update_show'])->name('admin.attribute_update_show');
+    Route::get('/attribute_delete/{id}', [AttributeController::class, 'attribute_delete'])->name('admin.attribute_delete');
+
 });
+// login admin
+Route::get('/loginAdmin', [AdminsController::class,'loginAdmin'])->name('admin.loginAdmin');
+

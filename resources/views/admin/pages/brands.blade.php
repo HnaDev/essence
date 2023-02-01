@@ -28,7 +28,6 @@
                             <tr>
                                 <th>STT</th>
                                 <th>Tên Thương Hiệu</th>
-                                <th>Logo</th>
                                 <th>Trạng Thái</th>
                                 <th>Logo</th>
                                 <th>Tính Năng</th>
@@ -96,11 +95,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($Brands as $Brands)
+                            @foreach ($Brands as $item)
                                 <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $Brands->name }}</td>
-                                    @if ($Brands->status == 1)
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$item->name}}</td>
+                                    @if ($item->status == 1)
                                         <td class="m-3 p-1 badge bg-success">Hiện</td>
                                     @else
                                         <td class="m-3 p-1 badge bg-danger">Ẩn</td>

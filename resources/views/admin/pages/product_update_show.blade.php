@@ -103,8 +103,16 @@
               <div class="form-group col-md-3">
                 <label for="exampleSelect1" class="control-label">Kích thước</label>
                   @foreach($size as $value)
-                  <input class="form-check-input" type="checkbox" id="check1" name="size_id"  value="{{$value->id}}" {{$value->id == $product->size_id? "checked":""}}>
+                  @if($product->getAtS($value->id,$product->id) != null)
+                  <input class="form-check-input" type="checkbox" id="check1" name="attr_size_id[]"
+                   value="{{$value->id}}" {{$product->getAtS($value->id,$product->id)->attribute_size_id ==  $value->id ?'checked':''}}>
+                  @else 
+                  <input class="form-check-input" type="checkbox" id="check1" name="attr_size_id[]"
+                   value="{{$value->id}}">
+                  @endif
+
                   <label class="form-check-label">{{$value->value}}</label>
+                 
                   @endforeach
                   {{-- @error('size_id')
                   <div class="alert alert-danger">{{$message}}</div>
@@ -114,8 +122,18 @@
               <div class="form-group col-md-3">
                 <label for="exampleSelect1" class="control-label">Màu sắc</label>
                   @foreach($color as $value)
-                  <input class="form-check-input" type="checkbox" id="check1" name="color_id" value="{{$value->id}}" {{$value->id == $product->color_id? "checked":""}}> 
+                  
+                  @if($product->getAtC($value->id,$product->id) != null)
+                 
+                  <input class="form-check-input" type="checkbox" id="check1" name="attr_color_id[]"
+                   value="{{$value->id}}" {{$product->getAtC($value->id,$product->id)->attribute_color_id == $value->id ? 'checked' :''}}>
+                   @else 
+                    <input class="form-check-input" type="checkbox" id="check1" name="attr_color_id[]"
+                   value="{{$value->id}}">
+                   @endif
+
                   <label class="form-check-label">{{$value->value}}</label>
+                 
                   @endforeach
                   {{-- @error('color_id')
                   <div class="alert alert-danger">{{$message}}</div>
