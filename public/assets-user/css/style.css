@@ -358,7 +358,7 @@ img {
 .right-card-cart-user {
     position: fixed;
     background-color: #fff;
-    width: 360px;
+    width: 180px;
     z-index: 9999;
     top: 0;
     right: -800px;
@@ -408,6 +408,7 @@ img {
     text-align: center;
     padding: 10px;
     font-size: 18px;
+    margin-bottom: 0px !important;
     font-weight: 400;
     color: white;
     text-transform: capitalize;
@@ -1117,3 +1118,182 @@ div.single-cart-item .cart-item-desc p.price {
     display: none !important;
 }
 /* hover userr */
+/* box order */
+.box-order{
+    min-height: 740px;
+    background: #f5f5f5;
+    box-shadow: 0 0 0 2px #f5f5f5;
+}
+.menu-order{
+    background-color: #fff;
+    padding: 10px;
+}
+.menu-order ul li{
+    padding: 14px;
+}
+.menu-order ul li a{
+    font-weight: 400;
+    font-size: 16px;
+}
+.menu-order ul li:hover a{
+    color: #ee4d2d;
+}
+/* tìm kiếm order */
+.search-order form{
+    padding: 12px 0;
+    margin: 12px 0;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 5%);
+    color: #212121;
+    background: #eaeaea;
+    border-radius: 2px;
+}
+.search-order input{
+    padding-left: 20px;
+    width: 100%;
+    flex: 1;
+    font-size: 14px;
+    line-height: 16px;
+    border: 0;
+    outline: none;
+    background-color: inherit;
+}
+.search-order button{
+    padding-right: 10px;
+    font-size: 14px;
+    line-height: 16px;
+    border: 0;
+    outline: none;
+    background-color: inherit;
+}
+.search-order button:hover{
+    color: #ee4d2d;
+}
+
+.box-bought{
+    width: 100%;
+    height: 600px;
+    text-align: center;
+    background: #fff;
+}
+/* single box buy */
+.single_box_buy{
+    margin: 12px 0;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 5%);
+    border-radius: 0.125rem;
+}
+.single_box_buy .delivery{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding: 20px;
+}
+.single_box_buy div i{
+    margin: 0 4px 0 0;
+    vertical-align: middle;
+    font-size: 1rem;
+    color: #00bfa5;
+}
+.single_box_buy .delivery div:nth-child(1){
+    margin: 0 10px 0 0;
+    padding: 0 5px 0 0;
+    text-align: right;
+    border-right: 1px solid rgba(0,0,0,.12);
+}
+.single_box_buy .delivery div:nth-child(2){
+    line-height: 24px;
+    color: #ee4d2d;
+    text-align: right;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+/* product_purchased */
+.product_purchased{
+    padding: 10px;
+    max-width: auto;
+    height: auto;
+}
+.product_purchased .product{
+    display: flex;
+}
+.product_purchased .product_img{
+    width: 100px;
+    height: auto;
+    border: 1px solid #e1e1e1;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.product_purchased .product_title{
+    display: flex;
+    align-items: center;
+}
+.product_purchased .product_title h5{
+    padding-left: 10px;
+    font-weight: 400;
+    margin: 0 0 5px;
+    font-size: 16px;
+    text-align: left;
+}
+.product_purchased .product_title span{
+    padding-left: 10px;
+    display: inherit;
+    text-align: left;
+}
+.product_purchased .product_title p{
+    padding-left: 10px;
+    font-weight: 500;
+    display: inherit;
+    text-align: left;
+}
+.product_price{
+    display: flex;
+    align-items: center;
+}
+.product_price del{
+    padding-right: 4px;
+    color: #000;
+    opacity: .26;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/*  */
+.single_box_buy .into_money--product{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding: 20px;
+}
+.single_box_buy .into_money--product div i{
+    margin: 0 4px 0 0;
+    vertical-align: middle;
+    font-size: 1rem;
+    color: #00bfa5;
+}
+.single_box_buy .into_money--product div:nth-child(1){
+    margin: 0 10px 0 0;
+    padding: 0 5px 0 0;
+    text-align: right;
+}
+.single_box_buy .into_money--product div:nth-child(2){
+    line-height: 24px;
+    color: #ee4d2d;
+    text-align: right;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding-right: 4px;
+    border-right: 1px solid rgba(0,0,0,.12);
+}
+.single_box_buy .into_money--product div:nth-child(3) button{
+    min-width: 150px;
+    min-height: 40px;
+    padding: 8px 20px;
+    text-transform: capitalize;
+    border-radius: 2px;
+    background-color: #ee4d2d;
+    color: #fff;
+    border: 0;
+    margin-left: 8px;
+}
+
+

@@ -1,9 +1,10 @@
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <aside class="app-sidebar">
-    <div class="app-sidebar__user"><img class="app-sidebar__user-avatar"
+    <div class="app-sidebar__user">
+        <img class="app-sidebar__user-avatar"
             src="https://toplist.vn/images/800px/nice-studio-915688.jpg" width="50px" height="80px" alt="User Image">
         <div>
-            <p class="app-sidebar__user-name"><b>Nguyen Van A</b></p>
+            <p class="app-sidebar__user-name"><b>{{Auth::user()->full_name}}</b></p>
             <p class="app-sidebar__user-designation">Chào mừng bạn trở lại</p>
         </div>
     </div>

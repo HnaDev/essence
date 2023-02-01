@@ -416,15 +416,17 @@
                         <div class="card-body">
                             <div class="main-header-profile">
                                 <div class="main-header-profile_d-flex">
-                                    <div class="main-img-user">
-                                        <img alt="" id="image_user"
-                                            src="https://i.pinimg.com/564x/29/57/db/2957db667339b5623960328025a2653a.jpg"
-                                            class="">
-                                    </div>
                                     <div class="ml-3 my-auto">
-                                        <a href="{{ route('login') }}" class="card-link name_user_hv">
-                                            <h6 id="name_user">đăng nhập</h6>
-                                        </a>
+                                        {{-- nếu có login thì duyệt name --}}
+                                        @if (Auth::check())
+                                            {{-- <a href="{{ route('login') }}" class="card-link name_user_hv"> --}}
+                                            <h6 id="name_user">{{ Auth::user()->full_name }}</h6>
+                                            {{-- </a> --}}
+                                        @else
+                                            <a href="{{ route('login') }}" class="card-link name_user_hv">
+                                                <h6 id="name_user">đăng nhập</h6>
+                                            </a>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -432,15 +434,17 @@
                         <div class="card-body text-center">
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
-                                    <a href="#" class="card-link">Tài Khoản Của Tôi</a>
+                                    <a href="{{ url('OrderManagement') }}" class="card-link">Quản Lý Đơn Hàng</a>
                                 </li>
-                                <li class="list-group-item">
-                                    <a href="{{url('register')}}" class="card-link">Đăng kí</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#" class="card-link">Đăng Xuất</a>
-                                </li>
-                            </ul>
+                                @if (Auth::check())
+                                    <li class="list-group-item">
+                                        <a href="{{ route('logout') }}" class="card-link">Đăng Xuất</a>
+                                    </li>
+                                @else
+                                    <li class="list-group-item">
+                                        <a href="{{ url('register') }}" class="card-link">Đăng kí</a>
+                                    </li>
+                                @endif
                         </div>
                     </div>
                 </div>

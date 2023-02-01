@@ -16,24 +16,35 @@
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                    <div class="card shadow-2-strong" style="border-radius: 1rem;">
-                        <div class="card-body p-5">
-
-                            <h3 class="mb-5 text-center">Sign in Admin</h3>
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="typeEmailX-2">Email</label>
-                                <input type="email" id="typeEmailX-2" class="form-control form-control-lg" placeholder="Please enter your email" />
-                            </div>
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="typePasswordX-2">Password</label>
-                                <input type="password" id="typePasswordX-2" class="form-control form-control-lg" placeholder="Please enter your Password" />
-                            </div>
-                            <div class="form-outline mb-4 d-flex justify-between">
-                                <i class="pr-5" href="">Do not have an account ?</i>
-                                <a href="" class="pl-5" style="color: rgb(252, 9, 9)">Sign up here !</a>
-                            </div>
-                            <button class="btn btn-success btn-lg btn-block" type="submit">Login</button>
+                    {{-- allert notification --}}
+                    @if (session('notification'))
+                        <div class="alert dg alert-danger">
+                            {{ session('notification') }}
                         </div>
+                    @endif
+                    {{-- allert notification end --}}
+                    <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                        <form action="" method="POST">
+                            @csrf
+                            <div class="card-body p-5">
+                                <h3 class="mb-5 text-center">Sign in Admin</h3>
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="typeEmailX-2">Email</label>
+                                    <input type="email" name="email" id="typeEmailX-2" class="form-control form-control-lg"
+                                        placeholder="Please enter your email" />
+                                </div>
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="typePasswordX-2">Password</label>
+                                    <input type="password" name="password" id="typePasswordX-2" class="form-control form-control-lg"
+                                        placeholder="Please enter your Password" />
+                                </div>
+                                <div class="form-outline mb-4 d-flex justify-between">
+                                    <i class="pr-5" href="">Do not have an account ?</i>
+                                    <a href="{{route('register')}}" class="pl-5" style="color: rgb(252, 9, 9)">Sign up here !</a>
+                                </div>
+                                <button class="btn btn-success btn-lg btn-block" type="submit">Login</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

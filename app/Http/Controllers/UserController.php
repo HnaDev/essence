@@ -17,9 +17,13 @@ class UserController extends Controller
     public function index()
     {
         $Categories = Categories::all();
+<<<<<<< HEAD
         $popular = Products::orderBy('id','ASC')->limit(4)->get();
         $newpro = Products::orderBy('id','DESC')->limit(8)->get();
         return view('user.index',compact('Categories','popular','newpro'));
+=======
+        return view('user.index', compact('Categories'));
+>>>>>>> c193dba5f4aaeca61ebbfa46e18d2e3e3dcac2fb
     }
     public function product($id)
     {
@@ -42,9 +46,9 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function OrderManagement()
     {
-        //
+        return view('user.OrderManagement');
     }
 
     /**

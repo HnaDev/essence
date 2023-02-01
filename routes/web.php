@@ -1,5 +1,6 @@
 <?php
 
+use Doctrine\DBAL\Logging\Middleware;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminsController;
 use App\Http\Controllers\CategorysController;
@@ -26,25 +27,38 @@ use App\Http\Controllers\LoginController;
 
 // -------------------user ---------------- //
 Route::get('/', [UserController::class,'index'])->name('user.index');
-//login
+//-------- login ----------- //
 Route::get('/login', [LoginController::class,'index'])->name('login');
-//login
+Route::post('/login', [LoginController::class,'loginUser'])->name('loginUser');
+Route::get('/logout', [LoginController::class,'logout'])->name('logout');
+//------- register ----------//
 Route::get('/register', [LoginController::class,'register'])->name('register');
 Route::post('/register', [LoginController::class,'register_create']);
+<<<<<<< HEAD
 //login
 Route::get('/product/{id}', [UserController::class,'product'])->name('product');
 //product
+=======
+//-------- product --------//
+Route::get('/product', [UserController::class,'product'])->name('product');
+//--------- search --------//
+>>>>>>> c193dba5f4aaeca61ebbfa46e18d2e3e3dcac2fb
 Route::get('/search', [UserController::class,'search'])->name('search');
-//search
+//--------- receipt -------//
 Route::get('/receipt', [UserController::class,'receipt'])->name('receipt');
-//receipt
+//--------- OrderManagement -------//
+Route::get('/OrderManagement', [UserController::class,'OrderManagement'])->name('OrderManagement');
+
+
+
+
 
 
 // --------------------- end user ------------//
 
 
 // ----------------------- ADMIN -------------- //
-Route::prefix('/admin')->group(function () {
+Route::prefix('/admin')->middleware('admin')->group(function () {
     Route::get('/', [AdminsController::class, 'index'])->name('admin.index');
 
     // List category
@@ -96,4 +110,6 @@ Route::prefix('/admin')->group(function () {
 });
 // login admin
 Route::get('/loginAdmin', [AdminsController::class,'loginAdmin'])->name('admin.loginAdmin');
+Route::post('/loginAdmin', [AdminsController::class,'PostloginAdmin']);
+Route::get('/logoutAdmin', [AdminsController::class,'logoutAdmin'])->name('admin.logout');
 
