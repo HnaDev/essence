@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helper\Cart;
 use Illuminate\Http\Request;
 use App\Models\Categories;
 use App\Models\Products;
@@ -14,34 +15,26 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Cart $cart)
     {
         $Categories = Categories::all();
         $popular = Products::orderBy('id','ASC')->limit(4)->get();
         $newpro = Products::orderBy('id','DESC')->limit(8)->get();
+<<<<<<< HEAD
         return view('user.index',compact('Categories','popular','newpro'));
+=======
+        return view('user.index',compact('Categories','popular','newpro','cart'));
+>>>>>>> 295101973918240179b13b0989d1b955b88e2445
     }
     public function product($id)
     {
         $prodetail = Products::find($id);
-
-        
-        
         return view('user.product_details',compact('prodetail'));
     }
     public function search()
     {
         return view('user.search');
     }
-    public function receipt()
-    {
-        return view('user.receipt');
-    }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function OrderManagement()
     {
         return view('user.OrderManagement');
@@ -53,9 +46,9 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function shop()
     {
-        //
+        return view('user.search');
     }
 
     /**

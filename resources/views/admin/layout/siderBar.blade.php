@@ -35,7 +35,7 @@
             </a>
         </li>
         <li>
-            <a class="app-menu__item" href="table-data-oder.html">
+            <a class="app-menu__item" href="{{route('admin.orders')}}">
                 <i class="app-menu__icon fa-solid fa-cart-arrow-down"></i>
                 <span class="app-menu__label">Quản lý đơn hàng</span>
             </a>

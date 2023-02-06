@@ -113,9 +113,11 @@
                             <label for="exampleSelect1" class="control-label">Kích thước</label>
                             <div class="form-check">
                                 @foreach ($size as $value)
-                                    <input class="form-check-input" type="checkbox" id="check1" name="attr_size_id[]"
-                                        value="{{$value->id}}">
-                                    <label class="form-check-label">{{ $value->value }}</label>
+                                    <div>
+                                        <input class="form-check-input" type="checkbox" id="check1"
+                                            name="attr_size_id[]" value="{{ $value->id }}">
+                                        <label class="form-check-label">{{ $value->value }}</label>
+                                    </div>
                                 @endforeach
                             </div>
                             @error('size_id')
@@ -126,9 +128,11 @@
                             <label for="exampleSelect1" class="control-label">Màu sắc</label>
                             <div class="form-check">
                                 @foreach ($color as $value)
-                                    <input class="form-check-input" type="checkbox" id="check1" name="attr_color_id[]"
-                                        value="{{$value->id}}">
-                                    <label class="form-check-label">{{ $value->value }}</label>
+                                    <div>
+                                        <input class="form-check-input" type="checkbox" id="check1"
+                                            name="attr_color_id[]" value="{{ $value->id }}">
+                                        <label class="form-check-label">{{ $value->value }}</label>
+                                    </div>
                                 @endforeach
                             </div>
                             @error('color_id')

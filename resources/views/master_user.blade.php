@@ -12,7 +12,6 @@
 
 <body>
     <!-- header -->
-
     <header class="header-area sticky">
         <div class="container-fuild">
             <div class="row">
@@ -373,13 +372,14 @@
                     <div class="nav-meta d-flex">
                         <div class="search-area">
                             <form action="#" method="get">
-                                <input type="search" name="keyword" id="headerSearch" placeholder="Type for search">
+                                <input type="search" name="keyword" id="headerSearch"
+                                    placeholder="Type for search">
                                 <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                             </form>
                         </div>
-                        <div class="favourite-area">
-                            <a href="#">
-                                <i class="fa-regular fa-heart"></i>
+                        <div class="user-login-info">
+                            <a href="{{ route('show_card') }}">
+                                <i class="fa-brands fa-shopify"></i>
                             </a>
                         </div>
                         <div class="user-login-info">
@@ -391,6 +391,11 @@
                             <a href="#">
                                 <i class="fa-solid fa-bag-shopping" id="essenceCartBtn"></i>
                             </a>
+                            <div class="cart-icon-total_quantity">
+                                @if (!empty($cart))
+                                    <p class="icon-total">{{ $cart->getTotalQuantity() }}</p>
+                                @endif
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -456,57 +461,38 @@
         <a href="#" id="rightSideCart">
             <i class="fa-solid fa-bag-shopping"></i>
         </a>
+        {{-- <div class="cart-icon-total_quantity_click">
+            @if (!empty($cart))
+                <p class="icon-total">{{ $cart->getTotalQuantity() }}</p>
+            @endif
+        </div> --}}
         <!-- cart buton -->
 
         <!-- cart-list -->
         <div class="container-fuild d-flex">
             <div class="row">
                 <div class="col-4">
-                    <div class="single-cart-item">
-                        <a href="#" class="product-image">
-                            <img src="{{ url('assets-user') }}/img/product-img/product-1.jpg" class="cart-thumb"
-                                alt="">
-                            <!-- Cart Item Desc -->
-                            <div class="cart-item-desc">
-                                <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
-                                <span class="badge">Mango</span>
-                                <h6>Button Through Strap Mini Dress</h6>
-                                <p class="size">Size: S</p>
-                                <p class="color">Color: Red</p>
-                                <p class="price">$45.00</p>
+                    @if (!empty($cart))
+                        @foreach ($cart->getItem() as $item)
+                            <div class="single-cart-item">
+                                <a href="#" class="product-image">
+                                    <img src="{{ url('upload.product') }}/{{ $item['image'] }}" class="cart-thumb"
+                                        alt="">
+                                    <!-- Cart Item Desc -->
+                                    <div class="cart-item-desc">
+                                        <a class="product-remove" href="{{ route('cart.delete', $item['id']) }}">
+                                            <i class="fa fa-close" aria-hidden="true"></i>
+                                        </a>
+                                        <h6>{{ $item['name'] }}</h6>
+                                        <p class="size">Size: {{ $item['attribute_size_id'] }}</p>
+                                        <p class="color">Color: {{ $item['attribute_color_id'] }}</p>
+                                        <p class="color">Số Lượng: {{ $item['quantity'] }}</p>
+                                        <p class="price">{{ number_format($item['price']) }}đ</p>
+                                    </div>
+                                </a>
                             </div>
-                        </a>
-                    </div>
-                    <div class="single-cart-item">
-                        <a href="#" class="product-image">
-                            <img src="{{ url('assets-user') }}/img/product-img/product-2.jpg" class="cart-thumb"
-                                alt="">
-                            <!-- Cart Item Desc -->
-                            <div class="cart-item-desc">
-                                <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
-                                <span class="badge">Mango</span>
-                                <h6>Button Through Strap Mini Dress</h6>
-                                <p class="size">Size: S</p>
-                                <p class="color">Color: Red</p>
-                                <p class="price">$45.00</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="single-cart-item">
-                        <a href="#" class="product-image">
-                            <img src="{{ url('assets-user') }}/img/product-img/product-3.jpg" class="cart-thumb"
-                                alt="">
-                            <!-- Cart Item Desc -->
-                            <div class="cart-item-desc">
-                                <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
-                                <span class="badge">Mango</span>
-                                <h6>Button Through Strap Mini Dress</h6>
-                                <p class="size">Size: S</p>
-                                <p class="color">Color: Red</p>
-                                <p class="price">$45.00</p>
-                            </div>
-                        </a>
-                    </div>
+                        @endforeach
+                    @endif
                 </div>
                 <!-- end cart-list -->
 
@@ -517,28 +503,29 @@
                         <ul class="summary-table">
                             <li class="d-flex justify-content-between">
                                 <span>subtotal:</span>
-                                <span>$274.00</span>
+                                <span>{{ number_format($cart->subTotalPrice()) }}đ</span>
                             </li>
                             <li class="d-flex justify-content-between">
                                 <span>delivery:</span>
-                                <span>Free</span>
+                                <span>30.000đ</span>
                             </li>
                             <li class="d-flex justify-content-between">
-                                <span>discount:</span>
-                                <span>-15%</span>
-                            </li>
-                            <li class="d-flex justify-content-between">
-                                <span>total:</span> <span>$232.00</span>
+                                @if (!empty($cart))
+                                    <span>total:</span> <span>{{ number_format($cart->totalPrice_ship()) }}đ</span>
+                                @endif
                             </li>
                         </ul>
                         <div class="checkout-btn mt-100">
-                            <a href="checkout.html" class="btn check-btn">check out</a>
+                            <a href="{{route('checkout')}}" class="btn check-btn">check out</a>
                         </div>
                     </div>
                 </div>
                 <!--    end cart-summfary -->
             </div>
         </div>
+
+        <!-- cart-list -->
+
     </div>
     @yield('container')
     @yield('login')

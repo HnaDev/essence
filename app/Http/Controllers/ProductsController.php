@@ -18,13 +18,6 @@ class ProductsController extends Controller
     public function product()
     {
         $products = Products::all();
-        
-        // $Attr_color = DB::table('Product_Attrs')
-        //             ->join('products','Product_Attrs.product_id','=','products.id')
-        //             ->join('attributes','Product_Attrs.attribute_id','=','attributes.id')
-        //             ->select('product.*,product_attrs.attribute_size_id','attributes.value')
-        //             ->get();
-                   
         return view('admin.pages.product',compact('products'));
     }
     public function product_add()
@@ -40,7 +33,7 @@ class ProductsController extends Controller
     //Create
     public function product_create(CreateProductRequest $req)
     {
-        // dd($req->all());    
+        // dd($req->all());
         if ($req->hasFile('image')) {
             $file = $req->image;
             $file_name = $file->getClientOriginalName();
@@ -65,7 +58,6 @@ class ProductsController extends Controller
         if ($product) {
             if ($req->hasFile('images')) {
                 $files = $req->images;
-
                 foreach ($files as $key => $f) {
                     $file_name1 = $f->getClientOriginalName();
                     $f->move(public_path('upload.product'), $file_name1);
@@ -77,27 +69,6 @@ class ProductsController extends Controller
 
             }
         }
-        // if ($product) {
-        //     // dd(Product_Attrs::all());
-        //     foreach ($req->attr_size_id as $value) {
-                
-        //         Product_Attrs::create([
-        //             'product_id' => $product->id,
-        //             'attribute_size_id'=> $value
-        //         ]);
-                
-        //     }
-               
-        // }
-        // if ($product) {
-        //         foreach ($req->attr_color_id as $value) {
-                   
-        //             Product_Attrs::create([
-        //                 'product_id' => $product->id,
-        //                 'attribute_color_id'=> $value
-        //             ]);
-        //         }
-        // }
         if($product){
                 $atrr = $req->attr_size_id;
                 foreach($atrr as $value){
@@ -108,30 +79,19 @@ class ProductsController extends Controller
                 }
         }
         if($product){
-           
-                $atrr_color = $req->attr_color_id;
-                foreach($atrr_color as $value){
-                    Product_Attrs::create([
-                     'product_id' => $product->id,
-                     'attribute_color_id'=> $value
-                    ]);
-                }
-            
+            $atrr_color = $req->attr_color_id;
+            foreach($atrr_color as $value){
+                Product_Attrs::create([
+                    'product_id' => $product->id,
+                    'attribute_color_id'=> $value
+                ]);
+            }
+
         }
-        
-        
+
+
         return redirect()->route('admin.product')->with('notification', 'Thêm mới thành công');
-
-        // $file_name = $file->getClientOriginalName();
-        // $file->move('upload.product',$file_name);
     }
-
-
-
-    // $Products = Products::create($req->all());
-    // if($Products){
-    //     return redirect()->route('admin.product')->with('notification','Thêm Mới Thành Công');
-    // }
 
 
     //Update_show
@@ -153,7 +113,7 @@ class ProductsController extends Controller
     public function product_update(UpdateProductRequest $req, $id)
     {
 
-        
+
         $product_update = Products::find($id);
 
         if ($req->hasFile('image')) {
@@ -200,30 +160,30 @@ class ProductsController extends Controller
         //     }
         // }
 
-           
+
             $product_attrs = Product_attrs::where('product_id',$id)->delete();
                 $atrr = $req->attr_size_id;
-              
+
                 foreach($atrr as $value){
-                   
+
                     Product_Attrs::create([
                      'product_id' => $id,
                      'attribute_size_id'=> $value
                     ]);
                 }
-        
-      
-                
+
+
+
                 $atrr_color = $req->attr_color_id;
-                
+
                 foreach($atrr_color as $value){
                     Product_Attrs::create([
                      'product_id' => $id,
                      'attribute_color_id'=> $value
                     ]);
                 }
-            
-        
+
+
 
         return redirect()->route('admin.product')->with('notification', 'Cập nhật Thành Công');
     }

@@ -42,12 +42,11 @@ class LoginController extends Controller
                 'email' => $request->email,
                 'phone' => $request->phone,
                 'address' => $request->address,
-                'role' => $request->role,
                 // mã hóa password
                 'password' => Hash::make($request->password)
             ]);
             if ($User) {
-                return redirect()->route('login')->with('notification', 'Đăng kí Thành Công');
+                return redirect()->route('login')->with('login_success', 'Đăng kí Thành Công');
             }
         } catch (\Throwable $th) {
             dd($th);

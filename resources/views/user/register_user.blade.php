@@ -59,7 +59,7 @@
                                             <div class="alert alert-danger cl-red">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                    <div class="form-outline mb-2">
+                                    {{-- <div class="form-outline mb-2">
                                         <div class="form-check">
                                             <input class="form-check-input" name="role" type="radio" value="1"
                                                 id="flexCheckDefault">
@@ -74,7 +74,7 @@
                                                 Người Dùng
                                             </label>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="d-flex flex-column justify-content-center">
                                         <button type="button"
                              ('assets-user') }}/img/               class="btn btn-success btn-block btn-lg gradient-custom-2 text-body">Register

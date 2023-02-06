@@ -3,6 +3,13 @@
     <!-- banner category -->
     <section class="welcome_category">
         <div class="container h-100">
+            {{-- allert notification --}}
+            @if (session('notification'))
+                <div class="alert alert-success text-center">
+                    {{ session('notification') }}
+                </div>
+            @endif
+            {{-- allert notification end --}}
             <div class="row h-100">
                 <div class="col-lg-12">
                     <div class="hero-content">
@@ -54,42 +61,6 @@
     </div>
     <!-- category male and female end -->
 
-    <!--  top catagory  -->
-    <div class="top_catagory_area">
-        <div class="container">
-            <div class="row justify-content-center">
-                <!-- Single Catagory -->
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="single_catagory_area flex_center bg-img"
-                        style="background-image: url({{ url('assets-user') }}/img/bg-img/bg-2.jpg)">
-                        <div class="catagory-content">
-                            <a href="#">Clothing</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Catagory -->
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="single_catagory_area flex_center bg-img"
-                        style="background-image: url({{ url('assets-user') }}/img/bg-img/bg-3.jpg);">
-                        <div class="catagory-content">
-                            <a href="#">Shoes</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Catagory -->
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="single_catagory_area flex_center bg-img"
-                        style="background-image: url({{ url('assets-user') }}/img/bg-img/bg-4.jpg);">
-                        <div class="catagory-content">
-                            <a href="#">Accessories</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--  top catagory end  -->
-
     <!-- global sale -->
     <div class="global_sale padding-40">
         <div class="container">
@@ -101,7 +72,7 @@
                             <div class="sale_text">
                                 <h6>-60%</h6>
                                 <h2>Global Sale</h2>
-                                <a href="#" class="btn check-btn">Buy Now</a>
+                                {{-- <a href="#" class="btn check-btn">Buy Now</a> --}}
                             </div>
                         </div>
                     </div>
@@ -125,150 +96,38 @@
 
         <div class="container">
             <div class="row">
-                @foreach($popular as $value)
-                <div class="col-lg-3 col-md-4 col-6">
-                    <!-- Single Product -->
-                    <div class="single-product-wrapper">
-                        <!-- Product Image -->
-                        <div class="product-img">
-                            <a href="{{route('product',$value->id)}}">
-                             <img src="{{ url('upload.product')}}/{{$value->image}}" alt=""></a>
-                           
-                            <!-- Hover Thumb -->
-                            {{-- <img class="hover-img" src="{{ url('assets-user') }}/img/product-img/product-2.jpg"
+                @foreach ($popular as $value)
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <!-- Single Product -->
+                        <div class="single-product-wrapper">
+                            <!-- Product Image -->
+                            <div class="product-img">
+                                <a href="{{ route('product', $value->id) }}">
+                                    <img src="{{ url('upload.product') }}/{{ $value->image }}" alt=""></a>
+
+                                <!-- Hover Thumb -->
+                                {{-- <img class="hover-img" src="{{ url('assets-user') }}/img/product-img/product-2.jpg"
                                 alt=""> --}}
-                            <!-- Favourite -->
-                            <div class="product-favourite">
-                                <a href="{{ url('assets-user') }}//product-details.html" class="favme fa fa-heart"></a>
                             </div>
-                        </div>
-                        <!-- Product Description -->
-                        <div class="product-description">
-                            <span>{{$value->getBrandName->name}}</span>
-                            <a href="{{route('product',$value->id)}}">
-                                <h6>{{$value->name}}</h6>
-                            </a>
-                            <p class="product-price">{{$value->price}}</p>
+                            <!-- Product Description -->
+                            <div class="product-description">
+                                <span>{{ $value->getBrandName->name }}</span>
+                                <a href="{{ route('product', $value->id) }}">
+                                    <h6>{{ $value->name }}</h6>
+                                </a>
+                                <p class="product-price">{{ $value->price }}</p>
 
-                            <!-- Hover Content -->
-                            <div class="hover-content">
-                                <!-- Add to Cart -->
-                                <div class="add-to-cart-btn">
-                                    <a href="" class="btn essence-btn check-btn">Add to Cart</a>
+                                <!-- Hover Content -->
+                                <div class="hover-content">
+                                    <!-- Add to Cart -->
+                                    <div class="add-to-cart-btn">
+                                        <a href="" class="btn essence-btn check-btn">Mua Ngay</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
-                {{-- <div class="col-lg-3 col-md-4 col-6">
-                    <!-- Single Product -->
-                    <div class="single-product-wrapper">
-                        <!-- Product Image -->
-                        <div class="product-img">
-                            <img src="{{ url('assets-user') }}/img/product-img/product-2.jpg" alt="">
-                            <!-- Hover Thumb -->
-                            <img class="hover-img" src="{{ url('assets-user') }}/img/product-img/product-3.jpg"
-                                alt="">
-                            <!-- Favourite -->
-                            <div class="product-favourite">
-                                <a href="#" class="favme fa fa-heart"></a>
-                            </div>
-                        </div>
-                        <!-- Product Description -->
-                        <div class="product-description">
-                            <span>topshop</span>
-                            <a href="product-details.html">
-                                <h6>Poplin Displaced Wrap Dress</h6>
-                            </a>
-                            <p class="product-price">$80.00</p>
-
-                            <!-- Hover Content -->
-                            <div class="hover-content">
-                                <!-- Add to Cart -->
-                                <div class="add-to-cart-btn">
-                                    <a href="" class="btn essence-btn check-btn">Add to Cart</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-6">
-                    <!-- Single Product -->
-                    <div class="single-product-wrapper">
-                        <!-- Product Image -->
-                        <div class="product-img">
-                            <img src="{{ url('assets-user') }}/img/product-img/product-3.jpg" alt="">
-                            <!-- Hover Thumb -->
-                            <img class="hover-img" src="{{ url('assets-user') }}/img/product-img/product-4.jpg"
-                                alt="">
-
-                            <!-- Product Badge -->
-                            <div class="product-badge offer-badge">
-                                <span>-30%</span>
-                            </div>
-
-                            <!-- Favourite -->
-                            <div class="product-favourite">
-                                <a href="#" class="favme fa fa-heart"></a>
-                            </div>
-                        </div>
-                        <!-- Product Description -->
-                        <div class="product-description">
-                            <span>mango</span>
-                            <a href="./product-details.html">
-                                <h6>PETITE Crepe Wrap Mini Dress</h6>
-                            </a>
-                            <p class="product-price"><span class="old-price">$75.00</span> $55.00</p>
-
-                            <!-- Hover Content -->
-                            <div class="hover-content">
-                                <!-- Add to Cart -->
-                                <div class="add-to-cart-btn">
-                                    <a href="" class="btn essence-btn check-btn">Add to Cart</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-6">
-                    <!-- Single Product -->
-                    <div class="single-product-wrapper">
-                        <!-- Product Image -->
-                        <div class="product-img">
-                            <img src="{{ url('assets-user') }}/img/product-img/product-4.jpg" alt="">
-                            <!-- Hover Thumb -->
-                            <img class="hover-img" src="{{ url('assets-user') }}/img/product-img/product-5.jpg"
-                                alt="">
-
-                            <!-- Product Badge -->
-                            <div class="product-badge new-badge">
-                                <span>New</span>
-                            </div>
-
-                            <!-- Favourite -->
-                            <div class="product-favourite">
-                                <a href="#" class="favme fa fa-heart"></a>
-                            </div>
-                        </div>
-                        <!-- Product Description -->
-                        <div class="product-description">
-                            <span>mango</span>
-                            <a href="product-details.html">
-                                <h6>PETITE Belted Jumper Dress</h6>
-                            </a>
-                            <p class="product-price">$80.00</p>
-
-                            <!-- Hover Content -->
-                            <div class="hover-content">
-                                <!-- Add to Cart -->
-                                <div class="add-to-cart-btn">
-                                    <a href="#" class="btn essence-btn  check-btn">Add to Cart</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </div>
     </section>
@@ -310,42 +169,38 @@
 
         <div class="container">
             <div class="row">
-                @foreach($newpro as $value)
-                <div class="col-lg-3 col-md-4 col-6">
-                    <!-- Single Product -->
-                    <div class="single-product-wrapper">
-                        <!-- Product Image -->
-                        <div class="product-img">
-                            <a href="{{route('product',$value->id)}}">
-                                <img src="{{ url('upload.product') }}/{{$value->image}}" alt="">
-                            </a>
-                            
-                            <!-- Hover Thumb -->
-                            {{-- <img class="hover-img" src="{{ url('assets-user') }}/img/product-img/product-2.jpg"
-                                alt=""> --}}
-                            <!-- Favourite -->
-                            <div class="product-favourite">
-                                <a href="" class="favme fa fa-heart"></a>
-                            </div>
-                        </div>
-                        <!-- Product Description -->
-                        <div class="product-description">
-                            <span>{{$value->getBrandName->name}}</span>
-                            <a href="{{route('product',$value->id)}}">
-                                <h6>{{$value->name}}</h6>
-                            </a>
-                            <p class="product-price">{{$value->price}}</p>
+                @foreach ($newpro as $value)
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <!-- Single Product -->
+                        <div class="single-product-wrapper">
+                            <!-- Product Image -->
+                            <div class="product-img">
+                                <a href="{{ route('product', $value->id) }}">
+                                    <img src="{{ url('upload.product') }}/{{ $value->image }}" alt="">
+                                </a>
 
-                            <!-- Hover Content -->
-                            <div class="hover-content">
-                                <!-- Add to Cart -->
-                                <div class="add-to-cart-btn">
-                                    <a href="#" class="btn essence-btn check-btn">Add to Cart</a>
+                                <!-- Hover Thumb -->
+                                {{-- <img class="hover-img" src="{{ url('assets-user') }}/img/product-img/product-2.jpg"
+                                alt=""> --}}
+                            </div>
+                            <!-- Product Description -->
+                            <div class="product-description">
+                                <span>{{ $value->getBrandName->name }}</span>
+                                <a href="{{ route('product', $value->id) }}">
+                                    <h6>{{ $value->name }}</h6>
+                                </a>
+                                <p class="product-price">{{ $value->price }}</p>
+
+                                <!-- Hover Content -->
+                                <div class="hover-content">
+                                    <!-- Add to Cart -->
+                                    <div class="add-to-cart-btn">
+                                        <a href="" class="btn essence-btn check-btn">Mua Ngay</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
             </div>
         </div>

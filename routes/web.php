@@ -13,6 +13,7 @@ use App\Http\Controllers\AttributeController;
 use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,17 +31,32 @@ Route::get('/', [UserController::class,'index'])->name('user.index');
 Route::get('/login', [LoginController::class,'index'])->name('login');
 Route::post('/login', [LoginController::class,'loginUser'])->name('loginUser');
 Route::get('/logout', [LoginController::class,'logout'])->name('logout');
+
 //------- register ----------//
 Route::get('/register', [LoginController::class,'register'])->name('register');
 Route::post('/register', [LoginController::class,'register_create']);
 //login
 Route::get('/product/{id}', [UserController::class,'product'])->name('product');
 //product
+//-------- product --------//
+Route::get('/product', [UserController::class,'product'])->name('product');
+//--------- search --------//
 Route::get('/search', [UserController::class,'search'])->name('search');
-//--------- receipt -------//
-Route::get('/receipt', [UserController::class,'receipt'])->name('receipt');
+
+
 //--------- OrderManagement -------//
 Route::get('/OrderManagement', [UserController::class,'OrderManagement'])->name('OrderManagement');
+
+
+//----------- cart -----------------//
+Route::get('/cart', [CartController::class,'show'])->name('show_card');
+Route::post('/add-cart/{id}', [CartController::class,'add'])->name('cart.add');
+Route::post('/update-cart/{id}', [CartController::class,'update'])->name('cart.update');
+Route::get('/delete-cart/{id}', [CartController::class,'delete'])->name('cart.delete');
+//--------- checkout -------//
+Route::get('/checkout', [CartController::class,'checkout'])->name('checkout');
+Route::post('/checkout', [CartController::class, 'Postcheckout']);
+
 
 
 

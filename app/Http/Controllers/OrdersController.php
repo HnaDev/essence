@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Orders;
+use App\Models\Order_details;
 
 class OrdersController extends Controller
 {
@@ -13,7 +15,8 @@ class OrdersController extends Controller
      */
     public function orders()
     {
-        return view('admin.pages.orders');
+        $order = Orders::all();
+        return view('admin.pages.orders',compact('order'));
     }
 
     /**
