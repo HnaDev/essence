@@ -18,7 +18,7 @@
         <!-- Navbar Right Menu-->
         <ul class="app-nav">
             <!-- User Menu-->
-            <li><a class="app-nav__item" href="/index.html"><i class='bx bx-log-out bx-rotate-180'></i></a></li>
+            <li><a class="app-nav__item" href="{{route('admin.logout')}}"><i class='bx bx-log-out bx-rotate-180'></i></a></li>
         </ul>
     </header>
     <!---------------- Sidebar menu --------------->
@@ -39,6 +39,7 @@
     <script src="{{ url('assets-admin') }}/js/bootstrap.min.js"></script>
     <script src="{{ url('assets-admin') }}/js/main.js"></script>
     <script src="{{ url('assets-admin') }}/js/plugins/pace.min.js"></script>
+    @yield('src')
 </body>
 
 </html>

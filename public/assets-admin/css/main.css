@@ -15748,3 +15748,25 @@ text-align:center;
     outline: none;
     border: 1px solid red;
 }
+.btn-search{
+    margin-bottom: 0px !important;
+    background-color: #f1f1f1;
+    border-left: none;
+    border-right: 1px solid #0a58ca !important;
+    border-bottom: 1px solid #0a58ca !important;
+    border-top: 1px solid #0a58ca !important;
+    outline: none;
+    margin-left: -4px !important;
+
+}
+.input-search{
+    border-left: 1px solid #0a58ca !important;
+    border-bottom: 1px solid #0a58ca !important;
+    border-top: 1px solid #0a58ca !important;
+    outline: none;
+}
+.dg{
+    color: #721c24 !important;
+    background-color: #f8d7da !important;
+    border-color: #f5c6cb !important;
+}

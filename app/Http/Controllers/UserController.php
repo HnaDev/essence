@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Categories;
+use App\Models\Products;
+use App\Models\Product_attrs;
+use App\Models\Attributes;
 class UserController extends Controller
 {
     /**
@@ -13,11 +16,18 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('user.index');
+        $Categories = Categories::all();
+        $popular = Products::orderBy('id','ASC')->limit(4)->get();
+        $newpro = Products::orderBy('id','DESC')->limit(8)->get();
+        return view('user.index',compact('Categories','popular','newpro'));
     }
-    public function product()
+    public function product($id)
     {
-        return view('user.product_details');
+        $prodetail = Products::find($id);
+
+        
+        
+        return view('user.product_details',compact('prodetail'));
     }
     public function search()
     {
@@ -32,9 +42,9 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function OrderManagement()
     {
-        //
+        return view('user.OrderManagement');
     }
 
     /**

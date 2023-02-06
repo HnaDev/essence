@@ -16,11 +16,11 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name',255)->unique();
-            $table->float('price');
-            $table->float('sale_price');
+            $table->double('price');
+            $table->double('sale_price');
             $table->text('description');
-            $table->bigInteger('size_id')->unsigned();
-            $table->bigInteger('color_id')->unsigned();
+            // $table->bigInteger('size_id')->unsigned();
+            // $table->bigInteger('color_id')->unsigned();
             $table->string('image',255);
             $table->tinyInteger('status');
             $table->bigInteger('category_id')->unsigned();
@@ -29,8 +29,8 @@ class CreateProductsTable extends Migration
             $table->string('origin',255);
             $table->string('year',255);
             $table->integer('stock')->unsigned();
-            $table->foreign('size_id')->references('id')->on('attributes');
-            $table->foreign('color_id')->references('id')->on('attributes');
+            // $table->foreign('size_id')->references('id')->on('attributes');
+            // $table->foreign('color_id')->references('id')->on('attributes');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->foreign('brand_id')->references('id')->on('brands');
             $table->foreign('promotion_id')->references('id')->on('promotions');

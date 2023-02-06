@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categories extends Model
 {
-    protected $fillable = ['type','name','status'];
+    protected $fillable = ['type', 'name', 'status'];
     use HasFactory;
+
+    // used to search
+    public function scopeSearch($query)
+    {
+        $query = $query->where('type','like','%'.request()->keyword.'%');
+        return $query;
+    }
 }

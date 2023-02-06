@@ -12,7 +12,8 @@ class CategorysController extends Controller
 
     public function category()
     {
-        $Categories = Categories::paginate(8);
+        // withQueryString() : retain parameters on url
+        $Categories = Categories::search()->paginate(6)->withQueryString();
         return view('admin.pages.category', compact('Categories'));
     }
 

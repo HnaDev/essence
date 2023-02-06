@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Auth;
 class AdminsController extends Controller
 {
     /**
@@ -15,15 +15,27 @@ class AdminsController extends Controller
     {
         return view('admin.pages.index');
     }
+    public function loginAdmin()
+    {
+        return view('admin.pages.login_admin');
+    }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function PostloginAdmin(Request $req)
     {
-        //
+        $credentials = $req->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+        if (Auth::attempt($credentials)) {
+            return redirect()->route('admin.index');
+        } else {
+            return redirect()->back()->with('notification', 'Đăng nhập không thành công');
+        }
     }
 
     /**
@@ -32,9 +44,10 @@ class AdminsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function logoutAdmin()
     {
-        //
+        Auth::logout();
+        return redirect()->route('admin.loginAdmin');
     }
 
     /**

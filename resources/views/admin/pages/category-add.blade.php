@@ -47,7 +47,7 @@
                         <div class="form-group">
                             <td class="table-td-center">
                                 <button type="submit" class="btn btn-success">Lưu</button>
-                                <a href="{{ route('admin.category') }}" type="submit" class="btn btn-danger">Hủy</a>
+                                <a href="{{route('admin.category')}}" type="submit" class="btn btn-danger">Hủy</a>
                             </td>
                         </div>
                     </form>

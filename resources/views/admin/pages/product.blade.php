@@ -4,8 +4,26 @@
       <ul class="app-breadcrumb breadcrumb side">
         <li class="breadcrumb-item active"><a href="#"><b>Danh sách sản phẩm</b></a></li>
       </ul>
-      <div id="clock"></div>
+      <ul class="app-breadcrumb breadcrumb side ">
+            <li class="breadcrumb-item active">
+                <form action="" method="get">
+                    <div class="input-group">
+                        <input type="text" name="keyword" class="input-search form-control rounded" placeholder="Search"
+                            aria-label="Search" aria-describedby="search-addon" />
+                        <button type="submit" class="btn-search btn btn-outline-primary">Search</button>
+                    </div>
+                </form>
+            </li>
+        </ul>
     </div>
+   
+    {{-- allert notification --}}
+    @if (session('notification'))
+      <div class="alert alert-success">
+          {{ session('notification') }}
+      </div>
+    @endif
+        {{-- allert notification end --}}
     <div class="row">
       <div class="col-md-12">
         <div class="tile">
@@ -30,32 +48,42 @@
                   <th>Danh Mục</th>
                   <th>Thương Hiệu</th>
                   <th>Khuyến Mại</th>
+                  <th>Tồn kho</th>
                   <th>Tính Năng</th>
                 </tr>
               </thead>
               <tbody>
+                @foreach ($products as $item)
+
                 <tr>
-                  <td>Sản Phẩm 1</td>
-                  <td>20.000.000đ</td>
-                  <td>18.000.000đ</td>
+                  <td>{{$item->name}}</td>
+                  <td>{{$item->price}}</td>
+                  <td>{{$item->sale_price}}</td>
                   <td>
-                    <img src="https://i.pinimg.com/564x/2b/3c/7f/2b3c7f865179d2fa774fc5ee79d38b79.jpg" width="100px"
+                    <img src="{{url('upload.product')}}/{{$item->image}}" width="200px"
                       alt="">
                   </td>
-                  <td width="300px">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, ut.</td>
-                  <td>Còn Hàng</td>
-                  <td>Việt Nam</td>
-                  <td>2021</td>
-                  <td>Danh mục áo</td>
-                  <td>Zara</td>
-                  <td>10%</td>
+                  <td width="300px">{{$item->description}}</td>
+                  @if ($item->status == 1)
+                  <td class="m-3 p-1 badge bg-success">Đang bán</td>
+                  @else
+                  <td class="m-3 p-1 badge bg-danger">Ngừng bán</td>
+                  @endif
+                  <td>{{$item->origin}}</td>
+                  <td>{{$item->year}}</td>
+                  <td>{{$item->getCategoryName->name}}</td>
+                  <td>{{$item->getBrandName->name}}</td>
+                  <td>{{$item->getPromotionName->name}}</td>
+                  <td>{{$item->stock}}</td>
                   <td class="table-td-center">
-                    <button class="btn btn-success">Sửa</button>
-                    <button class="btn btn-danger">Xóa</button>
+                      <a href="{{route('admin.product_update_show',$item->id)}}" type="submit" class="btn btn-success">Sửa</a>
+                      <a href="{{route('admin.product_delete',$item->id)}}" type="submit" class="btn btn-danger" onclick = "return confirm('Bạn có muốn xóa?')">Xóa</a>
                   </td>
                 </tr>
+                @endforeach
             </table>
           </div>
+
         </div>
       </div>
     </div>

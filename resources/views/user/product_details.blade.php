@@ -15,7 +15,9 @@
                     <div class="col-4">
                         <div class="single-cart-item">
                             <a href="#" class="product-image">
+                                
                                 <img src="img/product-img/product-1.jpg" class="cart-thumb" alt="">
+                                
                                 <!-- Cart Item Desc -->
                                 <div class="cart-item-desc">
                                     <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
@@ -97,44 +99,59 @@
                     <div class="col-lg-6">
                         <div class="single_product_thumb">
                             <div class="product_thumbnail_slides owl-carousel">
+                                @foreach($prodetail->imgs as $value)
                                 <div class="item">
-                                    <img class="bg-img" src="{{ url('assets-user') }}/img/product-img/product-big-1.jpg" alt="">
+                                    <img class="bg-img" src="{{url('upload.product')}}\{{$value->image}}" alt="">
                                 </div>
-                                <div class="item">
+                                @endforeach
+                                {{-- <div class="item">
                                     <img class="bg-img" src="{{ url('assets-user') }}/img/product-img/product-big-2.jpg" alt="">
                                 </div>
                                 <div class="item">
                                     <img class="bg-img" src="{{ url('assets-user') }}/img/product-img/product-big-3.jpg" alt="">
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
+                    
                     <div class="col-lg-6">
+                        
                         <div class="single_product_desc">
-                            <span>mango</span>
+                            <span>{{$prodetail->getBrandName->name}}</span>
                             <a href="cart.html">
-                                <h2>One Shoulder Glitter Midi Dress</h2>
+                                <h2>{{$prodetail->name}}</h2>
                             </a>
-                            <p class="product-price"><span class="old-price">$65.00</span> $49.00</p>
-                            <p class="product-desc">Mauris viverra cursus ante laoreet eleifend. Donec vel fringilla ante.
-                                Aenean
-                                finibus velit id urna vehicula, nec maximus est sollicitudin.</p>
+                            @if($prodetail->sale_price >0)
+                            <p class="product-price"><span>{{$prodetail->price}}</span>{{$prodetail->sale_price}}</p>
+                            
+                            @else
+                            <p class="product-price">{{$prodetail->price}}</p>
+                            @endif
+                            <p class="product-desc">{!!$prodetail->description!!}</p>
     
                             <!-- Form -->
                             <form class="cart-form" method="post">
                                 <!-- Select Box -->
                                 <div class="select-box padding-40">
                                     <select name="select" id="productSize">
-                                        <option value="1">Size: XL</option>
-                                        <option value="2">Size: X</option>
-                                        <option value="3">Size: M</option>
-                                        <option value="4">Size: S</option>
+                                        @foreach($prodetail->attrs as $value)
+                                        @if($value->attribute_size_id != '')
+                                        @php 
+                                        
+                                        @endphp
+                                        <option value="1">{{$value->getSize($value->attribute_size_id)->value}}</option>
+                                        @endif
+                                        @endforeach
                                     </select>
                                     <select name="select" id="productColor">
-                                        <option value="value">Color: Black</option>
-                                        <option value="value">Color: White</option>
-                                        <option value="value">Color: Red</option>
-                                        <option value="value">Color: Purple</option>
+                                       @foreach($prodetail->attrs as $value)
+                                        @if($value->attribute_color_id != '')
+                                        @php 
+                                        
+                                        @endphp
+                                        <option value="1">{{$value->getColor($value->attribute_color_id)->value}}</option>
+                                        @endif
+                                        @endforeach
                                     </select>
                                 </div>
                                 <!-- Cart & Favourite Box -->
@@ -150,6 +167,7 @@
                             </form>
                         </div>
                     </div>
+                   
                 </div>
             </div>
         </div>
