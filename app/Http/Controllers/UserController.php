@@ -20,11 +20,7 @@ class UserController extends Controller
         $Categories = Categories::all();
         $popular = Products::orderBy('id','ASC')->limit(4)->get();
         $newpro = Products::orderBy('id','DESC')->limit(8)->get();
-<<<<<<< HEAD
-        return view('user.index',compact('Categories','popular','newpro'));
-=======
         return view('user.index',compact('Categories','popular','newpro','cart'));
->>>>>>> 295101973918240179b13b0989d1b955b88e2445
     }
     public function product($id)
     {
