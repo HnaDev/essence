@@ -7,7 +7,7 @@
       <ul class="app-breadcrumb breadcrumb side ">
             <li class="breadcrumb-item active">
                 <form action="" method="get">
-                    <div class="input-group">
+                    <div class="input-group z-index-0">
                         <input type="text" name="keyword" class="input-search form-control rounded" placeholder="Search"
                             aria-label="Search" aria-describedby="search-addon" />
                         <button type="submit" class="btn-search btn btn-outline-primary">Search</button>
@@ -16,7 +16,7 @@
             </li>
         </ul>
     </div>
-   
+
     {{-- allert notification --}}
     @if (session('notification'))
       <div class="alert alert-success">

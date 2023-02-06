@@ -10,6 +10,11 @@
                                 {{ session('notification') }}
                             </div>
                         @endif
+                        @if (session('login_success'))
+                            <div class="alert alert-success">
+                                {{ session('login_success') }}
+                            </div>
+                        @endif
                     {{-- allert notification end --}}
                     <div class="card rounded-3 text-black">
                         <div class="row g-0">

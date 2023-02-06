@@ -13,11 +13,11 @@ class product_attrs extends Model
     public function getColor($attribute_color_id)
     {
         return $color = DB::table('attributes')->where('id',$attribute_color_id)->first();
-       
+
     }
     public function getSize($attribute_size_id)
     {
         return $color = DB::table('attributes')->where('id',$attribute_size_id)->first();
-       
+
     }
 }

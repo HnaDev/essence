@@ -28,10 +28,6 @@
                             <label class="control-label">Gía Trị</label>
                             <input class="form-control v2" type="text" name="">
                         </div>
-                        <div class="form-group col-md-3">
-                            <label class="control-label">Loại Thuộc Tính</label>
-                            <input class="form-control" type="text" name="type">
-                        </div>
                         <div class="form-group ">
                             <td class="table-td-center">
                                 <button type="submit" class="btn btn-success">Lưu</button>
