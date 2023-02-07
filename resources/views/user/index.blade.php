@@ -1,6 +1,7 @@
 @extends('master_user')
 @section('container')
     <!-- banner category -->
+    {{-- {{dd(session()->get('cart'))}} --}}
     <section class="welcome_category">
         <div class="container h-100">
             {{-- allert notification --}}
@@ -104,7 +105,6 @@
                             <div class="product-img">
                                 <a href="{{ route('product', $value->id) }}">
                                     <img src="{{ url('upload.product') }}/{{ $value->image }}" alt=""></a>
-
                                 <!-- Hover Thumb -->
                                 {{-- <img class="hover-img" src="{{ url('assets-user') }}/img/product-img/product-2.jpg"
                                 alt=""> --}}
@@ -115,18 +115,19 @@
                                 <a href="{{ route('product', $value->id) }}">
                                     <h6>{{ $value->name }}</h6>
                                 </a>
-                                <p class="product-price">{{ $value->price }}</p>
+                                <p class="product-price text-danger">{{ number_format($value->price) }}đ</p>
 
                                 <!-- Hover Content -->
                                 <div class="hover-content">
                                     <!-- Add to Cart -->
                                     <div class="add-to-cart-btn">
-                                        <a href="" class="btn essence-btn check-btn">Mua Ngay</a>
+                                        <a href="{{ route('product', $value->id) }}" class="btn essence-btn check-btn">View Product Details</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </form>
                 @endforeach
             </div>
         </div>
@@ -189,13 +190,13 @@
                                 <a href="{{ route('product', $value->id) }}">
                                     <h6>{{ $value->name }}</h6>
                                 </a>
-                                <p class="product-price">{{ $value->price }}</p>
+                                <p class="product-price text-danger">{{ number_format($value->price) }}đ</p>
 
                                 <!-- Hover Content -->
                                 <div class="hover-content">
                                     <!-- Add to Cart -->
                                     <div class="add-to-cart-btn">
-                                        <a href="" class="btn essence-btn check-btn">Mua Ngay</a>
+                                        <a href="{{ route('product', $value->id) }}" class="btn essence-btn check-btn">View Product Details</a>
                                     </div>
                                 </div>
                             </div>
