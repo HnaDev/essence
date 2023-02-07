@@ -36,7 +36,7 @@ class LoginController extends Controller
     public function register_create(RegisterRequest $request)
     {
 
-        try {
+       
             $User = Users::create([
                 'full_name' => $request->full_name,
                 'email' => $request->email,
@@ -45,12 +45,8 @@ class LoginController extends Controller
                 // mã hóa password
                 'password' => Hash::make($request->password)
             ]);
-            if ($User) {
-                return redirect()->route('login')->with('login_success', 'Đăng kí Thành Công');
-            }
-        } catch (\Throwable $th) {
-            dd($th);
-        }
+            
+        
     }
 
     /**
