@@ -73,15 +73,7 @@
                   @endforeach
                 </select>
                </div>
-              <div class="form-group col-md-3">
-                <label for="exampleSelect1" class="control-label">Khuyến Mại</label>
-                <select class="form-control" id="exampleSelect1" name="promotion_id" >
-                  <option>-- Chọn CT Khuyến mại --</option>
-                  @foreach($promotion as $value)
-                  <option value="{{$value->id}}"{{($value->id == $product->promotion_id)? 'selected' :''}}>{{$value->name}}</option>
-                  @endforeach
-                </select>
-              </div>
+             
               <div class="form-group col-md-3 ">
                             <label for="exampleSelect1" class="control-label">Trạng Thái</label>
                             <div class="form-check">
@@ -96,9 +88,9 @@
                                     id="flexRadioDefault2" {{$product->status == 0 ? "checked": ""}}>
                                 <label class="form-check-label" for="flexRadioDefault2">Ngừng bán</label>
                             </div>
-                            @error('status')
+                            {{-- @error('status')
                               <div class="alert alert-danger">{{$message}}</div>
-                            @enderror
+                            @enderror --}}
               </div>
               <div class="form-group col-md-3">
                 <label for="exampleSelect1" class="control-label">Kích thước</label>
@@ -114,9 +106,7 @@
                   <label class="form-check-label">{{$value->value}}</label>
                  
                   @endforeach
-                  {{-- @error('size_id')
-                  <div class="alert alert-danger">{{$message}}</div>
-                  @enderror --}}
+                  
                 </select>
               </div>
               <div class="form-group col-md-3">
@@ -135,9 +125,7 @@
                   <label class="form-check-label">{{$value->value}}</label>
                  
                   @endforeach
-                  {{-- @error('color_id')
-                  <div class="alert alert-danger">{{$message}}</div>
-                  @enderror --}}
+                 
                 </select>
               </div>
               

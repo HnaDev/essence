@@ -17,21 +17,24 @@ class UserController extends Controller
     public function index()
     {
         $Categories = Categories::all();
-<<<<<<< HEAD
         $popular = Products::orderBy('id','ASC')->limit(4)->get();
         $newpro = Products::orderBy('id','DESC')->limit(8)->get();
         return view('user.index',compact('Categories','popular','newpro'));
-=======
-        return view('user.index', compact('Categories'));
->>>>>>> c193dba5f4aaeca61ebbfa46e18d2e3e3dcac2fb
     }
+
+    //Show chi tiết sản phẩm
     public function product($id)
     {
         $prodetail = Products::find($id);
-
-        
         
         return view('user.product_details',compact('prodetail'));
+    }
+    //Show các sản phẩm của Woman
+    public function womanpro()
+    {
+        $products = Products::Where('type','1')->get();
+        // dd($products);
+        return view('user.product_woman',compact('products'));
     }
     public function search()
     {

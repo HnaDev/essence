@@ -38,6 +38,8 @@ Route::post('/register', [LoginController::class,'register_create']);
 Route::get('/product/{id}', [UserController::class,'product'])->name('product');
 //product
 Route::get('/search', [UserController::class,'search'])->name('search');
+Route::get('/womanproduct',[UserController::class,'womanpro'])->name('womanPro');
+
 //--------- receipt -------//
 Route::get('/receipt', [UserController::class,'receipt'])->name('receipt');
 //--------- OrderManagement -------//
