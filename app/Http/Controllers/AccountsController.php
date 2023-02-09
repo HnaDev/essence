@@ -12,4 +12,9 @@ class AccountsController extends Controller
         $Users = Users::all();
         return view('admin.pages.account',compact('Users'));
     }
+    public function account_delete($id)
+    {
+        Users::find($id)->delete();
+        return redirect()->back()->with('notification','Xóa Thành Công');
+    }
 }

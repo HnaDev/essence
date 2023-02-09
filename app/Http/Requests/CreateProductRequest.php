@@ -28,9 +28,7 @@ class CreateProductRequest extends FormRequest
             'name'=>'required|min:3',
             'price'=>'required|numeric',
             'image'=> 'required|mimes:jpg,bmp,png',
-            'category_id'=>'required',
-            
-            
+            'category_id'=>'required',       
             'year'=>'required',
             'stock'=>'required',
             'origin'=>'required',
@@ -49,7 +47,6 @@ class CreateProductRequest extends FormRequest
             'image.mimes'=> 'Ảnh chưa đúng định dạng',
             'category_id.required'=>'Chưa chọn danh mục',
             'brand_id.required'=>'Chưa chọn thương hiệu',
-           
             'year.required'=>'Chưa nhập năm sản xuất',
             'stock.required'=>'Chưa nhập tồn kho',
             'origin.required'=>'Chưa nhập xuất xứ',

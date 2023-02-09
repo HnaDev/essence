@@ -45,8 +45,12 @@ class LoginController extends Controller
                 // mã hóa password
                 'password' => Hash::make($request->password)
             ]);
-            
-        
+            if ($User) {
+                return redirect()->route('login')->with('login_success', 'Sign Up Success !');
+            }
+        } catch (\Throwable $th) {
+            dd($th);
+        }
     }
 
     /**
@@ -66,7 +70,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             return redirect()->route('user.index');
         } else {
-            return redirect()->back()->with('notification', 'Đăng nhập không thành công');
+            return redirect()->back()->with('notification', 'Login unsuccessful !');
         }
     }
 

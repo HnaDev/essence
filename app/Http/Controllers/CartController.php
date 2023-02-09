@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Products;
 use App\Models\Order_details;
 use App\Helper\Cart;
+use App\Models\payment_method;
 use Auth;
 
 class CartController extends Controller
@@ -43,9 +44,10 @@ class CartController extends Controller
     public function checkout()
     {
         if (Auth::check()) {
-            return view('user.receipt');
+            $payment_method = payment_method::all();
+            return view('user.receipt',compact('payment_method'));
         } else {
-            return redirect()->route('login')->with('notification', 'Vui Lòng Đăng Nhập Để Tiếp Tục Mua Hàng');
+            return redirect()->route('login')->with('notification', 'Please Login To Continue Shopping');
         }
     }
     public function Postcheckout(Request $request, Cart $cart)
@@ -65,10 +67,11 @@ class CartController extends Controller
                 'phone' => $request->phone,
                 'email' => $request->email,
                 'address' => $request->address,
-                'note' => $request->note
+                'note' => $request->note,
+                'payment_method' => $request->payment_method
             ]);
             foreach ($cart->getItem() as $item) {
-                $order_dt = Order_details::create([
+                 Order_details::create([
                     'order_id' => $order->id,
                     'pro_id' => $item['id'],
                     'name' => $item['name'],
@@ -78,7 +81,7 @@ class CartController extends Controller
                 ]);
             }
             $cart->remove();
-            return redirect()->route('user.index')->with('notification', 'Cảm Ơn Bạn Đã Mua Hàng');
+            return redirect()->route('user.index')->with('notification', 'Thank you for your purchase!');
         } catch (\Throwable $th) {
             dd($th);
         }

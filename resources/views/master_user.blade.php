@@ -429,7 +429,7 @@
                                             {{-- </a> --}}
                                         @else
                                             <a href="{{ route('login') }}" class="card-link name_user_hv">
-                                                <h6 id="name_user">đăng nhập</h6>
+                                                <h6 id="name_user">Log In</h6>
                                             </a>
                                         @endif
                                     </div>
@@ -439,15 +439,15 @@
                         <div class="card-body text-center">
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
-                                    <a href="{{ url('OrderManagement') }}" class="card-link">Quản Lý Đơn Hàng</a>
+                                    <a href="{{ url('OrderManagement') }}" class="card-link">Purchased Orders</a>
                                 </li>
                                 @if (Auth::check())
                                     <li class="list-group-item">
-                                        <a href="{{ route('logout') }}" class="card-link">Đăng Xuất</a>
+                                        <a href="{{ route('logout') }}" class="card-link">Log Out</a>
                                     </li>
                                 @else
                                     <li class="list-group-item">
-                                        <a href="{{ url('register') }}" class="card-link">Đăng kí</a>
+                                        <a href="{{ url('register') }}" class="card-link">Register</a>
                                     </li>
                                 @endif
                         </div>
@@ -497,29 +497,33 @@
                 <!-- end cart-list -->
 
                 <!-- cart-summary -->
-                <div class="col-8">
-                    <div class="cart-amount-summary">
-                        <h2>Summary</h2>
-                        <ul class="summary-table">
-                            <li class="d-flex justify-content-between">
-                                <span>subtotal:</span>
-                                <span>{{ number_format($cart->subTotalPrice()) }}đ</span>
-                            </li>
-                            <li class="d-flex justify-content-between">
-                                <span>delivery:</span>
-                                <span>30.000đ</span>
-                            </li>
-                            <li class="d-flex justify-content-between">
-                                @if (!empty($cart))
-                                    <span>total:</span> <span>{{ number_format($cart->totalPrice_ship()) }}đ</span>
-                                @endif
-                            </li>
-                        </ul>
-                        <div class="checkout-btn mt-100">
-                            <a href="{{route('checkout')}}" class="btn check-btn">check out</a>
+                @if (Session()->get('cart'))
+                    <div class="col-8">
+                        <div class="cart-amount-summary">
+                            <h2>Summary</h2>
+                            <ul class="summary-table">
+                                <li class="d-flex justify-content-between">
+                                    <span>subtotal:</span>
+                                    <span>{{ number_format($cart->subTotalPrice()) }}đ</span>
+                                </li>
+                                <li class="d-flex justify-content-between">
+                                    <span>delivery:</span>
+                                    <span>30.000đ</span>
+                                </li>
+                                <li class="d-flex justify-content-between">
+                                    @if (!empty($cart))
+                                        <span>total:</span> <span>{{ number_format($cart->totalPrice_ship()) }}đ</span>
+                                    @endif
+                                </li>
+                            </ul>
+                            <div class="checkout-btn mt-100">
+                                <a href="{{ route('checkout') }}" class="btn check-btn">check out</a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @else
+                    <h5 class="text-center no-shopping" style="height: 72px;line-height: 80px;">You Have No Products In Shopping Cart !</h5>
+                @endif
                 <!--    end cart-summfary -->
             </div>
         </div>
@@ -586,7 +590,7 @@
                     </div>
                 </div>
                 <!-- Single Widget Area -->
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6 pl-2rem">
                     <div class="single_widget_area">
                         <div class="footer_social_area">
                             <a href="#"><i class="fa-brands fa-facebook"></i></a>

@@ -7,11 +7,11 @@
                     <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                         <div class="card" style="border-radius: 15px;">
                             <div class="card-body p-4">
-                                <h2 class="text-uppercase text-center mb-2">Tạo Tài Khoản</h2>
+                                <h2 class="text-uppercase text-center mb-2">CREATE ACCOUNT</h2>
                                 <form method="post" action="">
                                     @csrf
                                     <div class="form-outline mb-3">
-                                        <label class="form-label" for="form3Example1cg">Họ Và Tên</label>
+                                        <label class="form-label" for="form3Example1cg">Full Name</label>
                                         <input name="full_name" type="text" id="form3Example1cg"
                                             class="form-control form-control-lg" />
                                         @error('full_name')
@@ -28,14 +28,14 @@
                                         @enderror
                                     </div>
                                     <div class="form-outline mb-2">
-                                        <label for="exampleFormControlTextarea1" class="form-label">Địa Chỉ</label>
+                                        <label for="exampleFormControlTextarea1" class="form-label">Address</label>
                                         <textarea name="address" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                         @error('address')
                                             <div class="alert alert-danger cl-red">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-outline mb-2">
-                                        <label for="exampleFormControlTextarea1" class="form-label">Số Điện Thoại</label>
+                                        <label for="exampleFormControlTextarea1" class="form-label">Phone</label>
                                         <input class="form-control" name="phone" id="exampleFormControlTextarea1">
                                         @error('phone')
                                         <div class="alert alert-danger cl-red">{{ $message }}</div>
@@ -43,7 +43,7 @@
                                     </div>
 
                                     <div class="form-outline mb-2">
-                                        <label class="form-label" for="form3Example4cg">Mật Khẩu</label>
+                                        <label class="form-label" for="form3Example4cg">Password</label>
                                         <input type="password" name="password" id="form3Example4cg"
                                             class="form-control form-control-lg" />
                                             @error('password')
@@ -52,7 +52,7 @@
                                     </div>
 
                                     <div class="form-outline mb-2">
-                                        <label class="form-label" for="form3Example4cdg">Nhập Lại Mật Khẩu</label>
+                                        <label class="form-label" for="form3Example4cdg">Enter The Password</label>
                                         <input type="password" name="confirmpassword" id="form3Example4cdg"
                                             class="form-control form-control-lg" />
                                             @error('confirmpassword')
@@ -76,13 +76,18 @@
                                         </div>
                                     </div> --}}
                                     <div class="d-flex flex-column justify-content-center">
+<<<<<<< HEAD
                                         <button type="button"
                              ('assets-user') }}/img/               class="btn btn-success btn-block btn-lg gradient-custom-2 text-body">Register
+=======
+                                        <button type="submit"
+                                            class="btn btn-success btn-block btn-lg gradient-custom-2 text-body">Register
+>>>>>>> 58fa32bd99f8aa766c700846265032fb06d126b1
                                         </button>
                                     </div>
 
-                                    <p class="text-center text-muted mt-5 mb-0">Bạn đã có tài khoản ?
-                                        <a href="{{route('login')}}" class="fw-bold text-body"><u>Đăng Nhập Tại Đây !</u></a>
+                                    <p class="text-center text-muted mt-5 mb-0">Do you already have an account ?
+                                        <a href="{{route('login')}}" class="fw-bold text-body"><u>Sign In Here !</u></a>
                                     </p>
                                 </form>
                             </div>

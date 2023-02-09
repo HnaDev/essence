@@ -22,10 +22,19 @@ class UserController extends Controller
         $newpro = Products::orderBy('id','DESC')->limit(8)->get();
         return view('user.index',compact('Categories','popular','newpro','cart'));
     }
+
+    //Show chi tiết sản phẩm
     public function product($id)
     {
         $prodetail = Products::find($id);
         return view('user.product_details',compact('prodetail'));
+    }
+    //Show các sản phẩm của Woman
+    public function womanpro()
+    {
+        $products = Products::Where('type','1')->get();
+        // dd($products);
+        return view('user.product_woman',compact('products'));
     }
     public function search()
     {

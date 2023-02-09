@@ -49,6 +49,15 @@
                                     <label for="" class="form-label">Order notes</label>
                                     <textarea class="form-control" id="" rows="3" name="note" value="note"></textarea>
                                 </div>
+                                <div class=" col-12 mb-3">
+                                        <label for="exampleSelect1" class="control-label">Khuyến Mại</label>
+                                        <select class="form-control" id="exampleSelect1" name="payment_method"
+                                            value="">
+                                            @foreach ($payment_method as $value)
+                                                <option value="{{$value->id}}"> {{$value->name}}</option>
+                                            @endforeach
+                                        </select>
+                                </div>
                             </div>
                     </div>
                 </div>
@@ -62,57 +71,58 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col" colspan="2">Sản Phẩm</th>
-                                        <th scope="col">Giá</th>
+                                        <th scope="col" colspan="2">Product</th>
+                                        <th scope="col">Price</th>
                                         <th scope="col">Size</th>
                                         <th scope="col">Color</th>
-                                        <th scope="col">Số Lượng</th>
-                                        <th scope="col">Tạm Tính</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col" class="text-end">Provisional Amount</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($cart->getItem() as $item)
+                                        <tr>
+                                            {{-- image --}}
+                                            <td class="pd-15 product-image">
+                                                <img src="{{ url('upload.product') }}/{{ $item['image'] }}" width="100"
+                                                    height="100" alt="">
+                                            </td>
+                                            {{-- name sp --}}
+                                            <td class="pd-15 product-name">
+                                                <a href="{{ route('product', $item['id']) }}">{{ $item['name'] }}</a>
+                                            </td>
+                                            {{-- giá --}}
+                                            <th class="pd-15 product-price">{{ number_format($item['price']) }}</th>
+                                            {{-- size --}}
+                                            <td class="pd-15 product-size">
+                                                {{ $item['attribute_size_id'] }}
+                                            </td>
+                                            {{-- color --}}
+                                            <td class="pd-15 product-color">
+                                                {{ $item['attribute_color_id'] }}
+                                            </td>
+                                            {{-- sl --}}
+                                            <td class="pd-15 product-quantity text-center">
+                                                {{ $item['quantity'] }}
+                                            </td>
+                                            {{-- tổng tiền --}}
+                                            <th class="pd-15 product-total text-end">
+                                                {{ number_format($item['quantity'] * $item['price']) }}đ
+                                            </th>
+                                        </tr>
+                                    @endforeach
                                     <tr>
-                                        {{-- image --}}
-                                        <td class="pd-15 product-image">
-                                            <img src="{{ url('upload.product') }}/{{ $item['image'] }}" width="100"
-                                                height="100" alt="">
-                                        </td>
-                                        {{-- name sp --}}
-                                        <td class="pd-15 product-name">
-                                            <a href="">{{ $item['name'] }}</a>
-                                        </td>
-                                        {{-- giá --}}
-                                        <th class="pd-15 product-price">{{ number_format($item['price']) }}</th>
-                                        {{-- size --}}
-                                        <td class="pd-15 product-size">
-                                            {{ $item['attribute_size_id'] }}
-                                        </td>
-                                        {{-- color --}}
-                                        <td class="pd-15 product-color">
-                                            {{ $item['attribute_color_id'] }}
-                                        </td>
-                                        {{-- sl --}}
-                                        <td class="pd-15 product-quantity">
-                                            {{ ($item['quantity']) }}
-                                        </td>
-                                        {{-- tổng tiền --}}
-                                        <th class="pd-15 product-total">
-                                            {{ number_format($item['quantity'] * $item['price']) }}đ
+                                        <th class="pd-15" colspan="6">Transport fee: </th>
+                                        <th class="pd-15 text-end" colspan="1">30,000 đ</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="pd-15" colspan="6">Total Money: </th>
+                                        <th class="pd-15 text-end" colspan="1">{{ number_format($cart->totalPrice_ship()) }}đ
                                         </th>
                                     </tr>
-                                @endforeach
-                                <tr>
-                                    <th class="pd-15" colspan="6">Phí vận chuyển: </th>
-                                    <th class="pd-15" colspan="1">30,000 đ</th>
-                                </tr>
-                                <tr>
-                                    <th class="pd-15" colspan="6">Tổng Tiền: </th>
-                                    <th class="pd-15" colspan="1">{{ number_format($cart->totalPrice_ship()) }}đ</th>
-                                </tr>
                                 </tbody>
                             </table>
-                                <button type="submit" class="btn-checkout">Tiến Hành Thanh Toán</button>
+                            <button type="submit" class="btn-checkout"> <span style="color:white;font-weight:600">Proceed to Payment</span> </button>
                     </div>
                 </div>
                 </form>

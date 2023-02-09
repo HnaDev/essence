@@ -24,9 +24,12 @@ class OrdersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function view_product($id)
     {
-        //
+
+        // $view_product = Order_details::where('order_id', $id)->get();
+        $view_product = Order_details::find($id);
+        return view('admin.pages.view_product',compact('view_product'));
     }
 
     /**

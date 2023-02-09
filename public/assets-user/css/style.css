@@ -499,7 +499,7 @@ div.single-cart-item .cart-item-desc p.price {
 }
 .check-btn {
     background-color: #0315ff;
-    margin-top: 150px;
+    margin-top: 100px;
     border: 0;
     padding: 0 20px;
     width: 170px;
@@ -1066,9 +1066,6 @@ div.single-cart-item .cart-item-desc p.price {
 }
 
 /* checkout */
-.checkout_details_area {
-    margin-top: 30px;
-}
 .checkout_details_area form label {
     font-size: 12px;
     text-transform: uppercase;
@@ -1379,7 +1376,7 @@ div.single-cart-item .cart-item-desc p.price {
     width: 22px;
     height: 22px;
     text-align: center;
-    font-size: 12px !important;
+    font-size: 12px ;
     color: #fff;
 }
 .checkout{
@@ -1388,3 +1385,4 @@ div.single-cart-item .cart-item-desc p.price {
 .checkout a{
     background-color: rgb(204, 29, 29) !important;
 }
+

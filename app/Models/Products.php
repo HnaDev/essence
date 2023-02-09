@@ -9,7 +9,7 @@ class Products extends Model
 {
     use HasFactory;
     protected $table = 'products';
-    protected $fillable = ['name','price','sale_price','description','size_id','color_id','image','status','category_id','brand_id','promotion_id','origin','year','stock'];
+    protected $fillable = ['name','price','sale_price','description','size_id','color_id','image','status','category_id','brand_id','origin','year','stock'];
     public $timestamps = false;
 
     public function getCategoryName()
@@ -21,12 +21,10 @@ class Products extends Model
     {
         return $this->belongsTo(Brands::class,'brand_id');
     }
-
-    public function getPromotionName()
+    public function getTypeName()
     {
-        return $this->belongsTo(Promotions::class,'promotion_id');
+        return $this->belongsTo(Category_type::class,'type');
     }
-
     public function scopeSearch($query){
         $query = $query->where('name','like','%'.request()->keyword.'%');
         return $query;
@@ -51,4 +49,5 @@ class Products extends Model
 
     }
 }
+
 

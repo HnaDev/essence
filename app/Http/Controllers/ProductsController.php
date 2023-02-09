@@ -6,7 +6,6 @@ use App\Models\Products;
 use App\Models\Categories;
 use App\Models\Brands;
 use App\Models\Attributes;
-use App\Models\Promotions;
 use App\Models\Product_images;
 use App\Models\Product_Attrs;
 use Illuminate\Http\Request;
@@ -26,8 +25,7 @@ class ProductsController extends Controller
         $brand = Brands::all();
         $size = Attributes::where('name', 'size')->get();
         $color = Attributes::where('name', 'color')->get();
-        $promotion = Promotions::all();
-        return view('admin.pages.product_add', compact('category', 'brand', 'size', 'promotion', 'color'));
+        return view('admin.pages.product_add', compact('category', 'brand', 'size', 'color'));
     }
 
     //Create
@@ -49,7 +47,6 @@ class ProductsController extends Controller
             'status' => $req->status,
             'category_id' => $req->category_id,
             'brand_id' => $req->brand_id,
-            'promotion_id' => $req->promotion_id,
             'origin' => $req->origin,
             'year' => $req->year,
             'stock' => $req->stock
@@ -101,12 +98,10 @@ class ProductsController extends Controller
         $brand = Brands::all();
         $size = Attributes::where('name', 'size')->get();
         $color = Attributes::where('name', 'color')->get();
-        $promotion = Promotions::all();
         $product = Products::find($id);
         $product_images = Product_images::where('product_id', $id)->get();
         $product_attrs = Product_attrs::where('product_id',$id)->first();
-        return view('admin.pages.product_update_show', compact('product', 'product_images', 'category', 'brand', 'size', 'promotion', 'color','product_attrs'));
-
+        return view('admin.pages.product_update_show', compact('product', 'product_images', 'category', 'brand', 'size', 'color','product_attrs'));
     }
 
     //Update
@@ -133,7 +128,6 @@ class ProductsController extends Controller
             'status' => $req->status,
             'category_id' => $req->category_id,
             'brand_id' => $req->brand_id,
-            'promotion_id' => $req->promotion_id,
             'origin' => $req->origin,
             'year' => $req->year,
             'stock' => $req->stock
@@ -201,30 +195,3 @@ class ProductsController extends Controller
         return redirect()->back()->with('notification', 'Xóa Thành Công');
     }
 }
-// $product =Products::find($id);
-// if($req->hasFile('image')){
-//     $file = $req->image;
-//     $file_name = $file->getClientOriginalName();
-//     $file->move('upload.product',$file_name);
-// } else{
-//     $file_name = $product->image;
-// }
-
-
-// $product->update(
-//     [
-//         'name'=>$req->name,
-//         'price'=>$req->price,
-//         'sale_price'=>$req->sale_price,
-//         'description'=>$req->description,
-//         'size_id'=>$req->size_id,
-//         'color_id'=>$req->color_id,
-//         'image'=>$file_name,
-//         'status'=>$req->status,
-//         'category_id'=>$req->category_id,
-//         'brand_id'=>$req->brand_id,
-//         'promotion_id'=>$req->promotion_id,
-//         'origin'=>$req->origin,
-//         'year'=>$req->year,
-//         'stock'=>$req->stock
-//     ]);

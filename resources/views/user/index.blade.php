@@ -30,7 +30,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="card category_female">
-                        <a href="#">
+                        <a href="">
                             <img class="card-img-top" src="{{ url('assets-user') }}/img/banner/Card_1_DT.jpg"
                                 alt="">
                             <div class="category_title flex_between">
@@ -115,7 +115,12 @@
                                 <a href="{{ route('product', $value->id) }}">
                                     <h6>{{ $value->name }}</h6>
                                 </a>
-                                <p class="product-price text-danger">{{ number_format($value->price) }}đ</p>
+                                <div class="d-flex justify-content-between">
+                                    <p>
+                                        <del class="product-price">{{ number_format($value->price) }}đ</del>
+                                    </p>
+                                    <p class="product-price text-danger" style="display: inline-block">{{ number_format($value->sale_price) }}đ</p>
+                                </div>
 
                                 <!-- Hover Content -->
                                 <div class="hover-content">
@@ -190,7 +195,12 @@
                                 <a href="{{ route('product', $value->id) }}">
                                     <h6>{{ $value->name }}</h6>
                                 </a>
-                                <p class="product-price text-danger">{{ number_format($value->price) }}đ</p>
+                                <div class="d-flex justify-content-between">
+                                    <p>
+                                        <del class="product-price">{{ number_format($value->price) }}đ</del>
+                                    </p>
+                                    <p class="product-price text-danger" style="display: inline-block">{{ number_format($value->sale_price) }}đ</p>
+                                </div>
 
                                 <!-- Hover Content -->
                                 <div class="hover-content">

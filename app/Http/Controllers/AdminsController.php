@@ -34,7 +34,7 @@ class AdminsController extends Controller
         if (Auth::attempt($credentials)) {
             return redirect()->route('admin.index');
         } else {
-            return redirect()->back()->with('notification', 'Đăng nhập không thành công');
+            return redirect()->back()->with('notification', 'Login unsuccessful !');
         }
     }
 
