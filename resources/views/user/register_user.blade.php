@@ -76,13 +76,8 @@
                                         </div>
                                     </div> --}}
                                     <div class="d-flex flex-column justify-content-center">
-<<<<<<< HEAD
-                                        <button type="button"
-                             ('assets-user') }}/img/               class="btn btn-success btn-block btn-lg gradient-custom-2 text-body">Register
-=======
                                         <button type="submit"
                                             class="btn btn-success btn-block btn-lg gradient-custom-2 text-body">Register
->>>>>>> 58fa32bd99f8aa766c700846265032fb06d126b1
                                         </button>
                                     </div>
 
