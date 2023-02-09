@@ -17,7 +17,6 @@ class CreateAttributesTable extends Migration
             $table->id();
             $table->string('name',255);
             $table->string('value',255);
-            // $table->string('type',255);
             $table->timestamps();
         });
     }

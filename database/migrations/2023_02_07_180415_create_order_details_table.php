@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrderDetailsTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -19,10 +19,9 @@ class CreateOrderDetailsTable extends Migration
             $table->bigInteger('order_id')->unsigned();
             $table->string('name', 255);
             $table->integer('quantity')->unsigned(); 
-            $table->double('unit_price', 8, 2);
+            $table->integer('unit_price');
             $table->string('size',255);
             $table->tinyInteger('status');
-
             $table->foreign('pro_id')->references('id')->on('products');
             $table->foreign('order_id')->references('id')->on('orders');
             $table->timestamps();
@@ -38,4 +37,4 @@ class CreateOrderDetailsTable extends Migration
     {
         Schema::dropIfExists('order_details');
     }
-}
+};

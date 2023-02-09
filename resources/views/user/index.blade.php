@@ -30,7 +30,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="card category_female">
-                        <a href="#">
+                        <a href="{{route('womanPro')}}">
                             <img class="card-img-top" src="{{ url('assets-user') }}/img/banner/Card_1_DT.jpg"
                                 alt="">
                             <div class="category_title flex_between">
