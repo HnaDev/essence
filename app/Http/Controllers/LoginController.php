@@ -36,7 +36,7 @@ class LoginController extends Controller
     public function register_create(RegisterRequest $request)
     {
 
-       
+        try{
             $User = Users::create([
                 'full_name' => $request->full_name,
                 'email' => $request->email,
