@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use DB;
-class product_attrs extends Model
+class Product_attrs extends Model
 {
     use HasFactory;
     protected $fillable = ['product_id','attribute_size_id','attribute_color_id'];
