@@ -34,15 +34,9 @@ Route::get('/logout', [LoginController::class,'logout'])->name('logout');
 //------- register ----------//
 Route::get('/register', [LoginController::class,'register'])->name('register');
 Route::post('/register', [LoginController::class,'register_create']);
-<<<<<<< HEAD
 //login
 Route::get('/product/{id}', [UserController::class,'product'])->name('product');
 //product
-=======
-//-------- product --------//
-Route::get('/product', [UserController::class,'product'])->name('product');
-//--------- search --------//
->>>>>>> c193dba5f4aaeca61ebbfa46e18d2e3e3dcac2fb
 Route::get('/search', [UserController::class,'search'])->name('search');
 //--------- receipt -------//
 Route::get('/receipt', [UserController::class,'receipt'])->name('receipt');
