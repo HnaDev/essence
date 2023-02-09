@@ -36,7 +36,7 @@
                                         <td>{{ $item->created_at }}</td>
 
                                         <td>
-                                            <a class="btn btn-info">Chi Tiết</a>
+                                            <a href="{{route('admin.view_product',$key->id)}}" class="btn btn-info">Chi Tiết</a>
                                         </td>
                                     </tr>
                                 @endforeach

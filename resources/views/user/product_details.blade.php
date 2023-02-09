@@ -116,9 +116,9 @@
                             <h2>{{ $prodetail->name }}</h2>
                         </a>
                         @if ($prodetail->sale_price > 0)
-                            <p class="product-price"><span>{{ $prodetail->price }}</span>{{ $prodetail->sale_price }}</p>
+                            <p class="product-price"><span>{{ number_format($prodetail->price) }}đ</span>{{ number_format($prodetail->sale_price) }}đ</p>
                         @else
-                            <p class="product-price">{{ $prodetail->price }}</p>
+                            <p class="product-price">{{ number_format($prodetail->price) }}đ</p>
                         @endif
                         <p class="product-desc">{!! $prodetail->description !!}</p>
 
@@ -159,9 +159,9 @@
                                 <!-- Cart -->
                                 <button type="submit" class="btn essence-btn check-btn">Add to
                                     cart</button>
-                                    <div class="checkout">
+                                    {{-- <div class="checkout">
                                         <a href="" class="btn essence-btn check-btn">Checkout</a>
-                                    </div>
+                                    </div> --}}
                             </div>
                         </form>
                     </div>

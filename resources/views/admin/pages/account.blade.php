@@ -33,10 +33,20 @@
                                     <td>{{$user->address}}</td>
                                     <td>{{$user->email}}</td>
                                     <td>{{$user->phone}}</td>
-                                    <td>{{$user->status == 1 ? 'Được Phép Sử Dụng' : 'Không Được Phép' }}</td>
+                                    <td>
+                                        @if ($user->status === 1)
+                                        <span class="bg bg-success">
+                                             Được Phép Sử Dụng
+                                        </span>
+                                        @else
+                                        <span class="bg bg-danger">
+                                            Không Được phép
+                                       </span>
+                                        @endif
+                                    </td>
                                     <td>{{$user->role == 1 ? 'Admin' :  'Người Dùng' }}</td>
                                     <td class="table-td-center">
-                                        <button class="btn btn-danger">Xóa</button>
+                                        <a type="submit" href="{{route('admin.account_delete',$user->id)}}" class="btn btn-danger">Xóa</a>
                                     </td>
                                 </tr>
                             @endforeach
