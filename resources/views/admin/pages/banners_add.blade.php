@@ -15,13 +15,16 @@
               <div class="form-group col-md-3">
                 <label class="control-label">Tên Banner</label>
                 <input class="form-control" type="text">
+                @error('name')
+                <div class="alert alert-danger cl-red">{{ $message }}</div>
+                @enderror
               </div>
               <div class="form-group col-md-3 ">
                 <label for="exampleSelect1" class="control-label">Trạng Thái</label>
                 <select class="form-control" id="exampleSelect1">
-                  <option>-- Chọn tình trạng --</option>
-                  <option>Còn hàng</option>
-                  <option>Hết hàng</option>
+                  <option>-- Chọn trạng thái--</option>
+                  <option>Ẩn</option>
+                  <option>Hiện</option>
                 </select>
               </div>
               <div class="form-group col-md-3 ">
