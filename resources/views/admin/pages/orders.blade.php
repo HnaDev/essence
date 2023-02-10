@@ -32,11 +32,16 @@
                                         <td> {{ $key->name }}</td>
                                         <td>{{ $key->quantity }}</td>
                                         <td>{{ number_format($key->unit_price) }}đ</td>
-                                        <td><span class="badge bg-success">Hoàn thành</span></td>
+                                        @if ($item->status == 0)
+                                            <td><span class="badge bg-primary">Chờ Xử Lý</span></td>
+                                        @elseif ($item->status == 1)
+                                            <td><span class="badge bg-info">Đang Xử Lý</span></td>
+                                        @else
+                                        <td><span class="badge bg-success">Hoàn Thành</span></td>
+                                        @endif
                                         <td>{{ $item->created_at }}</td>
-
                                         <td>
-                                            <a href="{{route('admin.view_product',$key->id)}}" class="btn btn-info">Chi Tiết</a>
+                                            <a href="{{route('admin.order_details',$item->id)}}" class="btn btn-info">Chi Tiết</a>
                                         </td>
                                     </tr>
                                 @endforeach

@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('origin',255);
             $table->string('year',255);
             $table->integer('stock')->unsigned();
-            $table->bigInteger('type')->unsigned()->nullable();
+            $table->bigInteger('type')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
             $table->foreign('brand_id')->references('id')->on('brands');
             $table->foreign('type')->references('id')->on('category_types');

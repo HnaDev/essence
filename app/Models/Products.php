@@ -22,7 +22,7 @@ class Products extends Model
         return $this->belongsTo(Brands::class,'brand_id');
     }
 
-    public function getPromotionName()
+    public function getTypeName()
     {
         return $this->belongsTo(Category_type::class,'type');
     }
