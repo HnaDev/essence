@@ -21,19 +21,11 @@ class Products extends Model
     {
         return $this->belongsTo(Brands::class,'brand_id');
     }
-<<<<<<< HEAD
 
     public function getPromotionName()
-=======
-    public function getTypeName()
->>>>>>> hang
     {
         return $this->belongsTo(Category_type::class,'type');
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> hang
     public function scopeSearch($query){
         $query = $query->where('name','like','%'.request()->keyword.'%');
         return $query;
