@@ -43,6 +43,7 @@ Route::get('/product/{id}', [UserController::class,'product'])->name('product');
 
 
 Route::get('/search', [UserController::class,'search'])->name('search');
+Route::get('/womanproduct',[UserController::class,'womanpro'])->name('womanpro');
 
 
 //--------- OrderManagement -------//

@@ -30,7 +30,7 @@
                         </div>
                         <div class="form-group  col-md-3">
                             <label class="control-label">Giá Khuyến Mại</label>
-                            <input class="form-control" type="text" name="sale_price" value="{{ old('sale_price') }}">
+                            <input class="form-control" type="text" name="sale_price" value="{{old('sale_price')}}">
                             @error('sale_price')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -66,6 +66,19 @@
                                 @endforeach
                             </select>
                             @error('category_id')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="exampleSelect1" class="control-label">Kiểu DM</label>
+                            <select class="form-control" id="exampleSelect1" name="type"
+                                value="{{ old('type') }}">
+                                <option value="null">-- Chọn Type --</option>
+                                @foreach ($cate_type as $value)
+                                    <option value="{{$value->id}}">{{$value->name}}</option>
+                                @endforeach
+                            </select>
+                            @error('type')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
