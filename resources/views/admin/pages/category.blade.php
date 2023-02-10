@@ -39,8 +39,8 @@
                         <thead>
                             <tr>
                                 <th>STT</th>
-                                <th>Loại Danh Mục</th>
                                 <th>Tên Danh Mục</th>
+                                <th>Loại Danh Mục</th>
                                 <th>Trạng Thái</th>
                                 <th>Tính Năng</th>
                             </tr>
@@ -49,8 +49,8 @@
                             @foreach ($Categories as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->type }}</td>
-                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->name}}</td>
+                                    <td>{{ $item->getTypeName->name}}</td>
                                     @if ($item->status == 1)
                                         <td class="m-3 p-1 badge bg-success">Hiện</td>
                                     @else

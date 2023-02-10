@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('categories', function (Blueprint $table) {
-             $table->id();
+            $table->id();
             $table->string('name',255)->unique();
             $table->bigInteger('type')->unsigned();
             $table->foreign('type')->references('id')->on('category_types');
