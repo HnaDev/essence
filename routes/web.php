@@ -82,7 +82,7 @@ Route::prefix('/admin')->middleware('admin')->group(function () {
 
     // List Account
     Route::get('/account', [AccountsController::class, 'account'])->name('admin.account');
-    // Route::get('/account', [AccountsController::class, 'account'])->name('admin.account');
+    Route::get('/account_delete/{id}', [AccountsController::class, 'account_delete'])->name('admin.account_delete');
 
     // List Product
     Route::get('/product', [ProductsController::class, 'product'])->name('admin.product');
@@ -110,6 +110,7 @@ Route::prefix('/admin')->middleware('admin')->group(function () {
 
     // list order
     Route::get('/orders', [OrdersController::class, 'orders'])->name('admin.orders');
+    Route::get('/view_product/{id}', [OrdersController::class, 'view_product'])->name('admin.view_product');
 
     // list attribute
     Route::get('/attribute', [AttributeController::class,'attribute'])->name('admin.attribute');
