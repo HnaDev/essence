@@ -31,8 +31,10 @@
                 <label for="exampleSelect1" class="control-label">Danh Mục</label>
                 <select class="form-control" id="exampleSelect1">
                   <option>-- Chọn tình trạng --</option>
-                  <option>Còn hàng</option>
-                  <option>Hết hàng</option>
+                  @foreach ($Category as $item)
+                     <option value="{{$item->id}}">{{$item->name}}</option>
+                @endforeach
+                 
                 </select>
               </div>
               <div class="form-group col-md-12 m-3">

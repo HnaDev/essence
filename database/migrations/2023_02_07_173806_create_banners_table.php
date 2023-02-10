@@ -16,9 +16,9 @@ class CreateBannersTable extends Migration
         Schema::create('banners', function (Blueprint $table) {
             $table->id();
             $table->string('name',255)->unique();
-            $table->bigInteger('cate_id')->unsigned();
+            $table->bigInteger('category_id')->unsigned();
             $table->tinyInteger('status')->default(1);
-            $table->foreign('cate_id')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
             
         });

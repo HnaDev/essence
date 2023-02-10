@@ -13,17 +13,22 @@
                 <div class="tile-body">
                     <form class="row" method="post">
                         @csrf
-                        <div class="form-group col-md-3">
-                            <label class="control-label">Loại Danh Mục</label>
-                            <input class="form-control" type="text" name="type">
-                            @error('type')
+                        <div class="form-group col-md-3 ">
+                            <label class="control-label">Tên danh mục</label>
+                            <input class="form-control" type="text" name="name">
+                            @error('name')
                                 <div class="alert alert-danger cl-red">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="form-group col-md-3 ">
-                            <label class="control-label">Tên Danh Mục</label>
-                            <input class="form-control" type="text" name="name">
-                            @error('name')
+                        <div class="form-group col-md-3">
+                            <label class="control-label">Danh mục cha</label>
+                            <select class="form-select" name='parent_id'>
+                                <option value='0'>Lựa chọn danh mục cha</option>
+                                @foreach ($Categories as $item)
+                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                @endforeach
+                              </select>
+                            @error('type')
                                 <div class="alert alert-danger cl-red">{{ $message }}</div>
                             @enderror
                         </div>

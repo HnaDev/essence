@@ -19,7 +19,8 @@ class CategorysController extends Controller
 
     public function category_add()
     {
-        return view('admin.pages.category-add');
+        $Categories = Categories::all();
+        return view('admin.pages.category-add',compact('Categories'));
     }
 
     // create
@@ -34,9 +35,9 @@ class CategorysController extends Controller
     // update show
     public function category_update_show ($id)
     {
-        $Categories = Categories::find($id);
-        return view('admin.pages.category_update_show', compact('Categories'));
-
+        $Category = Categories::find($id);
+        $Categories = Categories::all();
+        return view('admin.pages.category_update_show', compact('Categories', 'Category'));
     }
     public function category_update(Category_updateRequest $request,$id)
     {
