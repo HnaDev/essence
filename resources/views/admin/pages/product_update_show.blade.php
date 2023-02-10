@@ -54,7 +54,6 @@
                             {{-- @error('stock')
                   <div class="alert alert-danger">{{$message}}</div>
                 @enderror --}}
-<<<<<<< HEAD
                         </div>
                         <div class="form-group col-md-3">
                             <label for="exampleSelect1" class="control-label">Danh Mục</label>
@@ -63,6 +62,17 @@
                                 @foreach ($category as $value)
                                     <option value="{{ $value->id }}"
                                         {{ $value->id == $product->category_id ? 'selected' : '' }}>{{ $value->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="exampleSelect1" class="control-label">Kiểu DM</label>
+                            <select class="form-control" id="exampleSelect1" name="type">
+                                <option>-- Chọn Type --</option>
+                                @foreach ($cate_type as $value)
+                                    <option value="{{ $value->id }}"
+                                        {{ $value->id == $product->type ? 'selected' : '' }}>{{ $value->name }}
                                     </option>
                                 @endforeach
                             </select>
@@ -78,41 +88,8 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group col-md-3">
-                            <label for="exampleSelect1" class="control-label">Khuyến Mại</label>
-                            <select class="form-control" id="exampleSelect1" name="promotion_id">
-                                <option>-- Chọn CT Khuyến mại --</option>
-                                @foreach ($promotion as $value)
-                                    <option
-                                        value="{{ $value->id }}"{{ $value->id == $product->promotion_id ? 'selected' : '' }}>
-                                        {{ $value->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
+                       
                         <div class="form-group col-md-3 ">
-=======
-              </div>
-              <div class="form-group col-md-3">
-                <label for="exampleSelect1" class="control-label">Danh Mục</label>
-                <select class="form-control" id="exampleSelect1" name="category_id">
-                  <option>-- Chọn Danh mục --</option>
-                  @foreach($category as $value)
-                  <option value="{{$value->id}}" {{($value->id ==$product->category_id)? 'selected' :''}}>{{$value->name}}</option>
-                  @endforeach
-                </select>
-              </div>
-              <div class="form-group col-md-3">
-                <label for="exampleSelect1" class="control-label">Thương Hiệu</label>
-                <select class="form-control" id="exampleSelect1" name="brand_id" >
-                  <option>-- Chọn Thương hiệu --</option>
-                  @foreach($brand as $value)
-                  <option value="{{$value->id}}" {{($value->id ==$product->brand_id)? 'selected' :''}}>{{$value->name}}</option>
-                  @endforeach
-                </select>
-               </div>
-             
-              <div class="form-group col-md-3 ">
->>>>>>> hang
                             <label for="exampleSelect1" class="control-label">Trạng Thái</label>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="status" value="1"
@@ -126,7 +103,6 @@
                                     id="flexRadioDefault2" {{ $product->status == 0 ? 'checked' : '' }}>
                                 <label class="form-check-label" for="flexRadioDefault2">Ngừng bán</label>
                             </div>
-<<<<<<< HEAD
                             @error('status')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -184,53 +160,6 @@
                             <label class="control-label">Mô tả</label>
                             <textarea type="text" id="editor1" rows="10" cols="80" name="description">
                 {{ $product->description }}
-=======
-                            {{-- @error('status')
-                              <div class="alert alert-danger">{{$message}}</div>
-                            @enderror --}}
-              </div>
-              <div class="form-group col-md-3">
-                <label for="exampleSelect1" class="control-label">Kích thước</label>
-                  @foreach($size as $value)
-                  @if($product->getAtS($value->id,$product->id) != null)
-                  <input class="form-check-input" type="checkbox" id="check1" name="attr_size_id[]"
-                   value="{{$value->id}}" {{$product->getAtS($value->id,$product->id)->attribute_size_id ==  $value->id ?'checked':''}}>
-                  @else 
-                  <input class="form-check-input" type="checkbox" id="check1" name="attr_size_id[]"
-                   value="{{$value->id}}">
-                  @endif
-
-                  <label class="form-check-label">{{$value->value}}</label>
-                 
-                  @endforeach
-                  
-                </select>
-              </div>
-              <div class="form-group col-md-3">
-                <label for="exampleSelect1" class="control-label">Màu sắc</label>
-                  @foreach($color as $value)
-                  
-                  @if($product->getAtC($value->id,$product->id) != null)
-                 
-                  <input class="form-check-input" type="checkbox" id="check1" name="attr_color_id[]"
-                   value="{{$value->id}}" {{$product->getAtC($value->id,$product->id)->attribute_color_id == $value->id ? 'checked' :''}}>
-                   @else 
-                    <input class="form-check-input" type="checkbox" id="check1" name="attr_color_id[]"
-                   value="{{$value->id}}">
-                   @endif
-
-                  <label class="form-check-label">{{$value->value}}</label>
-                 
-                  @endforeach
-                 
-                </select>
-              </div>
-              
-              <div class="form-group  col-md-12">
-                <label class="control-label">Mô tả</label>
-                <textarea type="text" id="editor1" rows="10" cols="80" name="description" >
-                {{$product->description}}
->>>>>>> hang
                 </textarea>
                             {{-- @error('description')
                   <div class="alert alert-danger" >{{$message}}</div>

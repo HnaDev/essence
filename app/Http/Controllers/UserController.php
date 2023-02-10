@@ -33,7 +33,7 @@ class UserController extends Controller
     public function womanpro()
     {
         $products = Products::Where('type','1')->get();
-        // dd($products);
+      
         return view('user.product_woman',compact('products'));
     }
     public function search()

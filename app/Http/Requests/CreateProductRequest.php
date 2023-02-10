@@ -23,12 +23,12 @@ class CreateProductRequest extends FormRequest
      */
     public function rules()
     {
-        // dd($this->all());
         return [
             'name'=>'required|min:3',
             'price'=>'required|numeric',
             'image'=> 'required|mimes:jpg,bmp,png',
-            'category_id'=>'required',       
+            'category_id'=>'required',
+            'type'=>'required',       
             'year'=>'required',
             'stock'=>'required',
             'origin'=>'required',
@@ -46,6 +46,7 @@ class CreateProductRequest extends FormRequest
             'image.required'=> 'Chưa chọn ảnh',
             'image.mimes'=> 'Ảnh chưa đúng định dạng',
             'category_id.required'=>'Chưa chọn danh mục',
+            'type.required'=>'Chưa chọn kiểu DM',
             'brand_id.required'=>'Chưa chọn thương hiệu',
             'year.required'=>'Chưa nhập năm sản xuất',
             'stock.required'=>'Chưa nhập tồn kho',
