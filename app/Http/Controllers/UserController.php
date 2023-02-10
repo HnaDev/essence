@@ -8,6 +8,8 @@ use App\Models\Categories;
 use App\Models\Products;
 use App\Models\Product_attrs;
 use App\Models\Attributes;
+use App\Models\Banner;
+
 class UserController extends Controller
 {
     /**
@@ -18,9 +20,11 @@ class UserController extends Controller
     public function index(Cart $cart)
     {
         $Categories = Categories::all();
+        $Banner = Banner::first();
         $popular = Products::orderBy('id','ASC')->limit(4)->get();
         $newpro = Products::orderBy('id','DESC')->limit(8)->get();
-        return view('user.index',compact('Categories','popular','newpro','cart'));
+
+        return view('user.index',compact('Categories','popular','newpro','cart','Banner'));
     }
 
     //Show chi tiết sản phẩm

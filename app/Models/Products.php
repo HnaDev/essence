@@ -21,10 +21,6 @@ class Products extends Model
     {
         return $this->belongsTo(Brands::class,'brand_id');
     }
-    public function getTypeName()
-    {
-        return $this->belongsTo(Category_type::class,'type');
-    }
     public function scopeSearch($query){
         $query = $query->where('name','like','%'.request()->keyword.'%');
         return $query;

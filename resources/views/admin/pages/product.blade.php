@@ -48,7 +48,6 @@
                   <th>Danh Mục</th>
                   <th>Thương Hiệu</th>
                   <th>Tồn kho</th>
-                  <th>Loại danh mục</th>
                   <th>Tính Năng</th>
                 </tr>
               </thead>
@@ -74,7 +73,6 @@
                   <td>{{$item->getCategoryName->name}}</td>
                   <td>{{$item->getBrandName->name}}</td>
                   <td>{{$item->stock}}</td>
-                  <td>{{$item->getTypeName->name}}</td>
                   <td class="table-td-center">
                       <a href="{{route('admin.product_update_show',$item->id)}}" type="submit" class="btn btn-success">Sửa</a>
                       <a href="{{route('admin.product_delete',$item->id)}}" type="submit" class="btn btn-danger" onclick = "return confirm('Bạn có muốn xóa?')">Xóa</a>

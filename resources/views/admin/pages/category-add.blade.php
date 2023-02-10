@@ -23,9 +23,11 @@
                         <div class="form-group col-md-3">
                             <label class="control-label">Danh mục cha</label>
                             <select class="form-select" name='parent_id'>
-                                <option value='0'>Lựa chọn danh mục cha</option>
+                                <option value="0">Lựa chọn danh mục Nam</option>
+                                <option value="1">Lựa chọn danh mục Nữ</option>
+                                <option value="2">Lựa chọn danh mục Trẻ em</option>
                                 @foreach ($Categories as $item)
-                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                    <option value="{{$item->parent_id}}">{{$item->name}}</option>
                                 @endforeach
                               </select>
                             @error('type')

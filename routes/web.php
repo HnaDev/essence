@@ -14,6 +14,7 @@ use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CartController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,7 +43,8 @@ Route::get('/product/{id}', [UserController::class,'product'])->name('product');
 //product
 
 
-Route::get('/search', [UserController::class,'search'])->name('search');
+Route::get('/search/{id}', [CategorysController::class, 'search'])->name('user.search');
+// Route::get('/search', [UserController::class,'search'])->name('search');
 Route::get('/womanproduct',[UserController::class,'womanpro'])->name('womanpro');
 
 
@@ -103,7 +105,8 @@ Route::prefix('/admin')->middleware('admin')->group(function () {
     // list  banners
     Route::get('/banners', [BannersController::class, 'banners'])->name('admin.banners');
     Route::get('/banners_add', [BannersController::class, 'banners_add'])->name('admin.banners_add');
-    // Route::post('/brands_add', [BrandsController::class, 'brands_create'])->name('admin.brands_create');
+    Route::post('/banners_add', [BannersController::class, 'banners_create'])->name('admin.banners_create');
+
     // Route::get('/brands_update_show/{id}', [BrandsController::class, 'brands_update_show'])->name('admin.brands_update_show');
     // Route::post('/brands_update_show/{id}', [BrandsController::class, 'brands_update_update'])->name('admin.brands_update_update');
     // Route::get('/brands_delete/{id}', [BrandsController::class, 'brands_delete'])->name('admin.brands_delete');

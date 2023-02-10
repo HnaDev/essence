@@ -54,4 +54,10 @@ class CategorysController extends Controller
         $Categories = Categories::find($id)->delete();
         return redirect()->back()->with('notification','Xóa Thành Công');;
     }
+    public function search($id)
+    {
+        $Category = Categories::find($id);
+        $Categories = Categories::all();
+        return view('user.search', compact('Categories', 'Category'));
+    }
 }

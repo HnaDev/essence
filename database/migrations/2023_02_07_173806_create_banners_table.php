@@ -17,6 +17,7 @@ class CreateBannersTable extends Migration
             $table->id();
             $table->string('name',255)->unique();
             $table->bigInteger('category_id')->unsigned();
+            $table->string('banner_img',255);
             $table->tinyInteger('status')->default(1);
             $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
