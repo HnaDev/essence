@@ -25,9 +25,10 @@ use App\Http\Controllers\CartController;
 |
 */
 
-//user
+
+// -------------------user ---------------- //
 Route::get('/', [UserController::class,'index'])->name('user.index');
-//login
+//-------- login ----------- //
 Route::get('/login', [LoginController::class,'index'])->name('login');
 Route::post('/login', [LoginController::class,'loginUser'])->name('loginUser');
 Route::get('/logout', [LoginController::class,'logout'])->name('logout');
@@ -35,10 +36,12 @@ Route::get('/logout', [LoginController::class,'logout'])->name('logout');
 //------- register ----------//
 Route::get('/register', [LoginController::class,'register'])->name('register');
 Route::post('/register', [LoginController::class,'register_create']);
-//login
+
+
 Route::get('/product/{id}', [UserController::class,'product'])->name('product');
 //product
-//--------- search --------//
+
+
 Route::get('/search', [UserController::class,'search'])->name('search');
 
 
@@ -78,7 +81,7 @@ Route::prefix('/admin')->middleware('admin')->group(function () {
 
     // List Account
     Route::get('/account', [AccountsController::class, 'account'])->name('admin.account');
-    Route::get('/account_delete/{id}', [AccountsController::class, 'account_delete'])->name('admin.account_delete');
+    // Route::get('/account', [AccountsController::class, 'account'])->name('admin.account');
 
     // List Product
     Route::get('/product', [ProductsController::class, 'product'])->name('admin.product');
@@ -99,6 +102,10 @@ Route::prefix('/admin')->middleware('admin')->group(function () {
     // list  banners
     Route::get('/banners', [BannersController::class, 'banners'])->name('admin.banners');
     Route::get('/banners_add', [BannersController::class, 'banners_add'])->name('admin.banners_add');
+    // Route::post('/brands_add', [BrandsController::class, 'brands_create'])->name('admin.brands_create');
+    // Route::get('/brands_update_show/{id}', [BrandsController::class, 'brands_update_show'])->name('admin.brands_update_show');
+    // Route::post('/brands_update_show/{id}', [BrandsController::class, 'brands_update_update'])->name('admin.brands_update_update');
+    // Route::get('/brands_delete/{id}', [BrandsController::class, 'brands_delete'])->name('admin.brands_delete');
 
     // list commnents
     Route::get('/comments', [CommentsController::class, 'comments'])->name('admin.comments');
@@ -106,7 +113,6 @@ Route::prefix('/admin')->middleware('admin')->group(function () {
 
     // list order
     Route::get('/orders', [OrdersController::class, 'orders'])->name('admin.orders');
-    Route::get('/view_product/{id}', [OrdersController::class, 'view_product'])->name('admin.view_product');
 
     // list attribute
     Route::get('/attribute', [AttributeController::class,'attribute'])->name('admin.attribute');
