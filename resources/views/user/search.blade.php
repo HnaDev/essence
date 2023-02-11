@@ -30,11 +30,11 @@
                                 <!-- Single Item -->
                                 <li data-toggle="collapse" data-target="#clothing">
                                     <a href="#" class="menu-title1">clothing</a>
-                                    
+
                                     @foreach ($Categories as $item)
                                     <ul class="sub-menu collapse show" id="clothing">
                                         <li><a href="{{ route('user.search', ['id'])}} => $Banner->category_id])">{{$item->name}}</a></li>
-                                       
+
                                     </ul>
                                     @endforeach
                                 </li>
@@ -45,10 +45,10 @@
                                         <li><a href="#">All</a></li>
                                         <li><a href="#">Nam</a></li>
                                         @foreach ($Categories as $item)
-                                        
-                                            
+
+
                                                 <li><a href="">{{$item->name}}</a></li>
-                                           
+
                                         @endforeach
                                         {{-- <li><a href="#">Nữ</a></li>
                                         @foreach ($Categories as $item)
@@ -62,8 +62,8 @@
                                                 <li><a href="">{{$item->name}}</a></li>
                                             @endif
                                         @endforeach --}}
-                                        
-                                        
+
+
                                         <li><a href="#">Hoodies &amp; Sweats</a></li>
                                         <li><a href="#">Jackets &amp; Coats</a></li>
                                         <li><a href="#">Jeans</a></li>

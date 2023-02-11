@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Categories;
 use App\Http\Requests\Category_addRequest;
 use App\Http\Requests\Category_updateRequest;
-
+use App\Models\Products;
 class CategorysController extends Controller
 {
 
@@ -58,6 +58,7 @@ class CategorysController extends Controller
     {
         $Category = Categories::find($id);
         $Categories = Categories::all();
-        return view('user.search', compact('Categories', 'Category'));
+        $Products = Products::all();
+        return view('user.search', compact('Categories', 'Category','Products'));
     }
 }
