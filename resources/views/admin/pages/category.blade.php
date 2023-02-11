@@ -39,8 +39,8 @@
                         <thead>
                             <tr>
                                 <th>STT</th>
-                                <th>Loại Danh Mục</th>
                                 <th>Tên Danh Mục</th>
+                                <th>Loại Danh Mục</th>
                                 <th>Trạng Thái</th>
                                 <th>Tính Năng</th>
                             </tr>
@@ -49,6 +49,7 @@
                             @foreach ($Categories as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
+<<<<<<< HEAD
                                     @if ($item->type == 1)
                                     <td>Women</td>
                                     @elseif ($item->type == 2)
@@ -56,7 +57,14 @@
                                     @elseif ($item->type == 3)
                                         <td>Kids</td>
                                     @endif
+=======
+<<<<<<< HEAD
+                                    <td>{{ $item->name}}</td>
+                                    <td>{{ $item->getTypeName->name}}</td>
+=======
+>>>>>>> f7e07087f3be252c225cdd12e9b3307deee2d3fa
                                     <td>{{ $item->name }}</td>
+>>>>>>> origin/bac
                                     @if ($item->status == 1)
                                         <td class="m-3 p-1 badge bg-success">Hiện</td>
                                     @else

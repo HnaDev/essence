@@ -14,11 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('categories', function (Blueprint $table) {
-             $table->id();
+            $table->id();
             $table->string('name',255)->unique();
-            $table->bigInteger('type')->unsigned();
-            $table->foreign('type')->references('id')->on('category_types');
-            $table-> tinyInteger('status')->default(1);
+            $table->tinyInteger('parent_id')->default(0);;
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }

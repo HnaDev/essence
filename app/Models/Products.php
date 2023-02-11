@@ -21,11 +21,6 @@ class Products extends Model
     {
         return $this->belongsTo(Brands::class,'brand_id');
     }
-
-    public function getTypeName()
-    {
-        return $this->belongsTo(Category_type::class,'type');
-    }
     public function scopeSearch($query){
         $query = $query->where('name','like','%'.request()->keyword.'%');
         return $query;
@@ -49,6 +44,7 @@ class Products extends Model
         return $at = DB::table('product_attrs')->where('product_id',$id_pro)->where('attribute_color_id',$attr_id)->first();
 
     }
+    
 }
 
 

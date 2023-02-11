@@ -69,6 +69,7 @@
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
+<<<<<<< HEAD
                         {{-- <div class="form-group col-md-3">
                             <label for="exampleSelect1" class="control-label">Kiểu DM</label>
                             <select class="form-control" id="exampleSelect1" name="type"
@@ -82,6 +83,9 @@
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div> --}}
+=======
+                        
+>>>>>>> f7e07087f3be252c225cdd12e9b3307deee2d3fa
                         <div class="form-group col-md-3">
                             <label for="exampleSelect1" class="control-label">Thương Hiệu</label>
                             <select class="form-control" id="exampleSelect1" name="brand_id">

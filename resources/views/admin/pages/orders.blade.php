@@ -32,15 +32,23 @@
                                         <td> {{ $key->name }}</td>
                                         <td>{{ $key->quantity }}</td>
                                         <td>{{ number_format($key->unit_price) }}đ</td>
+<<<<<<< HEAD
                                         @if ($item->status == 1)
                                             <td><span class="badge bg-info">Chờ Xử Lý</span></td>
                                         @elseif ($item->status == 2)
                                             <td><span class="badge bg-warning">Đang Xử Lý</span></td>
                                         @else
                                             <td><span class="badge bg-success">Hoàn Thành</span></td>
+=======
+                                        @if ($item->status == 0)
+                                            <td><span class="badge bg-primary">Chờ Xử Lý</span></td>
+                                        @elseif ($item->status == 1)
+                                            <td><span class="badge bg-info">Đang Xử Lý</span></td>
+                                        @else
+                                        <td><span class="badge bg-success">Hoàn Thành</span></td>
+>>>>>>> f7e07087f3be252c225cdd12e9b3307deee2d3fa
                                         @endif
                                         <td>{{ $item->created_at }}</td>
-
                                         <td>
                                             <a href="{{route('admin.order_details',$item->id)}}" class="btn btn-info">Chi Tiết</a>
                                         </td>

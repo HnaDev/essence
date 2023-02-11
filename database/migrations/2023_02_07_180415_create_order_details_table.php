@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('quantity')->unsigned();
             $table->integer('unit_price');
             $table->string('size',255);
+            // $table->tinyInteger('status');
             $table->foreign('pro_id')->references('id')->on('products');
             $table->foreign('order_id')->references('id')->on('orders');
             $table->timestamps();

@@ -1,11 +1,12 @@
 @extends('master')
 @section('content')
     <div class="app-title">
-      <ul class="app-breadcrumb breadcrumb side">
-        <li class="breadcrumb-item active"><a href="#"><b>Danh sách sản phẩm</b></a></li>
-      </ul>
-      <ul class="app-breadcrumb breadcrumb side ">
+        <ul class="app-breadcrumb breadcrumb side">
+            <li class="breadcrumb-item active"><a href="#"><b>Danh sách sản phẩm</b></a></li>
+        </ul>
+        <ul class="app-breadcrumb breadcrumb side ">
             <li class="breadcrumb-item active">
+
                 <form action="" method="get">
                     <div class="input-group z-index-0">
                         <input type="text" name="keyword" class="input-search form-control rounded" placeholder="Search"
@@ -48,7 +49,10 @@
                   <th>Danh Mục</th>
                   <th>Thương Hiệu</th>
                   <th>Tồn kho</th>
+<<<<<<< HEAD
                   {{-- <th>Loại danh mục</th> --}}
+=======
+>>>>>>> f7e07087f3be252c225cdd12e9b3307deee2d3fa
                   <th>Tính Năng</th>
                 </tr>
               </thead>
@@ -74,7 +78,10 @@
                   <td>{{$item->getCategoryName->name}}</td>
                   <td>{{$item->getBrandName->name}}</td>
                   <td>{{$item->stock}}</td>
+<<<<<<< HEAD
                   {{-- <td>{{$item->getTypeName->name}}</td> --}}
+=======
+>>>>>>> f7e07087f3be252c225cdd12e9b3307deee2d3fa
                   <td class="table-td-center">
                       <a href="{{route('admin.product_update_show',$item->id)}}" type="submit" class="btn btn-success">Sửa</a>
                       <a href="{{route('admin.product_delete',$item->id)}}" type="submit" class="btn btn-danger" onclick = "return confirm('Bạn có muốn xóa?')">Xóa</a>
@@ -85,6 +92,8 @@
           </div>
 
         </div>
-      </div>
+    </div>
+  <div class="d-flex justify-content-center">
+        {{$products->links()}}
     </div>
 @endsection
