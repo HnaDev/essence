@@ -10,7 +10,7 @@ use App\Models\Product_images;
 use App\Models\Product_Attrs;
 use App\Models\Category_Type;
 use Illuminate\Http\Request;
-use App\Http\Requests\CreateProductRequest;
+// use App\Http\Requests\CreateProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 
 class ProductsController extends Controller
@@ -43,15 +43,14 @@ class ProductsController extends Controller
     public function product_add()
     {
         $category = Categories::all();
-        $cate_type = Category_type::all();
         $brand = Brands::all();
         $size = Attributes::where('name', 'size')->get();
         $color = Attributes::where('name', 'color')->get();
-        return view('admin.pages.product_add', compact('category','cate_type', 'brand', 'size', 'color'));
+        return view('admin.pages.product_add', compact('category','brand', 'size', 'color'));
     }
 
     //Create
-    public function product_create(CreateProductRequest $req)
+    public function product_create(Request $req)
     {
         if ($req->hasFile('image')) {
             $file = $req->image;

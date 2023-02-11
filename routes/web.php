@@ -14,6 +14,7 @@ use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CartController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,7 +43,8 @@ Route::get('/product/{id}', [UserController::class,'product'])->name('product');
 //product
 
 
-Route::get('/search', [UserController::class,'search'])->name('search');
+Route::get('/search/{id}', [CategorysController::class, 'search'])->name('user.search');
+// Route::get('/search', [UserController::class,'search'])->name('search');
 Route::get('/womanproduct',[UserController::class,'womanpro'])->name('womanpro');
 Route::get('/manproduct',[UserController::class,'manpro'])->name('manpro');
 
@@ -83,7 +85,7 @@ Route::prefix('/admin')->middleware('admin')->group(function () {
 
     // List Account
     Route::get('/account', [AccountsController::class, 'account'])->name('admin.account');
-    Route::get('/account_delete/{id}', [AccountsController::class, 'account_delete'])->name('admin.account_delete');
+    // Route::get('/account', [AccountsController::class, 'account'])->name('admin.account');
 
     // List Product
     Route::get('/product', [ProductsController::class, 'product'])->name('admin.product');
@@ -106,11 +108,19 @@ Route::prefix('/admin')->middleware('admin')->group(function () {
     // list  banners
     Route::get('/banners', [BannersController::class, 'banners'])->name('admin.banners');
     Route::get('/banners_add', [BannersController::class, 'banners_add'])->name('admin.banners_add');
+    Route::post('/banners_add', [BannersController::class, 'banners_create'])->name('admin.banners_create');
+
+    // Route::get('/brands_update_show/{id}', [BrandsController::class, 'brands_update_show'])->name('admin.brands_update_show');
+    // Route::post('/brands_update_show/{id}', [BrandsController::class, 'brands_update_update'])->name('admin.brands_update_update');
+    // Route::get('/brands_delete/{id}', [BrandsController::class, 'brands_delete'])->name('admin.brands_delete');
 
     // list order
     Route::get('/orders', [OrdersController::class, 'orders'])->name('admin.orders');
+<<<<<<< HEAD
     Route::get('/order_details/{id}', [OrdersController::class, 'order_details'])->name('admin.order_details');
     Route::post('/order_details/{id}', [OrdersController::class, 'order_details_update']);
+=======
+>>>>>>> origin/bac
 
     // list attribute
     Route::get('/attribute', [AttributeController::class,'attribute'])->name('admin.attribute');

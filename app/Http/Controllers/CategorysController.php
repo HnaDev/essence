@@ -20,8 +20,13 @@ class CategorysController extends Controller
 
     public function category_add()
     {
+<<<<<<< HEAD
         $cate_type = Category_type::all();
         return view('admin.pages.category-add',compact('cate_type'));
+=======
+        $Categories = Categories::all();
+        return view('admin.pages.category-add',compact('Categories'));
+>>>>>>> origin/bac
     }
 
     // create
@@ -36,9 +41,9 @@ class CategorysController extends Controller
     // update show
     public function category_update_show ($id)
     {
-        $Categories = Categories::find($id);
-        return view('admin.pages.category_update_show', compact('Categories'));
-
+        $Category = Categories::find($id);
+        $Categories = Categories::all();
+        return view('admin.pages.category_update_show', compact('Categories', 'Category'));
     }
     public function category_update(Category_updateRequest $request,$id)
     {
@@ -54,5 +59,11 @@ class CategorysController extends Controller
     {
         $Categories = Categories::find($id)->delete();
         return redirect()->back()->with('notification','Xóa Thành Công');;
+    }
+    public function search($id)
+    {
+        $Category = Categories::find($id);
+        $Categories = Categories::all();
+        return view('user.search', compact('Categories', 'Category'));
     }
 }

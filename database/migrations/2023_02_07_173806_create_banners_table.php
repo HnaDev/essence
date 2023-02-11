@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateBannersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,10 +16,12 @@ return new class extends Migration
         Schema::create('banners', function (Blueprint $table) {
             $table->id();
             $table->string('name',255)->unique();
-            $table->bigInteger('cate_id')->unsigned();
-            $table->foreign('cate_id')->references('id')->on('categories');
+            $table->bigInteger('category_id')->unsigned();
+            $table->string('banner_img',255);
             $table->tinyInteger('status')->default(1);
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
+            
         });
     }
 
@@ -32,4 +34,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('banners');
     }
-};
+}

@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categories extends Model
 {
+<<<<<<< HEAD
+=======
+    protected $fillable = ['name', 'status', 'parent_id'];
+>>>>>>> origin/bac
     use HasFactory;
     protected $table = 'categories';
     protected $fillable = ['type', 'name', 'status'];
@@ -15,7 +19,7 @@ class Categories extends Model
     // used to search
     public function scopeSearch($query)
     {
-        $query = $query->where('type','like','%'.request()->keyword.'%');
+        // $query = $query->where('type','like','%'.request()->keyword.'%');
         return $query;
     }
     public function getTypeName()

@@ -8,7 +8,12 @@ use App\Models\Categories;
 use App\Models\Products;
 use App\Models\Product_attrs;
 use App\Models\Attributes;
+<<<<<<< HEAD
 use DB;
+=======
+use App\Models\Banner;
+
+>>>>>>> origin/bac
 class UserController extends Controller
 {
     /**
@@ -18,12 +23,21 @@ class UserController extends Controller
      */
     public function index(Cart $cart)
     {
+<<<<<<< HEAD
         $categories = Categories::all();
         $zara = Products::where('brand_id','1')->get(); //lấy đúng id của brand
         $bershka = Products::where('brand_id','2')->get();//lấy đúng id của brand
         $newpro = Products::orderBy('id','DESC')->limit(8)->get();
         $salepro = Products::where('sale_price','>','0')->get();
         return view('user.index',compact('categories','zara','bershka','newpro','salepro','cart'));
+=======
+        $Categories = Categories::all();
+        $Banner = Banner::first();
+        $popular = Products::orderBy('id','ASC')->limit(4)->get();
+        $newpro = Products::orderBy('id','DESC')->limit(8)->get();
+
+        return view('user.index',compact('Categories','popular','newpro','cart','Banner'));
+>>>>>>> origin/bac
     }
 
     //Show chi tiết sản phẩm

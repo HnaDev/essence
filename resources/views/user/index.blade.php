@@ -2,7 +2,8 @@
 @section('container')
     <!-- banner category -->
     {{-- {{dd(session()->get('cart'))}} --}}
-    <section class="welcome_category">
+    
+    <section class="welcome_category" style="background-image:{{url('image_banner')}}\{{$Banner->banner_img}}">
         <div class="container h-100">
             {{-- allert notification --}}
             @if (session('notification'))
@@ -12,11 +13,13 @@
             @endif
             {{-- allert notification end --}}
             <div class="row h-100">
+                <a href="{{ route('user.search', ['id' => $Banner->category_id]) }}">
+                    <img class="bg-img" style="width:100% " src="{{url('image_banner')}}\{{$Banner->banner_img}}" alt="">
+                </a>
                 <div class="col-lg-12">
                     <div class="hero-content">
-                        <h6>asoss</h6>
-                        <h2>New Collection</h2>
-                        <a href="#" class="btn view_collection">view collection</a>
+                        <h2>{{$Banner->name}}</h2>
+                        <a href="{{ route('user.search', ['id' => $Banner->category_id]) }}" class="btn view_collection">{{$Banner->name}}</a>
                     </div>
                 </div>
             </div>

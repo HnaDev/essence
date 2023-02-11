@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Banner;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class Category_addRequest extends FormRequest
+class bannersRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,8 @@ class Category_addRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|distinct:name|unique:Categories'
+            'name' => 'required',
+            'banner_img' => 'mimes:jpeg,jpg,png,gif|required|max:10000',
         ];
     }
     public function messages()
@@ -32,6 +33,8 @@ class Category_addRequest extends FormRequest
         return [
             'name.required' => 'Tên Danh Mục không được để trống',
             'name.unique' => 'Tên Đã Được Sử Dụng',
+            'banner_img.required' => 'Banner không được để trống',
+            'banner_img.mimes' => 'Banner phải là định dạng jpeg,jpg,png,gif',
         ];
     }
 }

@@ -30,27 +30,40 @@
                                 <!-- Single Item -->
                                 <li data-toggle="collapse" data-target="#clothing">
                                     <a href="#" class="menu-title1">clothing</a>
+                                    
+                                    @foreach ($Categories as $item)
                                     <ul class="sub-menu collapse show" id="clothing">
-                                        <li><a href="#">All</a></li>
-                                        <li><a href="#">Bodysuits</a></li>
-                                        <li><a href="#">Dresses</a></li>
-                                        <li><a href="#">Hoodies &amp; Sweats</a></li>
-                                        <li><a href="#">Jackets &amp; Coats</a></li>
-                                        <li><a href="#">Jeans</a></li>
-                                        <li><a href="#">Pants &amp; Leggings</a></li>
-                                        <li><a href="#">Rompers &amp; Jumpsuits</a></li>
-                                        <li><a href="#">Shirts &amp; Blouses</a></li>
-                                        <li><a href="#">Shirts</a></li>
-                                        <li><a href="#">Sweaters &amp; Knits</a></li>
+                                        <li><a href="{{ route('user.search', ['id'])}} => $Banner->category_id])">{{$item->name}}</a></li>
+                                       
                                     </ul>
+                                    @endforeach
                                 </li>
                                 <!-- Single Item -->
                                 <li data-toggle="collapse" data-target="#shoes" class="collapsed">
                                     <a href="#" class="menu-title2">shoes</a>
                                     <ul class="sub-menu collapse" id="shoes">
                                         <li><a href="#">All</a></li>
-                                        <li><a href="#">Bodysuits</a></li>
-                                        <li><a href="#">Dresses</a></li>
+                                        <li><a href="#">Nam</a></li>
+                                        @foreach ($Categories as $item)
+                                        
+                                            
+                                                <li><a href="">{{$item->name}}</a></li>
+                                           
+                                        @endforeach
+                                        {{-- <li><a href="#">Nữ</a></li>
+                                        @foreach ($Categories as $item)
+                                            @if ({{$item->parent_id == 1}})
+                                                <li><a href="">{{$item->name}}</a></li>
+                                            @endif
+                                        @endforeach
+                                        <li><a href="#">Nam</a></li>
+                                        @foreach ($Categories as $item)
+                                            @if ({{$item->parent_id == 2}})
+                                                <li><a href="">{{$item->name}}</a></li>
+                                            @endif
+                                        @endforeach --}}
+                                        
+                                        
                                         <li><a href="#">Hoodies &amp; Sweats</a></li>
                                         <li><a href="#">Jackets &amp; Coats</a></li>
                                         <li><a href="#">Jeans</a></li>
