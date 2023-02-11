@@ -46,18 +46,18 @@
                 <span class="app-menu__label">Quản lý Nhãn Hàng</span>
             </a>
         </li>
-        <li>
+        {{-- <li>
             <a class="app-menu__item" href="{{route('admin.banners')}}">
                 <i class="app-menu__icon fa-solid fa-b"></i>
                 <span class="app-menu__label">Quản lý banners</span>
             </a>
-        </li>
-        <li>
+        </li> --}}
+        {{-- <li>
             <a class="app-menu__item" href="{{route('admin.comments')}}">
                 <i class="app-menu__icon fa-solid fa-comments"></i>
                 <span class="app-menu__label">Quản lý Comment</span>
             </a>
-        </li>
+        </li> --}}
         <li>
             <a class="app-menu__item" href="{{route('admin.attribute')}}">
                 <i class="app-menu__icon fa-solid fa-palette"></i>

@@ -99,18 +99,10 @@ Route::prefix('/admin')->middleware('admin')->group(function () {
     Route::post('/brands_update_show/{id}', [BrandsController::class, 'brands_update_update'])->name('admin.brands_update_update');
     Route::get('/brands_delete/{id}', [BrandsController::class, 'brands_delete'])->name('admin.brands_delete');
 
-
-    // list  banners
-    Route::get('/banners', [BannersController::class, 'banners'])->name('admin.banners');
-    Route::get('/banners_add', [BannersController::class, 'banners_add'])->name('admin.banners_add');
-
-    // list commnents
-    Route::get('/comments', [CommentsController::class, 'comments'])->name('admin.comments');
-    Route::get('/comments_add', [CommentsController::class, 'comments_add'])->name('admin.comments_add');
-
     // list order
     Route::get('/orders', [OrdersController::class, 'orders'])->name('admin.orders');
-    Route::get('/view_product/{id}', [OrdersController::class, 'view_product'])->name('admin.view_product');
+    Route::get('/order_details/{id}', [OrdersController::class, 'order_details'])->name('admin.order_details');
+    Route::post('/order_details/{id}', [OrdersController::class, 'order_details_update']);
 
     // list attribute
     Route::get('/attribute', [AttributeController::class,'attribute'])->name('admin.attribute');

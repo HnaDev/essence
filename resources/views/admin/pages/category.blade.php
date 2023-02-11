@@ -49,7 +49,13 @@
                             @foreach ($Categories as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->type }}</td>
+                                    @if ($item->type == 1)
+                                    <td>Women</td>
+                                    @elseif ($item->type == 2)
+                                    <td>Men</td>
+                                    @elseif ($item->type == 3)
+                                        <td>Kids</td>
+                                    @endif
                                     <td>{{ $item->name }}</td>
                                     @if ($item->status == 1)
                                         <td class="m-3 p-1 badge bg-success">Hiện</td>

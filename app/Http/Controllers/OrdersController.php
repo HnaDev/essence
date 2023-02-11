@@ -24,12 +24,13 @@ class OrdersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function view_product($id)
+    public function order_details($id)
     {
 
-        // $view_product = Order_details::where('order_id', $id)->get();
-        $view_product = Order_details::find($id);
-        return view('admin.pages.view_product',compact('view_product'));
+        $order_details = Order_details::where('order_id', $id)->get();
+        // $view_product = Order_details::find($id);
+        // dd($view_product);
+        return view('admin.pages.order_details',compact('order_details'));
     }
 
     /**
@@ -38,9 +39,10 @@ class OrdersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function order_details_update(Request $request,$id)
     {
-        //
+        Orders::find($id)->update(['status'=> $request->status]);
+        return redirect()->route('admin.orders');
     }
 
     /**

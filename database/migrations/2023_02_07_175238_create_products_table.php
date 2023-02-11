@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name',255)->unique();
-            $table->double('price');
-            $table->double('sale_price');
+            $table->integer('price');
+            $table->integer('sale_price');
             $table->text('description');
             $table->string('image',255);
             $table->tinyInteger('status');
@@ -26,12 +26,9 @@ return new class extends Migration
             $table->string('origin',255);
             $table->string('year',255);
             $table->integer('stock')->unsigned();
-            $table->bigInteger('type')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
             $table->foreign('brand_id')->references('id')->on('brands');
-            $table->foreign('type')->references('id')->on('category_types');
             $table->timestamps();
-            // $table->softDeletes();
         });
     }
 

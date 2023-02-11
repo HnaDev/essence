@@ -33,6 +33,7 @@ class ProductsController extends Controller
     //Create
     public function product_create(CreateProductRequest $req)
     {
+
         if ($req->hasFile('image')) {
             $file = $req->image;
             $file_name = $file->getClientOriginalName();
@@ -46,7 +47,7 @@ class ProductsController extends Controller
             'description' => $req->description,
             'image' => $file_name,
             'status' => $req->status,
-            'type' => $req->type,
+            // 'type' => $req->type,
             'category_id' => $req->category_id,
             'brand_id' => $req->brand_id,
             'origin' => $req->origin,
@@ -130,7 +131,7 @@ class ProductsController extends Controller
             'image' => $file_name,
             'status' => $req->status,
             'category_id' => $req->category_id,
-            'type'=>$req->type,
+            // 'type'=>$req->type,
             'brand_id' => $req->brand_id,
             'origin' => $req->origin,
             'year' => $req->year,

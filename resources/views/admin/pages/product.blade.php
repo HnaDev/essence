@@ -48,7 +48,7 @@
                   <th>Danh Mục</th>
                   <th>Thương Hiệu</th>
                   <th>Tồn kho</th>
-                  <th>Loại danh mục</th>
+                  {{-- <th>Loại danh mục</th> --}}
                   <th>Tính Năng</th>
                 </tr>
               </thead>
@@ -57,8 +57,8 @@
 
                 <tr>
                   <td>{{$item->name}}</td>
-                  <td>{{$item->price}}</td>
-                  <td>{{$item->sale_price}}</td>
+                  <td>{{number_format($item->price)}}đ</td>
+                  <td>{{number_format($item->sale_price)}}đ</td>
                   <td>
                     <img src="{{url('upload.product')}}/{{$item->image}}" width="200px"
                       alt="">
@@ -74,7 +74,7 @@
                   <td>{{$item->getCategoryName->name}}</td>
                   <td>{{$item->getBrandName->name}}</td>
                   <td>{{$item->stock}}</td>
-                  <td>{{$item->getTypeName->name}}</td>
+                  {{-- <td>{{$item->getTypeName->name}}</td> --}}
                   <td class="table-td-center">
                       <a href="{{route('admin.product_update_show',$item->id)}}" type="submit" class="btn btn-success">Sửa</a>
                       <a href="{{route('admin.product_delete',$item->id)}}" type="submit" class="btn btn-danger" onclick = "return confirm('Bạn có muốn xóa?')">Xóa</a>
