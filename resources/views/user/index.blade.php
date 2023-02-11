@@ -2,7 +2,7 @@
 @section('container')
     <!-- banner category -->
     {{-- {{dd(session()->get('cart'))}} --}}
-    
+
     <section class="welcome_category" style="background-image:{{url('image_banner')}}\{{$Banner->banner_img}}">
         <div class="container h-100">
             {{-- allert notification --}}
