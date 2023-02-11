@@ -7,10 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categories extends Model
 {
-<<<<<<< HEAD
-=======
-    protected $fillable = ['name', 'status', 'parent_id'];
->>>>>>> origin/bac
     use HasFactory;
     protected $table = 'categories';
     protected $fillable = ['type', 'name', 'status'];

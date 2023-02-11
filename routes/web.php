@@ -8,7 +8,6 @@ use App\Http\Controllers\AccountsController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\BannersController;
-use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\AttributeController;
 use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\UserController;
@@ -94,7 +93,7 @@ Route::prefix('/admin')->middleware('admin')->group(function () {
     Route::get('/product_update_show/{id}', [ProductsController::class, 'product_update_show'])->name('admin.product_update_show');
     Route::post('/product_update_show/{id}', [ProductsController::class, 'product_update'])->name('admin.product_update');
     Route::get('/product_delete/{id}', [ProductsController::class, 'product_delete'])->name('admin.product_delete');
-   
+
 
     // list brands
     Route::get('/brands', [BrandsController::class, 'brands'])->name('admin.brands');
@@ -116,11 +115,8 @@ Route::prefix('/admin')->middleware('admin')->group(function () {
 
     // list order
     Route::get('/orders', [OrdersController::class, 'orders'])->name('admin.orders');
-<<<<<<< HEAD
     Route::get('/order_details/{id}', [OrdersController::class, 'order_details'])->name('admin.order_details');
     Route::post('/order_details/{id}', [OrdersController::class, 'order_details_update']);
-=======
->>>>>>> origin/bac
 
     // list attribute
     Route::get('/attribute', [AttributeController::class,'attribute'])->name('admin.attribute');

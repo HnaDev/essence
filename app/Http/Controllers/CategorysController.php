@@ -20,13 +20,8 @@ class CategorysController extends Controller
 
     public function category_add()
     {
-<<<<<<< HEAD
         $cate_type = Category_type::all();
         return view('admin.pages.category-add',compact('cate_type'));
-=======
-        $Categories = Categories::all();
-        return view('admin.pages.category-add',compact('Categories'));
->>>>>>> origin/bac
     }
 
     // create
@@ -43,7 +38,8 @@ class CategorysController extends Controller
     {
         $Category = Categories::find($id);
         $Categories = Categories::all();
-        return view('admin.pages.category_update_show', compact('Categories', 'Category'));
+        return view('admin.pages.category_update_show', comp
+        
     }
     public function category_update(Category_updateRequest $request,$id)
     {
