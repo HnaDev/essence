@@ -13,11 +13,25 @@
                 <div class="tile-body">
                     <form class="row" method="post">
                         @csrf
+<<<<<<< HEAD
+                        <div class="form-group col-md-3">
+                            <label for="exampleSelect1" class="control-label">Kiểu Danh Mục</label>
+                            <select class="form-control" id="exampleSelect1" name="type"
+                                value="{{ old('type') }}">
+                                <option value="null">-- Chọn Type --</option>
+                                @foreach ($cate_type as $value)
+                                    <option value="{{$value->id}}">{{$value->name}}</option>
+                                @endforeach
+                            </select>
+                            @error('type')
+                                <div class="alert alert-danger">{{ $message }}</div>
+=======
                         <div class="form-group col-md-3 ">
                             <label class="control-label">Tên danh mục</label>
                             <input class="form-control" type="text" name="name">
                             @error('name')
                                 <div class="alert alert-danger cl-red">{{ $message }}</div>
+>>>>>>> origin/bac
                             @enderror
                         </div>
                         <div class="form-group col-md-3">
@@ -34,6 +48,7 @@
                                 <div class="alert alert-danger cl-red">{{ $message }}</div>
                             @enderror
                         </div>
+                        
                         <div class="form-group col-md-3 ">
                             <label for="exampleSelect1" class="control-label">Trạng Thái</label>
                             <div class="form-check">

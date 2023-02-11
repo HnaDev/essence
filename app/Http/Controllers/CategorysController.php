@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Categories;
+use App\Models\Category_type;
 use App\Http\Requests\Category_addRequest;
 use App\Http\Requests\Category_updateRequest;
 use App\Models\Products;
@@ -19,8 +20,8 @@ class CategorysController extends Controller
 
     public function category_add()
     {
-        $Categories = Categories::all();
-        return view('admin.pages.category-add',compact('Categories'));
+        $cate_type = Category_type::all();
+        return view('admin.pages.category-add',compact('cate_type'));
     }
 
     // create
@@ -37,7 +38,8 @@ class CategorysController extends Controller
     {
         $Category = Categories::find($id);
         $Categories = Categories::all();
-        return view('admin.pages.category_update_show', compact('Categories', 'Category'));
+        return view('admin.pages.category_update_show', comp
+        
     }
     public function category_update(Category_updateRequest $request,$id)
     {

@@ -7,13 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categories extends Model
 {
-    protected $fillable = ['name', 'status', 'parent_id'];
     use HasFactory;
+    protected $table = 'categories';
+    protected $fillable = ['type', 'name', 'status'];
+    public $timestamps = false;
 
     // used to search
     public function scopeSearch($query)
     {
         // $query = $query->where('type','like','%'.request()->keyword.'%');
         return $query;
+    }
+    public function getTypeName()
+    {
+        return $this->belongsTo(Category_type::class,'type');
     }
 }

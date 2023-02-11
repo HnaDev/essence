@@ -8,7 +8,6 @@ use App\Http\Controllers\AccountsController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\BannersController;
-use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\AttributeController;
 use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\UserController;
@@ -46,6 +45,7 @@ Route::get('/product/{id}', [UserController::class,'product'])->name('product');
 Route::get('/search/{id}', [CategorysController::class, 'search'])->name('user.search');
 // Route::get('/search', [UserController::class,'search'])->name('search');
 Route::get('/womanproduct',[UserController::class,'womanpro'])->name('womanpro');
+Route::get('/manproduct',[UserController::class,'manpro'])->name('manpro');
 
 
 //--------- OrderManagement -------//
@@ -93,6 +93,8 @@ Route::prefix('/admin')->middleware('admin')->group(function () {
     Route::get('/product_update_show/{id}', [ProductsController::class, 'product_update_show'])->name('admin.product_update_show');
     Route::post('/product_update_show/{id}', [ProductsController::class, 'product_update'])->name('admin.product_update');
     Route::get('/product_delete/{id}', [ProductsController::class, 'product_delete'])->name('admin.product_delete');
+
+
     // list brands
     Route::get('/brands', [BrandsController::class, 'brands'])->name('admin.brands');
     Route::get('/brands_add', [BrandsController::class, 'brands_add'])->name('admin.brands_add');
@@ -111,12 +113,10 @@ Route::prefix('/admin')->middleware('admin')->group(function () {
     // Route::post('/brands_update_show/{id}', [BrandsController::class, 'brands_update_update'])->name('admin.brands_update_update');
     // Route::get('/brands_delete/{id}', [BrandsController::class, 'brands_delete'])->name('admin.brands_delete');
 
-    // list commnents
-    Route::get('/comments', [CommentsController::class, 'comments'])->name('admin.comments');
-    Route::get('/comments_add', [CommentsController::class, 'comments_add'])->name('admin.comments_add');
-
     // list order
     Route::get('/orders', [OrdersController::class, 'orders'])->name('admin.orders');
+    Route::get('/order_details/{id}', [OrdersController::class, 'order_details'])->name('admin.order_details');
+    Route::post('/order_details/{id}', [OrdersController::class, 'order_details_update']);
 
     // list attribute
     Route::get('/attribute', [AttributeController::class,'attribute'])->name('admin.attribute');
